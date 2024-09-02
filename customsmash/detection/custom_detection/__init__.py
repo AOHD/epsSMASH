@@ -28,6 +28,7 @@ from antismash.common.module_results import DetectionResults
 from antismash.common.secmet.record import Record
 from antismash.common.secmet.features import Protocluster
 from antismash.common.signature import HmmSignature
+from antismash.common.signature import get_signature_profiles
 from antismash.config.args import ModuleArgs
 from antismash.detection import DetectionStage
 from antismash.detection.hmm_detection import check_prereqs as original_check_prereqs
@@ -37,24 +38,18 @@ SHORT_DESCRIPTION = "some kind of protocluster detection"
 # the detection stage defines when the module is run in the detection process
 DETECTION_STAGE = DetectionStage.AREA_FORMATION
 
+
 DATABASE_FILE = path.get_full_path(__file__, "data", "profiles.hmm")
 RULE_FILE = path.get_full_path(__file__, "cluster_rules", "rules.txt")
-
+SIGNATURE_FILE = path.get_full_path(__file__, "data", "hmmdetails.txt")
 
 def _build_ruleset(single_rule: str = "") -> Ruleset:
-    categories = {"base"}  # contains all categories in the rules that will
+    categories = {"Synthase-dependent", "Sucrase-dependent", "Monosaccharide-synthesis"}  # contains all categories in the rules that will
                            # be used in the ruleset
-    signatures = {
-        "AMP-binding": HmmSignature(
-            "AMP-binding", "some description of the profile", cutoff=50,
-            hmm_path=DATABASE_FILE,  # this ought to be a file with just this profile
-        ),
-        "PP-binding": HmmSignature(
-            "PP-binding", "some description of the profile", cutoff=50,
-            hmm_path=DATABASE_FILE,  # this ought to be a file with just this profile
-        ),
-        # more profiles would be defined here, alternatively they can all be read from a file
-    }
+    
+    signatures = {sig.name: sig for sig in get_signature_profiles(SIGNATURE_FILE)}
+
+
     rules = create_rules([RULE_FILE], signature_names=set(signatures),
                          valid_categories=categories)
     if single_rule:

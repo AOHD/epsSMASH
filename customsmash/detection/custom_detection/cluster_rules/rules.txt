@@ -1,5 +1,203 @@
-RULE simple
-    CATEGORY base
-    CUTOFF 10
-    NEIGHBOURHOOD 10
-    CONDITIONS AMP-binding and not PP-binding
+# Cutoffs and neighbourhoods are given in kilobases
+
+###########################################################
+# Synthase rules
+###########################################################
+
+
+DEFINE cellulose_acetylation AS minimum(2, [algF_cel, algI_cel, algJ_cel, algX_cel])
+
+RULE type-1-cellulose
+    CATEGORY Synthase-dependent
+    DESCRIPTION Type I cellulose
+    RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS BcsA and BcsB and BcsC and BcsD
+
+RULE type-2-cellulose
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Type II cellulose
+    RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS BcsA and BcsB and BcsC and BcsE and BcsG
+
+RULE type-3-cellulose
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Type II cellulose
+    RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS BcsA and BcsB and BcsK and not BcsC
+
+
+RULE acetylated-cellulose
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Acetylated cellulose
+    RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS BcsA and BcsB and BcsC and cellulose_acetylation
+
+RULE generic-cellulose # The core cellulose cluster according to https://doi.org/10.1093/femsre/fuab051
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Type II cellulose
+    RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
+    SUPERIORS type-1-cellulose, type-2-cellulose, type-3-cellulose, acetylated-cellulose
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS BcsA and BcsB and BcsC and BcsZ
+
+RULE cellulose-like
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Cellulose-like
+    RELATED algF_cel, algI_cel, algJ_cel, algX_cel, BcsD, BcsE, BcsF, BcsG, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, bglX
+    SUPERIORS generic-cellulose
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS BcsA and minimum(1, [BcsB, BcsC, BcsK, BcsZ])
+
+RULE cellulose-gram-positive
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Gram positive cellulose
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS ccsA and ccsB and ccsZ and ccsI and ccsH
+
+RULE cellulose-gram-positive-like
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Gram positive cellulose-like
+    RELATED ccsI, ccsH
+    SUPERIORS cellulose-gram-positive
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS ccsA and minimum(1, [ccsB, ccsZ])
+
+RULE cyanocellulose
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Cyanobacterial cellulose
+    CUTOFF 20
+    NEIGHBOURHOOD 10 # We don't want to pick up genes far away from the synthase
+    CONDITIONS XcsA and XcsB and XcsC
+
+RULE pel-positive
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Gram-positive Pel
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS pelD_pos and pelE_pos and pelA_pos and pelF_pos and pelG_pos
+
+RULE pel
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Pel
+    SUPERIORS pel-positive # Gram-negative pel has all the components of pel-positive, but not vice versa
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS pelA and pelB and pelC and pelD and pelE and pelF and pelG
+
+RULE pel-like
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Pel-like
+    RELATED pelA, pelB, pelC, pelD, pelE
+    SUPERIORS pel
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS pelF and pelG
+
+RULE pel-positive-like
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Gram-positive Pel-like
+    RELATED pelD_pos, pelE_pos, pelA_pos
+    SUPERIORS pel-positive, pel-like # pel-like and pel-positive-like hit a lot of the same stuff
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS pelF_pos and pelG_pos
+
+RULE alginate
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Alginate
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS alg8 and alg44 and minimum(5, [algD, algK, algE, algG, algX, algL, algI, algJ, algF, algA])
+
+RULE alginate-like
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Alginate-like
+    RELATED algD, algL, algI, algJ, algF, algA
+    SUPERIORS alginate
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS alg8 and alg44 and minimum(1, [algK, algE, algG, algX])
+
+RULE curdlan
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Curdlan
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS crdA and crdS and crdC
+
+RULE curdlan-like
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Curdlan-like
+    RELATED crdA, crdS
+    SUPERIORS curdlan, cellulose-like, cellulose-gram-positive-like
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS crdS
+
+RULE PNAG-ica
+    CATEGORY  Synthase-dependent
+    DESCRIPTION PNAG (ica)
+    RELATED icaD
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS icaA and icaB and icaC
+
+RULE PNAG-ica-like
+    CATEGORY  Synthase-dependent
+    DESCRIPTION PNAG-like (ica)
+    RELATED icaD, icaC
+    SUPERIORS PNAG-ica
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS icaA and icaB
+
+RULE PNAG-pga
+    CATEGORY  Synthase-dependent
+    DESCRIPTION PNAG (pga)
+    RELATED pgaD
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS pgaA and pgaB and pgaC
+
+RULE PNAG-pga-like
+    CATEGORY  Synthase-dependent
+    DESCRIPTION PNAG-like (pga)
+    RELATED pgaD, pgaA
+    SUPERIORS PNAG-pga
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS pgaC and pgaB
+
+###########################################################
+# Sucrase rules
+###########################################################
+
+RULE levan-inulin
+    CATEGORY  Sucrase-dependent
+    DESCRIPTION Levan or inulin
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS Glyco_hydro_68
+
+###########################################################
+# Monosaccharide synthesis rules
+###########################################################
+
+RULE GDP-mannose-synthesis
+	CATEGORY Monosaccharide-synthesis
+    DESCRIPTION GDP-mannose
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS minimum(1, [GPE07030, GPE07130, GPE07230, GPE07330]) and minimum(1, [GPE09230,GPE09330,GPE09630]) and minimum(1, [GPE00620,GPE00720])

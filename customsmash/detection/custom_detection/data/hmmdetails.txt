@@ -1,0 +1,76 @@
+# Synthase-dependent systems
+algF_cel	algF (cellulose acetylation)	100	profiles.hmm
+algI_cel	algI (cellulose acetylation)	500	profiles.hmm
+algJ_cel	algJ (cellulose acetylation)	150	profiles.hmm
+algX_cel	algX (cellulose acetylation)	150	profiles.hmm
+BcsA	Cellulose synthase	250	profiles.hmm
+BcsB	Cellulose co-polymerase	150	profiles.hmm
+BcsC	TPR-rich cellulose transport protein	100	profiles.hmm
+BcsD	Cellulose crystalline packing	50	profiles.hmm
+BcsE	Cellulose c-di-GMP binding regulator	100	profiles.hmm
+BcsF	Cellulose protein recruiter	50	profiles.hmm
+BcsG	Cellulose pETN decoration	300	profiles.hmm
+BcsH	Cellulose BcsD interaction	300	profiles.hmm
+BcsK	TPR-rich cellulose transport protein (type III)	100	profiles.hmm
+BcsO	Cellulose Unknown function	75	profiles.hmm
+BcsP	Cellulose Unknown function	40	profiles.hmm
+BcsQ	Cellulose regulating protein	150	profiles.hmm
+BcsR	Cellulose regulating protein	30	profiles.hmm
+BcsS	Cellulose unknown function	200	profiles.hmm
+BcsZ	Cellulose beta-glucosidase	200	profiles.hmm
+bglX	Cellulose beta-glucosidase	900	profiles.hmm
+pelA	Pel glycosidase	150	profiles.hmm
+pelB	TPR-rich pel transport protein	20	profiles.hmm
+pelC	Pel outer membrane transport	80	profiles.hmm
+pelD	Pel c-di-GMP binding regulator	100	profiles.hmm
+pelE	Pel inner membrane complex protein	100	profiles.hmm
+pelF	Pel synthase	250	profiles.hmm
+pelG	Pel inner membrane transport	100	profiles.hmm
+pelD_pos	Gram-positive pel c-di-GMP binding regulator	100	profiles.hmm
+pelE_pos	Gram-positive pel inner membrane complex protein	100	profiles.hmm
+pelA_pos	Gram-positive pel glycosidase	200	profiles.hmm
+pelF_pos	Gram-positive pel synthase	200	profiles.hmm
+pelG_pos	Gram-positive pel membrane transport	300	profiles.hmm
+algD	Alginate precursor synthesis	200	profiles.hmm
+alg8	Alginate synthase	300	profiles.hmm
+alg44	Alginate c-di-GMP binding regulator	75	profiles.hmm
+algK	TPR-rich alginate transport protein	50	profiles.hmm
+algE	Alginate outer membrane porin	150	profiles.hmm
+algG	Alginate epimerase	150	profiles.hmm
+algX	Alginate O-acetylation enzyme	150	profiles.hmm
+algL	Alginate lyase	100	profiles.hmm
+algI	Alginate O-acetylation enzyme	500	profiles.hmm
+algJ	Alginate O-acetylation enzyme	200	profiles.hmm
+algF	Alginate O-acetylation enzyme	100	profiles.hmm
+algA	Alginate precursor synthesis	300	profiles.hmm
+ccsA	Cellulose synthase	250	profiles.hmm
+ccsB	Cellulose translocation protein	75	profiles.hmm
+ccsZ	Cellulose glycosidase	140	profiles.hmm
+ccsI	Cellulose O-acetylation enzyme	300	profiles.hmm
+ccsH	Cellulose O-acetylation enzyme	350	profiles.hmm
+XcsA	Cyanobacterial cellulose synthase	180	profiles.hmm
+XcsB	Cyanobacterial cellulose HlyD-like protein	100	profiles.hmm
+XcsC	Cyanobacterial cellulose enduglucanase	50	profiles.hmm
+crdA	Curdlan protein	300	profiles.hmm
+crdS	Curdlan synthase	400	profiles.hmm
+crdC	Curdlan protein	400	profiles.hmm
+icaA	PNAG (ica) glycosyl transferase	150	profiles.hmm
+icaB	PNAG (ica) deacetylase	130	profiles.hmm
+icaC	PNAG (ica) polymerase	100	profiles.hmm
+icaD	PNAG (ica) regulatory protein	20	profiles.hmm
+pgaA	TPR-rich PNAG (pga) transport protein	300	profiles.hmm
+pgaB	PNAG (pga) deacetylase	300	profiles.hmm
+pgaC	PNAG (pga) synthase	500	profiles.hmm
+pgaD	PNAG (pga) c-di-GMP binding regulator	20	profiles.hmm
+# Sucrase-dependent systems
+Glyco_hydro_68	Glycosyl hydrolase family 68 (Levansucrase or inulosucrase)	125	profiles.hmm
+# Monosaccharide synthesis
+GPE00620	Mannose-1-phosphate guanylyltransferase family 1	200	profiles.hmm
+GPE00720	Mannose-1-phosphate guanylyltransferase family 2	56	profiles.hmm
+GPE07030	Phosphomannoisomerase family 2	166	profiles.hmm
+GPE07130	Phosphomannoisomerase family 1	145	profiles.hmm
+GPE07230	Phosphogluco/Phosphomanno isomerase	58	profiles.hmm
+GPE07330	Phosphomannoisomerase family 3 (FunFam 54112)	221	profiles.hmm
+GPE09230	Phosphoglucomutase/Phosphomannomutase family 1	450	profiles.hmm
+GPE09330	Phosphoglucomutase/Phosphomannomutase family 2	99	profiles.hmm
+GPE09630	Phosphoglucosamine/phosphomanno/phosphogluco mutase	60	profiles.hmm
