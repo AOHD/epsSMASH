@@ -19,12 +19,19 @@ from antismash.modules import pfam2go
 # to suit
 from customsmash.detection import custom_detection
 from customsmash.modules import custom_analysis
+from customsmash.outputs import html
 
 # replace the normal antismash modules with any combination of antiSMASH modules
 # and/or custom modules
 antismash.main.replace_analysis_modules([custom_analysis, pfam2go])
 antismash.main.replace_detection_modules([cluster_hmmer, custom_detection, genefunctions])
+antismash.main.replace_html_module(html)
 
+# override search path for any user config file
+# a good naming convention is <name><major version> to avoid conflicts between version options
+antismash.config.set_user_config_file("~/.customsmash1.cfg")  # if it doesn't exist, it's ignored
+# override default config file path
+antismash.config.set_alternate_defaults_file(antismash.common.path.get_full_path(__file__, "config", "default.cfg"))
 
 __version__ = "1.0"
 
@@ -41,7 +48,9 @@ def main(args: list[str]) -> int:
     # defined by included modules will be handled automatically.
 
     # using main won't give much information about what went wrong, if it went wrong
-    result_code = antismash_main(args)
+    # overriding the name and version here will propagate to all those places where the name "antiSMASH"
+    # would be used
+    result_code = antismash_main(args, branding_override="CustomSMASH", version_override=__version__)
 
     # but any following processing can still take place, e.g.
     print("CustomSMASH has finished")

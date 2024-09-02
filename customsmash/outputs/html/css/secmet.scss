@@ -1,0 +1,43 @@
+// colour definitions for secondary metabolite types
+
+@mixin secmet($fg: black, $bg: white, $highlight: orangered){
+    background-color: $bg;
+    a, a:link, a:visited {
+        color: $fg;
+    }
+    @at-root rect#{&} {
+        fill: $bg;
+        stroke: $highlight;
+    }
+    &.active {
+        border-color: $highlight;
+        border-width: 2px;
+        border-style: solid;
+    }
+    &:hover {
+        background-color: lighten($bg, 9%);
+    }
+}
+
+// A CSS rule should exist for all detection rule names.
+// If a detection rule has no CSS, then the rule's category will be attempted.
+// A region's colours will also use these, unless there are multiple protoclusters,
+// in which case the category will be used if all protoclusters are in the same category.
+// If different categories are involved in a hybrid region, the 'hybrid' rule will be used.
+.simple {
+    @include secmet(black, pink, black);  // change colours to suit
+}
+
+// here's the category that "simple" is part of, better names are a good idea
+.base {
+    @include secmet(black, pink, black);  // colours don't have to match the rule itself
+}
+
+// more category/rules would go here, if they exist
+
+
+// a special case for hybrid/multiprotocluster regions, 
+// needs to remain at the bottom to override all the above
+.hybrid {
+    @include secmet(midnightblue, lightsteelblue, midnightblue); // change colours to suit
+}

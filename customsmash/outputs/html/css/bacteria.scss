@@ -1,0 +1,12 @@
+// Defines the overall colour theme for the specific taxon.
+// Includes the generic styling afterwards, in which the colours defined here
+// will be used.
+
+// Depending on colours chosen here, some extra modifications will be necessary
+// in the imported files.
+
+$antismash-main: darkgreen;
+$antismash-gray: #1d1414;
+$antismash-light: lightgreen;
+
+@import "style";

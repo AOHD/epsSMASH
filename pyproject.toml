@@ -12,7 +12,7 @@ dependencies = [
   # temporarily this dependency points at a branch of a fork,
   # this will be replaced with github.com/antismash/antismash#master at some stage
   # however, specifing a particular version is much safer, e.g. "@7-1-0" instead of "#master"
-  "antismash@git+https://github.com/SJShaw/antismash#",
+  "antismash@ https://github.com/SJShaw/antismash/archive/refs/heads/custom_modules.zip",
 ]
 requires-python = ">= 3.11"
 authors = [

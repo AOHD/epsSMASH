@@ -96,7 +96,7 @@ class CustomDetectionResults(DetectionResults):
         return CustomDetectionResults(
             json["record_id"],
             rule_results,
-            json["single_rule"],
+            json["restricted_to"],
         )
 
     def get_predicted_protoclusters(self) -> list[Protocluster]:

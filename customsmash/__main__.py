@@ -5,14 +5,8 @@
 """Run the antiSMASH pipeline"""
 
 import sys
-from typing import List
-
-import antismash
 
 import customsmash
-
-# set arg version to avoid cyclic imports
-antismash.config.args.ANTISMASH_VERSION = f"CustomSMASH {customsmash.__version__} using antiSMASH {antismash.__version__}"
 
 
 def entrypoint() -> None:
