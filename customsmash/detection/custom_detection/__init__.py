@@ -44,7 +44,7 @@ RULE_FILE = path.get_full_path(__file__, "cluster_rules", "rules.txt")
 SIGNATURE_FILE = path.get_full_path(__file__, "data", "hmmdetails.txt")
 
 def _build_ruleset(single_rule: str = "") -> Ruleset:
-    categories = {"Synthase-dependent", "Sucrase-dependent", "Monosaccharide-synthesis"}  # contains all categories in the rules that will
+    categories = {"Synthase-dependent", "Sucrase-dependent", "Monosaccharide-synthesis", "Wzy-dependent"}  # contains all categories in the rules that will
                            # be used in the ruleset
     
     signatures = {sig.name: sig for sig in get_signature_profiles(SIGNATURE_FILE)}

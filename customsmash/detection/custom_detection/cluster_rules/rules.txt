@@ -181,15 +181,33 @@ RULE PNAG-pga-like
     CONDITIONS pgaC and pgaB
 
 ###########################################################
+# Wzx/Wzy rules
+###########################################################
+
+RULE Amylovoran_Stewartan
+    CATEGORY  Wzy-dependent
+    DESCRIPTION Amylovoran or stewartan
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS amsF and minimum(9, [amsA, amsB, amsC, amsD, amsE, amsF, amsG, amsH, amsI, amsJ, amsK, amsL, galE, galF])
+
+###########################################################
 # Sucrase rules
 ###########################################################
 
-RULE levan-inulin
+RULE fructan-sucrases
     CATEGORY  Sucrase-dependent
     DESCRIPTION Levan or inulin
     CUTOFF 20
     NEIGHBOURHOOD 20
     CONDITIONS Glyco_hydro_68
+
+RULE alpha-glucansucrases
+    CATEGORY  Sucrase-dependent
+    DESCRIPTION Alpha-glucan
+    CUTOFF 20
+    NEIGHBOURHOOD 20
+    CONDITIONS GH70
 
 ###########################################################
 # Monosaccharide synthesis rules

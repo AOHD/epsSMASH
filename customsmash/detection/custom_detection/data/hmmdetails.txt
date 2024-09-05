@@ -64,6 +64,7 @@ pgaC	PNAG (pga) synthase	500	profiles.hmm
 pgaD	PNAG (pga) c-di-GMP binding regulator	20	profiles.hmm
 # Sucrase-dependent systems
 Glyco_hydro_68	Glycosyl hydrolase family 68 (Levansucrase or inulosucrase)	125	profiles.hmm
+GH70	Glycosyl hydrolase family 70 (alpha-glucansucrases)	150	profiles.hmm
 # Monosaccharide synthesis
 GPE00620	Mannose-1-phosphate guanylyltransferase family 1	200	profiles.hmm
 GPE00720	Mannose-1-phosphate guanylyltransferase family 2	56	profiles.hmm
@@ -74,3 +75,18 @@ GPE07330	Phosphomannoisomerase family 3 (FunFam 54112)	221	profiles.hmm
 GPE09230	Phosphoglucomutase/Phosphomannomutase family 1	450	profiles.hmm
 GPE09330	Phosphoglucomutase/Phosphomannomutase family 2	99	profiles.hmm
 GPE09630	Phosphoglucosamine/phosphomanno/phosphogluco mutase	60	profiles.hmm
+# Wzx/Wzy-dependent systems
+amsA	Polysaccharide copolymerase 2 (PCP-2)	200	profiles.hmm
+amsB	Glycosyltransferase	50	profiles.hmm
+amsC	Wzy polymerase	400	profiles.hmm
+amsD	Glycosyltransferase	320	profiles.hmm
+amsE	Glycosyltransferase	200	profiles.hmm
+amsF	Depolymerase	1100	profiles.hmm
+amsG	Phosphoglycosyltransferase (Undecraprenyl primer)	920	profiles.hmm
+amsH	Outer Membrane Polysaccharide Export (OPX) 	720	profiles.hmm
+amsI	Phosphatase	260	profiles.hmm
+amsJ	Pyruvyl transferase	630	profiles.hmm
+amsK	Glycosyltransferase	340	profiles.hmm
+amsL	Wzx flippase	200	profiles.hmm
+galE	UDP-galactose-4-epimerase	90	profiles.hmm
+galF	UTP-glucose-1-phosphate uridylyltransferase	200	profiles.hmm

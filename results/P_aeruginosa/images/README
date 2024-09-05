@@ -1,0 +1,18 @@
+# Images
+
+In this demo, all the non-branded images from antiSMASH are used by default.
+Branded icons/logos should be created and placed in this directory, with
+the naming scheme:
+`<taxon>_<lower-case branding>_icon.svg`
+and
+`<taxon>_<lower-case branding>_logo.svg`
+
+
+The logo file should contain the name of your custom variant
+(e.g. CustomSMASH) for better visibility.
+The icon file is used to represent the taxonomy, e.g. the bacterial cell
+in normal antiSMASH results. This can be anything.
+
+If not overridding all HTML generation to skip these files *and* they are
+not desired, create small blank SVGs with the same names to avoid browsers
+marking them as missing images.

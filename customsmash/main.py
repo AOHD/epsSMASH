@@ -40,7 +40,7 @@ def main(args: list[str]) -> int:
     # Any custom processing before or after running the pipeline can be added here
 
     # e.g. some extra console printing
-    print("CustomSMASH: a pipeline that finds genes with identifiers that begin with 'A'")
+    print("epsSMASH: extracellular polymeric substance Secondary Metabolite Analysis Shell ")
     # The simplest version of running is to use antiSMASH's own main which will handle
     # all argument parsing. Alternatively, use antismash.main.run_antismash()
     # with the sequence file and the config object built via
@@ -50,10 +50,10 @@ def main(args: list[str]) -> int:
     # using main won't give much information about what went wrong, if it went wrong
     # overriding the name and version here will propagate to all those places where the name "antiSMASH"
     # would be used
-    result_code = antismash_main(args, branding_override="CustomSMASH", version_override=__version__)
+    result_code = antismash_main(args, branding_override="epsSMASH", version_override=__version__)
 
     # but any following processing can still take place, e.g.
-    print("CustomSMASH has finished")
+    print("epsSMASH has finished")
 
     return result_code
 
