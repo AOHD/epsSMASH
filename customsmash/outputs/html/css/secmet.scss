@@ -35,7 +35,7 @@
 
 // more category/rules would go here, if they exist
 .Synthase-dependent {
-    @include secmet(black, rgb(215, 60, 85), black);  // change colours to suit
+    @include secmet(black, rgb(214, 75, 98), black);  // change colours to suit
 }
 
 .Sucrase-dependent {
@@ -43,7 +43,7 @@
 }
 
 .Monosaccharide-synthesis {
-    @include secmet(black, rgb(91, 13, 114), black);  // change colours to suit
+    @include secmet(black, rgb(126, 221, 150), black);  // change colours to suit
 }
 
 // a special case for hybrid/multiprotocluster regions, 

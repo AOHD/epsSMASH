@@ -18,15 +18,15 @@ rect.base { fill: #d53c55; stroke: black; }
 
 .base:hover { background-color: #dd6276; }
 
-.Synthase-dependent { background-color: #d73c55; }
+.Synthase-dependent { background-color: #d64b62; }
 
 .Synthase-dependent a, .Synthase-dependent a:link, .Synthase-dependent a:visited { color: black; }
 
-rect.Synthase-dependent { fill: #d73c55; stroke: black; }
+rect.Synthase-dependent { fill: #d64b62; stroke: black; }
 
 .Synthase-dependent.active { border-color: black; border-width: 2px; border-style: solid; }
 
-.Synthase-dependent:hover { background-color: #df6276; }
+.Synthase-dependent:hover { background-color: #df7083; }
 
 .Sucrase-dependent { background-color: #3c44d9; }
 
@@ -38,15 +38,15 @@ rect.Sucrase-dependent { fill: #3c44d9; stroke: black; }
 
 .Sucrase-dependent:hover { background-color: #6269e0; }
 
-.Monosaccharide-synthesis { background-color: #5b0d72; }
+.Monosaccharide-synthesis { background-color: #7edd96; }
 
 .Monosaccharide-synthesis a, .Monosaccharide-synthesis a:link, .Monosaccharide-synthesis a:visited { color: black; }
 
-rect.Monosaccharide-synthesis { fill: #5b0d72; stroke: black; }
+rect.Monosaccharide-synthesis { fill: #7edd96; stroke: black; }
 
 .Monosaccharide-synthesis.active { border-color: black; border-width: 2px; border-style: solid; }
 
-.Monosaccharide-synthesis:hover { background-color: #7c129b; }
+.Monosaccharide-synthesis:hover { background-color: #a2e7b4; }
 
 .hybrid { background-color: lightsteelblue; }
 
