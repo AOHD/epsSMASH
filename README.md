@@ -1,3 +1,4 @@
+
 # epsSMASH
 A bioinformatic tool which predicts biosynthetic gene clusters associated with EPS production.
 
@@ -31,3 +32,4 @@ Run custom-smash
 
 `custom-smash --help-showall`
 
+![epsSMASHlogo](customsmash/outputs/html/images/bacteria_epssmash_logo.svg?raw=true "epsSMASH")
