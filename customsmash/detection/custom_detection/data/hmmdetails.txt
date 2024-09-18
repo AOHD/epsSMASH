@@ -66,15 +66,69 @@ pgaD	PNAG (pga) c-di-GMP binding regulator	20	profiles.hmm
 Glyco_hydro_68	Glycosyl hydrolase family 68 (Levansucrase or inulosucrase)	125	profiles.hmm
 GH70	Glycosyl hydrolase family 70 (alpha-glucansucrases)	150	profiles.hmm
 # Monosaccharide synthesis
-GPE00620	Mannose-1-phosphate guanylyltransferase family 1	200	profiles.hmm
-GPE00720	Mannose-1-phosphate guanylyltransferase family 2	56	profiles.hmm
-GPE07030	Phosphomannoisomerase family 2	166	profiles.hmm
-GPE07130	Phosphomannoisomerase family 1	145	profiles.hmm
-GPE07230	Phosphogluco/Phosphomanno isomerase	58	profiles.hmm
-GPE07330	Phosphomannoisomerase family 3 (FunFam 54112)	221	profiles.hmm
-GPE09230	Phosphoglucomutase/Phosphomannomutase family 1	450	profiles.hmm
-GPE09330	Phosphoglucomutase/Phosphomannomutase family 2	99	profiles.hmm
-GPE09630	Phosphoglucosamine/phosphomanno/phosphogluco mutase	60	profiles.hmm
+Glucose-1-phosphate_thymidylyltransferase	Glucose-1-phosphate thymidylyltransferase	230	profiles.hmm
+dTDP_TDP-glucose_4,6-dehydratase	TDP-/dTDP-glucose 4,6-dehydratase (Retaining)	400	profiles.hmm
+dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase(A)	Nucleotide-sugar C4 aminotransferase (Axial, Equatorial)	400	profiles.hmm
+dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase(B)	Nucleotide-sugar C3/C4 aminotransferase (Axial, Equatorial)	282	profiles.hmm
+dTDP_TDP-4-amino-4,6-dideoxy-glucose_formyltransferase	Nucleotide-sugar formyltransferase	273	profiles.hmm
+dTDP_TDP-4-keto-6-deoxy-glucose_3,5-epimerase(A)	TDP-/dTDP-4-keto-6-deoxy glucose 3-/3,5-epimerase	160	profiles.hmm
+dTDP_TDP-4-keto-6-deoxy-glucose_3,5-epimerase(B)	NDP-sugar 3-/3,5-/5-epimerase	144	profiles.hmm
+dTDP_TDP-4-keto-L-rhamnose_4-reductase(B)	(TDP-/dTDP)-4-keto-L-rhamnose 4-reductase/(TDP-/dTDP)-4-keto-5-C-methyl-rhamnose 4-reductase (Equatorial)	135	profiles.hmm
+UDP-GlcNAc_2-epimerase(A)	NDP-Hex2NAc C2 epimerase (Hydrolyzing)	120	profiles.hmm
+N-acetylneuraminic_acid_synthase	Nonulosonic acid synthetase	245	profiles.hmm
+CMP-N-acetylneuraminic_acid_synthase(A)	Neu5NAc cytidylyltransferase	211	profiles.hmm
+CMP-N-acetylneuraminic_acid_synthase(B)	Nonulosonic acid cytidylyltransferase	88	profiles.hmm
+Glucose-1-phosphate_cytidylyltransferase	Glucose-1-phosphate cytidylyltransferase	157	profiles.hmm
+CDP-glucose-4,6-dehydratase	CDP-glucose 4,6-dehydratase (Retaining)	292	profiles.hmm
+CDP-4-keto-6-deoxy-glucose_3-epimerase	NDP-sugar 3-/3,5-/5-epimerase	144	profiles.hmm
+CDP-4-keto-6-deoxy-gulose_4-reductase	CDP-6-deoxy/3,6-dideoxy-hexose 4-reductase (Axial, Equatorial)	138	profiles.hmm
+GDP-mannose-4,6-dehydratase	GDP-mannose/GDP-D-glycero-D-manno-heptose 4,6-dehydratase (Retaining)	200	profiles.hmm
+GDP-4-keto-6-deoxy-mannose_4-aminotransferase	GDP-4-keto-6-deoxy-mannose 4-aminotransferase (Equatorial)	498	profiles.hmm
+GDP-mannose_6-dehydrogenase(A)	GDP-mannose 6-dehydrogenase	340	profiles.hmm
+GDP-mannose_6-dehydrogenase(B)	UDP-glucose dehydrogenase/GDP-mannose 6-dehydrogenase	250	profiles.hmm
+Fructose-6-phosphate_isomerase(A)	Phosphomannoisomerase family 2	166	profiles.hmm
+Fructose-6-phosphate_isomerase(B)	Phosphomannoisomerase family 1	145	profiles.hmm
+Fructose-6-phosphate_isomerase(C)	Phosphogluco/Phosphomanno isomerase	58	profiles.hmm
+Fructose-6-phosphate_isomerase(D)	Phosphomannoisomerase family 3 (FunFam 54112)	221	profiles.hmm
+Phosphomanno_mutase(A)	Phosphoglucomutase/Phosphomannomutase family 1	450	profiles.hmm
+Phosphomanno_mutase(B)	Phosphoglucomutase/Phosphomannomutase family 2	99	profiles.hmm
+Phosphomanno_mutase(C)	Phosphoglucosamine/phosphomanno/phosphogluco mutase	60	profiles.hmm
+Mannose-1-phosphate_guanylyltransferase(A)	Mannose-1-phosphate guanylyltransferase family 1	200	profiles.hmm
+Mannose-1-phosphate_guanylyltransferase(B)	Mannose-1-phosphate guanylyltransferase family 2	56	profiles.hmm
+GDP-4-keto-6-deoxy-mannose_3-dehydratase	NDP-4-keto-6-deoxy 3-dehydratase	339	profiles.hmm
+GDP-4-keto-6-deoxy-mannose_5-epimerase,4-reductase	GDP-4-keto-6-deoxy-mannose 3,5-epimerase, 4-reductase/GDP-4-keto-3,6-dideoxy-mannose 5-epimerase, 4-reductase (Axial)	162	profiles.hmm
+GDP-4-keto-6-deoxy-mannose_4-reductase(A)	GDP-4-ketosugar 4-reductase (Axial, Equatorial)	240	profiles.hmm
+GDP-4-keto-6-deoxy-mannose_3,5-epimerase,4-reductase	GDP-4-keto-6-deoxy-mannose 3,5-epimerase, 4-reductase/GDP-4-keto-3,6-dideoxy-mannose 5-epimerase, 4-reductase (Axial)	162	profiles.hmm
+UDP-GlcNAc_2-epimerase(B)	UDP-Hex2NAc C2 epimerase (Non-hydrolyzing)	160	profiles.hmm
+UDP-N-acetyl-mannosamine_6-dehydrogenase	UDP-Hex2NAc 6-dehydrogenase	270	profiles.hmm
+UDP-N-acetyl-glucosamine_6-dehydrogenase	UDP-Hex2NAc 6-dehydrogenase	270	profiles.hmm
+UDP-N-acetyl-glucosaminuronic_acid_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose C4 epimerase	250	profiles.hmm
+Fructose-6-phosphate_amidotransferase	Fructose-6-phosphate amidotransferase/Glc2NAc-6-phosphate synthase	50	profiles.hmm
+Glucosamine_6-phosphate_N-acetyltransferase	Glucosamine 6-phosphate N-acetyltransferase	73	profiles.hmm
+Phosphoacetylglucosamine_mutase	Phosphoacetylglucosamine mutase	48	profiles.hmm
+N-acetyl-glucosamine-1-phosphate_uridylyltransferase	Glc2NAc-1-phosphate uridylyltransferase	391	profiles.hmm
+Phosphoglucosamine_mutase(A)	Phosphoglucosamine mutase	450	profiles.hmm
+Phosphoglucosamine_mutase(B)	Phosphoglucosamine/phosphomanno/phosphogluco mutase	60	profiles.hmm
+Glucosamine-1-phosphate_N-acetyltransferase_(GlmU)	Glucosamine-1-phosphate acetyltransferase (GlmU-CTD)	89	profiles.hmm
+N-acetyl-glucosamine-1-phosphate_uridylyltransferase_(GlmU)	Glc2NAc-1-phosphate uridylyltransferase (GlmU-NTD)	143	profiles.hmm
+Glucose-1-phosphate_uridylyltransferase(A)	Glucose-1-phosphate uridylyltransferase family 1	124	profiles.hmm
+Glucose-1-phosphate_uridylyltransferase(B)	Glucose-1-phosphate uridylyltransferase family 2	303	profiles.hmm
+UDP-Glucose_6-dehydrogenase(A)	UDP-glucose 6-dehydrogenase	330	profiles.hmm
+UDP-Glucose_6-dehydrogenase(B)	UDP-glucose dehydrogenase/GDP-mannose 6-dehydrogenase	250	profiles.hmm
+UDP-glucuronic_acid_decarboxylase	UDP-GlcA 5-decarboxylase/UDP-GlcA 5-decarboxylase, 4-oxidase	405	profiles.hmm
+UDP-Glucose_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose C4 epimerase	250	profiles.hmm
+UDP-galactopyranose_mutase	UDP-galactopyranose/(TDP-/dTDP)-fucopyranose mutase	80	profiles.hmm
+UDP-Xylose_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose C4 epimerase	250	profiles.hmm
+UDP-glucuronic_acid_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose C4 epimerase	250	profiles.hmm
+UDP-glucuronic_acid_decarboxylase,4-oxidase	UDP-GlcA 5-decarboxylase/UDP-GlcA 5-decarboxylase, 4-oxidase	405	profiles.hmm
+UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase(A)	Nucleotide-sugar C4 aminotransferase (Axial, Equatorial)	400	profiles.hmm
+UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase(B)	Nucleotide-sugar C3/C4 aminotransferase (Axial, Equatorial)	282	profiles.hmm
+UDP-4-amino-L-arabinose_formyltransferase	Nucleotide-sugar formyltransferase	273	profiles.hmm
+UDP-glucose_4,6-dehydratase	UDP-glucose 4,6-dehydratase (Retaining)	400	profiles.hmm
+UDP-4-keto-6-deoxy-glucose_3,5-epimerase,4-reductase	UDP-4-keto-6-deoxy glucose 3,5-epimerase, 4-reductase	486	profiles.hmm
+CDP-4-keto-6-deoxy-glucose_C3-methyltransfase	Nucleotide-sugar C-methyltransferase	434	profiles.hmm
+CDP-4-keto-3c-methyl-6-deoxy-gulose_4-reductase	CDP-6-deoxy/3,6-dideoxy-hexose 4-reductase (Axial, Equatorial)	138	profiles.hmm
+UDP-GlcNAc_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose C4 epimerase	250	profiles.hmm
 # Wzx/Wzy-dependent systems
 amsA	Polysaccharide copolymerase 2 (PCP-2)	200	profiles.hmm
 amsB	Glycosyltransferase	50	profiles.hmm
