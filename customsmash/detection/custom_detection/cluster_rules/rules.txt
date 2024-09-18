@@ -213,192 +213,193 @@ RULE alpha-glucansucrases
 # Monosaccharide synthesis rules
 ###########################################################
 
-RULE	(d)TDP-Qui4NFo synthesis
+RULE	dTDP-Qui4NFo-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	(d)TDP-Qui4NFo required steps: 4
+	DESCRIPTION	dTDP-Qui4NFo-synthesis required steps: 4
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_thymidylyltransferase']) & minimum(1, ['dTDP_TDP-glucose_4,6-dehydratase']) & minimum(1, ['dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase(A)','dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase(B)']) & minimum(1, ['dTDP_TDP-4-amino-4,6-dideoxy-glucose_formyltransferase'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_thymidylyltransferase]) and minimum(1, [dTDP_TDP-glucose_4-6-dehydratase]) and minimum(1, [dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase-A, dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase-B]) and minimum(1, [dTDP_TDP-4-amino-4-6-dideoxy-glucose_formyltransferase])
 
-RULE	(d)TDP-L-rhamnose synthesis
+RULE	dTDP-L-rhamnose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	(d)TDP-L-rhamnose required steps: 4
+	DESCRIPTION	dTDP-L-rhamnose-synthesis required steps: 4
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_thymidylyltransferase']) & minimum(1, ['dTDP_TDP-glucose_4,6-dehydratase']) & minimum(1, ['dTDP_TDP-4-keto-6-deoxy-glucose_3,5-epimerase(A)','dTDP_TDP-4-keto-6-deoxy-glucose_3,5-epimerase(B)']) & minimum(1, ['dTDP_TDP-4-keto-L-rhamnose_4-reductase(B)'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_thymidylyltransferase]) and minimum(1, [dTDP_TDP-glucose_4-6-dehydratase]) and minimum(1, [dTDP_TDP-4-keto-6-deoxy-glucose_3-5-epimerase-A, dTDP_TDP-4-keto-6-deoxy-glucose_3-5-epimerase-B]) and minimum(1, [dTDP_TDP-4-keto-L-rhamnose_4-reductase-B])
 
-RULE	CMP-Neu5NAc synthesis
+RULE	CMP-Neu5NAc-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	CMP-Neu5NAc required steps: 3
+	DESCRIPTION	CMP-Neu5NAc-synthesis required steps: 3
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['UDP-GlcNAc_2-epimerase(A)']) & minimum(1, ['N-acetylneuraminic_acid_synthase']) & minimum(1, ['CMP-N-acetylneuraminic_acid_synthase(A)','CMP-N-acetylneuraminic_acid_synthase(B)'])
+	CONDITIONS	minimum(1, [UDP-GlcNAc_2-epimerase-A]) and minimum(1, [N-acetylneuraminic_acid_synthase]) and minimum(1, [CMP-N-acetylneuraminic_acid_synthase-A, CMP-N-acetylneuraminic_acid_synthase-B])
 
-RULE	CDP-6-deoxy-gulose synthesis
+RULE	CDP-6-deoxy-gulose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	CDP-6-deoxy-gulose required steps: 4
+	DESCRIPTION	CDP-6-deoxy-gulose-synthesis required steps: 4
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_cytidylyltransferase']) & minimum(1, ['CDP-glucose-4,6-dehydratase']) & minimum(1, ['CDP-4-keto-6-deoxy-glucose_3-epimerase']) & minimum(1, ['CDP-4-keto-6-deoxy-gulose_4-reductase'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_cytidylyltransferase]) and minimum(1, [CDP-glucose-4-6-dehydratase]) and minimum(1, [CDP-4-keto-6-deoxy-glucose_3-epimerase]) and minimum(1, [CDP-4-keto-6-deoxy-gulose_4-reductase])
 
-RULE	GDP-Per4N synthesis
+RULE	GDP-Per4N-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	GDP-Per4N required steps: 2
+	DESCRIPTION	GDP-Per4N-synthesis required steps: 2
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['GDP-mannose-4,6-dehydratase']) & minimum(1, ['GDP-4-keto-6-deoxy-mannose_4-aminotransferase'])
+	CONDITIONS	minimum(1, [GDP-mannose-4-6-dehydratase]) and minimum(1, [GDP-4-keto-6-deoxy-mannose_4-aminotransferase])
 
-RULE	GDP-ManA synthesis
+RULE	GDP-ManA-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	GDP-ManA required steps: 1
+	DESCRIPTION	GDP-ManA-synthesis required steps: 1
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['GDP-mannose_6-dehydrogenase(A)','GDP-mannose_6-dehydrogenase(B)'])
+	CONDITIONS	minimum(1, [GDP-mannose_6-dehydrogenase-A, GDP-mannose_6-dehydrogenase-B])
 
-RULE	GDP-mannose synthesis
+RULE	GDP-mannose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	GDP-mannose required steps: 3
+	DESCRIPTION	GDP-mannose-synthesis required steps: 3
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Fructose-6-phosphate_isomerase(A)','Fructose-6-phosphate_isomerase(B)','Fructose-6-phosphate_isomerase(C)','Fructose-6-phosphate_isomerase(D)']) & minimum(1, ['Phosphomanno_mutase(A)','Phosphomanno_mutase(B)','Phosphomanno_mutase(C)']) & minimum(1, ['Mannose-1-phosphate_guanylyltransferase(A)','Mannose-1-phosphate_guanylyltransferase(B)'])
+	CONDITIONS	minimum(1, [Fructose-6-phosphate_isomerase-A, Fructose-6-phosphate_isomerase-B, Fructose-6-phosphate_isomerase-C, Fructose-6-phosphate_isomerase-D]) and minimum(1, [Phosphomanno_mutase-A, Phosphomanno_mutase-B, Phosphomanno_mutase-C]) and minimum(1, [Mannose-1-phosphate_guanylyltransferase-A, Mannose-1-phosphate_guanylyltransferase-B])
 
-RULE	GDP-L-colitose synthesis
+RULE	GDP-L-colitose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	GDP-L-colitose required steps: 3
+	DESCRIPTION	GDP-L-colitose-synthesis required steps: 3
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['GDP-mannose-4,6-dehydratase']) & minimum(1, ['GDP-4-keto-6-deoxy-mannose_3-dehydratase']) & minimum(1, ['GDP-4-keto-6-deoxy-mannose_5-epimerase,4-reductase'])
+	CONDITIONS	minimum(1, [GDP-mannose-4-6-dehydratase]) and minimum(1, [GDP-4-keto-6-deoxy-mannose_3-dehydratase]) and minimum(1, [GDP-4-keto-6-deoxy-mannose_5-epimerase-4-reductase])
 
-RULE	GDP-6-deoxy-talose/GDP-rhamnose synthesis
+RULE	GDP-6-deoxy-talose-GDP-rhamnose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	GDP-6-deoxy-talose/GDP-rhamnose required steps: 2
+	DESCRIPTION	GDP-6-deoxy-talose-GDP-rhamnose-synthesis required steps: 2
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['GDP-mannose-4,6-dehydratase']) & minimum(1, ['GDP-4-keto-6-deoxy-mannose_4-reductase(A)'])
+	CONDITIONS	minimum(1, [GDP-mannose-4-6-dehydratase]) and minimum(1, [GDP-4-keto-6-deoxy-mannose_4-reductase-A])
 
-RULE	GDP-L-fucose synthesis
+RULE	GDP-L-fucose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	GDP-L-fucose required steps: 2
+	DESCRIPTION	GDP-L-fucose-synthesis required steps: 2
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['GDP-mannose-4,6-dehydratase']) & minimum(1, ['GDP-4-keto-6-deoxy-mannose_3,5-epimerase,4-reductase'])
+	CONDITIONS	minimum(1, [GDP-mannose-4-6-dehydratase]) and minimum(1, [GDP-4-keto-6-deoxy-mannose_3-5-epimerase-4-reductase])
 
-RULE	UDP-Man2NAc synthesis
+RULE	UDP-Man2NAc-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-Man2NAc required steps: 1
+	DESCRIPTION	UDP-Man2NAc-synthesis required steps: 1
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['UDP-GlcNAc_2-epimerase(B)'])
+	CONDITIONS	minimum(1, [UDP-GlcNAc_2-epimerase-B])
 
-RULE	UDP-Man2NAcA synthesis
+RULE	UDP-Man2NAcA-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-Man2NAcA required steps: 2
+	DESCRIPTION	UDP-Man2NAcA-synthesis required steps: 2
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['UDP-GlcNAc_2-epimerase(B)']) & minimum(1, ['UDP-N-acetyl-mannosamine_6-dehydrogenase'])
+	CONDITIONS	minimum(1, [UDP-GlcNAc_2-epimerase-B]) and minimum(1, [UDP-N-acetyl-mannosamine_6-dehydrogenase])
 
-RULE	UDP-Glc2NAcA synthesis
+RULE	UDP-Glc2NAcA-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-Glc2NAcA required steps: 1
+	DESCRIPTION	UDP-Glc2NAcA-synthesis required steps: 1
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['UDP-N-acetyl-glucosamine_6-dehydrogenase'])
+	CONDITIONS	minimum(1, [UDP-N-acetyl-glucosamine_6-dehydrogenase])
 
-RULE	UDP-Gal2NAcA synthesis
+RULE	UDP-Gal2NAcA-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-Gal2NAcA required steps: 2
+	DESCRIPTION	UDP-Gal2NAcA-synthesis required steps: 2
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['UDP-N-acetyl-glucosamine_6-dehydrogenase']) & minimum(1, ['UDP-N-acetyl-glucosaminuronic_acid_4-epimerase'])
+	CONDITIONS	minimum(1, [UDP-N-acetyl-glucosamine_6-dehydrogenase]) and minimum(1, [UDP-N-acetyl-glucosaminuronic_acid_4-epimerase])
 
-RULE	UDP-Glc2NAc synthesis
+RULE	UDP-Glc2NAc-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-Glc2NAc required steps: 4
+	DESCRIPTION	UDP-Glc2NAc-synthesis required steps: 4
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Fructose-6-phosphate_amidotransferase']) & minimum(1, ['Glucosamine_6-phosphate_N-acetyltransferase','Phosphoglucosamine_mutase(A)','Phosphoglucosamine_mutase(B)']) & minimum(1, ['Phosphoacetylglucosamine_mutase','Glucosamine-1-phosphate_N-acetyltransferase_(GlmU)']) & minimum(1, ['N-acetyl-glucosamine-1-phosphate_uridylyltransferase','N-acetyl-glucosamine-1-phosphate_uridylyltransferase_(GlmU)'])
+	CONDITIONS	minimum(1, [Fructose-6-phosphate_amidotransferase]) and minimum(1, [Glucosamine_6-phosphate_N-acetyltransferase, Phosphoglucosamine_mutase-A, Phosphoglucosamine_mutase-B]) and minimum(1, [Phosphoacetylglucosamine_mutase, Glucosamine-1-phosphate_N-acetyltransferase]) and minimum(1, [N-acetyl-glucosamine-1-phosphate_uridylyltransferase-A, N-acetyl-glucosamine-1-phosphate_uridylyltransferase-B])
 
-RULE	UDP-xylose synthesis
+RULE	UDP-xylose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-xylose required steps: 3
+	DESCRIPTION	UDP-xylose-synthesis required steps: 3
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_uridylyltransferase(A)','Glucose-1-phosphate_uridylyltransferase(B)']) & minimum(1, ['UDP-Glucose_6-dehydrogenase(A)','UDP-Glucose_6-dehydrogenase(B)']) & minimum(1, ['UDP-glucuronic_acid_decarboxylase'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_uridylyltransferase-A, Glucose-1-phosphate_uridylyltransferase-B]) and minimum(1, [UDP-Glucose_6-dehydrogenase-A, UDP-Glucose_6-dehydrogenase-B]) and minimum(1, [UDP-glucuronic_acid_decarboxylase])
 
-RULE	UDP-galactofuranose synthesis
+RULE	UDP-galactofuranose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-galactofuranose required steps: 3
+	DESCRIPTION	UDP-galactofuranose-synthesis required steps: 3
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_uridylyltransferase(A)','Glucose-1-phosphate_uridylyltransferase(B)']) & minimum(1, ['UDP-Glucose_4-epimerase']) & minimum(1, ['UDP-galactopyranose_mutase'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_uridylyltransferase-A, Glucose-1-phosphate_uridylyltransferase-B]) and minimum(1, [UDP-Glucose_4-epimerase]) and minimum(1, [UDP-galactopyranose_mutase])
 
-RULE	UDP-L-arabinose synthesis
+RULE	UDP-L-arabinose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-L-arabinose required steps: 4
+	DESCRIPTION	UDP-L-arabinose-synthesis required steps: 4
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_uridylyltransferase(A)','Glucose-1-phosphate_uridylyltransferase(B)']) & minimum(1, ['UDP-Glucose_6-dehydrogenase(A)','UDP-Glucose_6-dehydrogenase(B)']) & minimum(1, ['UDP-glucuronic_acid_decarboxylase']) & minimum(1, ['UDP-Xylose_4-epimerase'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_uridylyltransferase-A, Glucose-1-phosphate_uridylyltransferase-B]) and minimum(1, [UDP-Glucose_6-dehydrogenase-A, UDP-Glucose_6-dehydrogenase-B]) and minimum(1, [UDP-glucuronic_acid_decarboxylase]) and minimum(1, [UDP-Xylose_4-epimerase])
 
-RULE	UDP-galactose synthesis
+RULE	UDP-galactose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-galactose required steps: 2
+	DESCRIPTION	UDP-galactose-synthesis required steps: 2
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_uridylyltransferase(A)','Glucose-1-phosphate_uridylyltransferase(B)']) & minimum(1, ['UDP-Glucose_4-epimerase'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_uridylyltransferase-A, Glucose-1-phosphate_uridylyltransferase-B]) and minimum(1, [UDP-Glucose_4-epimerase])
 
-RULE	UDP-GlcA synthesis
+RULE	UDP-GlcA-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-GlcA required steps: 2
+	DESCRIPTION	UDP-GlcA-synthesis required steps: 2
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_uridylyltransferase(A)','Glucose-1-phosphate_uridylyltransferase(B)']) & minimum(1, ['UDP-Glucose_6-dehydrogenase(A)','UDP-Glucose_6-dehydrogenase(B)'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_uridylyltransferase-A, Glucose-1-phosphate_uridylyltransferase-B]) and minimum(1, [UDP-Glucose_6-dehydrogenase-A, UDP-Glucose_6-dehydrogenase-B])
 
-RULE	UDP-GalA synthesis
+RULE	UDP-GalA-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-GalA required steps: 3
+	DESCRIPTION	UDP-GalA-synthesis required steps: 3
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_uridylyltransferase(A)','Glucose-1-phosphate_uridylyltransferase(B)']) & minimum(1, ['UDP-Glucose_6-dehydrogenase(A)','UDP-Glucose_6-dehydrogenase(B)']) & minimum(1, ['UDP-glucuronic_acid_4-epimerase'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_uridylyltransferase-A, Glucose-1-phosphate_uridylyltransferase-B]) and minimum(1, [UDP-Glucose_6-dehydrogenase-A, UDP-Glucose_6-dehydrogenase-B]) and minimum(1, [UDP-glucuronic_acid_4-epimerase])
 
-RULE	UDP-L-Ara4N synthesis
+RULE	UDP-L-Ara4N-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-L-Ara4N required steps: 4
+	DESCRIPTION	UDP-L-Ara4N-synthesis required steps: 4
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_uridylyltransferase(A)','Glucose-1-phosphate_uridylyltransferase(B)']) & minimum(1, ['UDP-Glucose_6-dehydrogenase(A)','UDP-Glucose_6-dehydrogenase(B)']) & minimum(1, ['UDP-glucuronic_acid_decarboxylase,4-oxidase']) & minimum(1, ['UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase(A)','UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase(B)'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_uridylyltransferase-A, Glucose-1-phosphate_uridylyltransferase-B]) and minimum(1, [UDP-Glucose_6-dehydrogenase-A, UDP-Glucose_6-dehydrogenase-B]) and minimum(1, [UDP-glucuronic_acid_decarboxylase-4-oxidase]) and minimum(1, [UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase-A, UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase-B])
 
-RULE	UDP-L-Ara4NFo synthesis
+RULE	UDP-L-Ara4NFo-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-L-Ara4NFo required steps: 5
+	DESCRIPTION	UDP-L-Ara4NFo-synthesis required steps: 5
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_uridylyltransferase(A)','Glucose-1-phosphate_uridylyltransferase(B)']) & minimum(1, ['UDP-Glucose_6-dehydrogenase(A)','UDP-Glucose_6-dehydrogenase(B)']) & minimum(1, ['UDP-glucuronic_acid_decarboxylase,4-oxidase']) & minimum(1, ['UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase(A)','UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase(B)']) & minimum(1, ['UDP-4-amino-L-arabinose_formyltransferase'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_uridylyltransferase-A, Glucose-1-phosphate_uridylyltransferase-B]) and minimum(1, [UDP-Glucose_6-dehydrogenase-A, UDP-Glucose_6-dehydrogenase-B]) and minimum(1, [UDP-glucuronic_acid_decarboxylase-4-oxidase]) and minimum(1, [UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase-A, UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase-B]) and minimum(1, [UDP-4-amino-L-arabinose_formyltransferase])
 
-RULE	UDP-L-rhamnose synthesis
+RULE	UDP-L-rhamnose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-L-rhamnose required steps: 3
+	DESCRIPTION	UDP-L-rhamnose-synthesis required steps: 3
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_uridylyltransferase(A)','Glucose-1-phosphate_uridylyltransferase(B)']) & minimum(1, ['UDP-glucose_4,6-dehydratase']) & minimum(1, ['UDP-4-keto-6-deoxy-glucose_3,5-epimerase,4-reductase'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_uridylyltransferase-A, Glucose-1-phosphate_uridylyltransferase-B]) and minimum(1, [UDP-glucose_4-6-dehydratase]) and minimum(1, [UDP-4-keto-6-deoxy-glucose_3-5-epimerase-4-reductase])
 
-RULE	CDP-cereose synthesis/CDP-cillose synthesis
+RULE	CDP-cereose-synthesis-CDP-cillose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	CDP-cereose/CDP-cillose synthesis required steps: 4
+	DESCRIPTION	CDP-cereose-synthesis-CDP-cillose-synthesis required steps: 4
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_cytidylyltransferase']) & minimum(1, ['CDP-glucose-4,6-dehydratase']) & minimum(1, ['CDP-4-keto-6-deoxy-glucose_C3-methyltransfase']) & minimum(1, ['CDP-4-keto-3c-methyl-6-deoxy-gulose_4-reductase'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_cytidylyltransferase]) and minimum(1, [CDP-glucose-4-6-dehydratase]) and minimum(1, [CDP-4-keto-6-deoxy-glucose_C3-methyltransfase]) and minimum(1, [CDP-4-keto-3c-methyl-6-deoxy-gulose_4-reductase])
 
-RULE	UDP-Gal2NAc synthesis
+RULE	UDP-Gal2NAc-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-Gal2NAc required steps: 1
+	DESCRIPTION	UDP-Gal2NAc-synthesis required steps: 1
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['UDP-GlcNAc_4-epimerase'])
+	CONDITIONS	minimum(1, [UDP-GlcNAc_4-epimerase])
 
-RULE	UDP-glucose synthesis
+RULE	UDP-glucose-synthesis
 	CATEGORY	Monosaccharide-synthesis
-	DESCRIPTION	UDP-glucose required steps: 1
+	DESCRIPTION	UDP-glucose-synthesis required steps: 1
 	CUTOFF	20
 	NEIGHBOURHOOD	20
-	CONDITIONS	minimum(1, ['Glucose-1-phosphate_uridylyltransferase(A)','Glucose-1-phosphate_uridylyltransferase(B)'])
+	CONDITIONS	minimum(1, [Glucose-1-phosphate_uridylyltransferase-A, Glucose-1-phosphate_uridylyltransferase-B])
+
 
