@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "epsSMASH"
-description = "A demonstration of an analysis pipeline using antiSMASH as a library"
+description = "epsSMASH is a tool for the prediction of EPS biosynthetic gene clusters in bacterial genomes."
 dynamic = ["version"]
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -16,10 +16,10 @@ dependencies = [
 ]
 requires-python = ">= 3.11"
 authors = [
-  {name = "SJShaw", email = "SJShaw@users.noreply.github.com"},
+  {name = "AOHD", email = "aohd@bio.aau.dk"},
 ]
 maintainers = [
-  {name = "SJShaw", email = "SJShaw@users.noreply.github.com"},
+  {name = "AOHD", email = "aohd@bio.aau.dk"},
 ]
 
 [project.scripts]
