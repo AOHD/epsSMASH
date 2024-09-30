@@ -12,6 +12,7 @@ This module could instead be implemented as a class, using the above information
 inheriting antismash.custom_typing.AntismashModule
 """
 import logging
+import os
 from typing import Any, Optional, Self
 
 # import any components being reused from antiSMASH
@@ -39,7 +40,7 @@ SHORT_DESCRIPTION = "some kind of protocluster detection"
 DETECTION_STAGE = DetectionStage.AREA_FORMATION
 
 
-DATABASE_FILE = path.get_full_path(__file__, "data", "profiles.hmm")
+HMM_FILE = path.get_full_path(__file__, "data", "bgc_seeds.hmm")
 RULE_FILE = path.get_full_path(__file__, "cluster_rules", "rules.txt")
 SIGNATURE_FILE = path.get_full_path(__file__, "data", "hmmdetails.txt")
 
@@ -59,7 +60,7 @@ def _build_ruleset(single_rule: str = "") -> Ruleset:
         rules,
         signatures,
         valid_categories=categories,
-        database_file=DATABASE_FILE,
+        database_file=HMM_FILE,
         tool=NAME,
         equivalence_groups=[],
     )
@@ -172,16 +173,59 @@ def regenerate_previous_results(results: dict[str, Any], record: Record,
 
 
 def prepare_data(logging_only: bool = False) -> list[str]:
-    """ Ensures the module data is fully prepared, e.g. HMM profile database is pressed """
+    """ Ensures packaged data is fully prepared
+
+        Arguments:
+            logging_only: whether to return error messages instead of raising exceptions
+
+        Returns:
+            a list of error messages (only if logging_only is True)
+    """
     failure_messages = []
 
-    failure_messages.extend(
-        ensure_database_pressed(
-            DATABASE_FILE,
-            return_not_raise=True,  # allows all errors to be described, not just the first
-        )
-    )
-    # any other data used should be prepared here, e.g. sklearn classifiers
+    # Check that hmmdetails.txt is readable and well-formatted
+    try:
+        profiles = get_signature_profiles(SIGNATURE_FILE)
+    except ValueError as err:
+        if not logging_only:
+            raise
+        return [str(err)]
+
+    # the path to the markov model
+    seeds_hmm = path.get_full_path(__file__, 'data', 'bgc_seeds.hmm')
+    hmm_files = [os.path.join("data", "individual_hmms", sig.hmm_file) for sig in profiles]
+    # include the listing, since tools like wget will keep modified timestamps on the HMMs
+    description_file = path.get_full_path(__file__, 'data', 'hmmdetails.txt')
+    outdated = False
+    if not path.locate_file(seeds_hmm):
+        logging.debug("%s: %s doesn't exist, regenerating", NAME, seeds_hmm)
+        outdated = True
+    else:
+        seeds_timestamp = os.path.getmtime(seeds_hmm)
+        for component in hmm_files + [description_file]:
+            if os.path.getmtime(component) > seeds_timestamp:
+                logging.debug("%s out of date, regenerating", seeds_hmm)
+                outdated = True
+                break
+
+    # regenerate if missing or out of date
+    if outdated:
+        # try to generate file from all specified profiles in hmmdetails
+        try:
+            with open(seeds_hmm, "w", encoding="utf-8") as all_hmms_handle:
+                for hmm_file in hmm_files:
+                    with open(path.get_full_path(__file__, hmm_file), "r", encoding="utf-8") as handle:
+                        all_hmms_handle.write(handle.read())
+        except OSError:
+            if not logging_only:
+                raise
+            failure_messages.append(f"Failed to generate file {seeds_hmm!r}")
+
+    # if regeneration failed, don't try to run hmmpress
+    if failure_messages:
+        return failure_messages
+
+    failure_messages.extend(ensure_database_pressed(seeds_hmm, return_not_raise=logging_only))
 
     return failure_messages
 
@@ -191,7 +235,7 @@ def check_prereqs(options: ConfigType) -> list[str]:
         datafiles.
     """
     # for this specific demo module, it will reuse the check from antiSMASH's hmm_detection
-    return original_check_prereqs(options)
+    return prepare_data() + original_check_prereqs(options)
 
 
 def check_options(options: ConfigType) -> list[str]:
