@@ -307,7 +307,7 @@ rmlA_sphingans	Biosynthesis of the rhamnose nucleotide sugars	200	profiles.hmm
 rmlC_sphingans	Biosynthesis of the rhamnose nucleotide sugars	100	profiles.hmm
 rmlB_sphingans	Biosynthesis of the rhamnose nucleotide sugars	100	profiles.hmm
 rmlD_sphingans	Biosynthesis of the rhamnose nucleotide sugars	150	profiles.hmm
-urf31_4_sphingans	Side chain introducing or assistant protein in branched repeating unit assembly	50	profiles.hmm
+urf314_sphingans	Side chain introducing or assistant protein in branched repeating unit assembly	50	profiles.hmm
 urf31_sphingans	Addition of the rhamnosyl side chain	200	profiles.hmm
 urf34_sphingans	Side chain transferring glycosyltransferases or to be involved in the assembly process	500	profiles.hmm
 asnB_zooglan	Asparagine synthases	100	profiles.hmm

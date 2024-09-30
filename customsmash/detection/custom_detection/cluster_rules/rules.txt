@@ -258,7 +258,7 @@ RULE Lactobacillus_eps-like
 
 RULE Sphingans-like
     CATEGORY  Wzy-dependent
-    DESCRIPTION Gellan, wellan, duitan or S88 like
+    DESCRIPTION Gellan, wellan, diutan or S88 like
     CUTOFF 5
     NEIGHBOURHOOD 10
     CONDITIONS  spnD_sphingans and spnC_sphingans and spnE_sphingans and spnM_sphingans and spnN_sphingans and minimum(13, [1026_lactobacillus, 1027_lactobacillus, 1028_lactobacillus, 1029_lactobacillus, 1030_lactobacillus, 1031_lactobacillus, 1032_lactobacillus, 1033_lactobacillus, 1034_lactobacillus, epsD_lactobacillus, epsE_lactobacillus])
