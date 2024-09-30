@@ -164,3 +164,6 @@ results/
 
 # Test species
 test_species/
+
+# BGC seeds
+customsmash/detection/custom_detection/data/bgc_seeds*
