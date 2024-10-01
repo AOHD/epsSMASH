@@ -11,7 +11,7 @@ RULE type-1-cellulose
     CATEGORY Synthase-dependent
     DESCRIPTION Type I cellulose
     RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA and BcsB and BcsC and BcsD
 
@@ -19,7 +19,7 @@ RULE type-2-cellulose
     CATEGORY  Synthase-dependent
     DESCRIPTION Type II cellulose
     RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA and BcsB and BcsC and BcsE and BcsG
 
@@ -27,7 +27,7 @@ RULE type-3-cellulose
     CATEGORY  Synthase-dependent
     DESCRIPTION Type II cellulose
     RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA and BcsB and BcsK and not BcsC
 
@@ -36,7 +36,7 @@ RULE acetylated-cellulose
     CATEGORY  Synthase-dependent
     DESCRIPTION Acetylated cellulose
     RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA and BcsB and BcsC and cellulose_acetylation
 
@@ -45,7 +45,7 @@ RULE generic-cellulose # The core cellulose cluster according to https://doi.org
     DESCRIPTION Type II cellulose
     RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
     SUPERIORS type-1-cellulose, type-2-cellulose, type-3-cellulose, acetylated-cellulose
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA and BcsB and BcsC and BcsZ
 
@@ -54,14 +54,14 @@ RULE cellulose-like
     DESCRIPTION Cellulose-like
     RELATED algF_cel, algI_cel, algJ_cel, algX_cel, BcsD, BcsE, BcsF, BcsG, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, bglX
     SUPERIORS generic-cellulose
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA and minimum(1, [BcsB, BcsC, BcsK, BcsZ])
 
 RULE cellulose-gram-positive
     CATEGORY  Synthase-dependent
     DESCRIPTION Gram positive cellulose
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS ccsA and ccsB and ccsZ and ccsI and ccsH
 
@@ -70,21 +70,21 @@ RULE cellulose-gram-positive-like
     DESCRIPTION Gram positive cellulose-like
     RELATED ccsI, ccsH
     SUPERIORS cellulose-gram-positive
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS ccsA and minimum(1, [ccsB, ccsZ])
 
 RULE cyanocellulose
     CATEGORY  Synthase-dependent
     DESCRIPTION Cyanobacterial cellulose
-    CUTOFF 20
+    CUTOFF 10
     NEIGHBOURHOOD 10 # We don't want to pick up genes far away from the synthase
     CONDITIONS XcsA and XcsB and XcsC
 
 RULE pel-positive
     CATEGORY  Synthase-dependent
     DESCRIPTION Gram-positive Pel
-    CUTOFF 5
+    CUTOFF 15
     NEIGHBOURHOOD 10
     CONDITIONS pelD_pos and pelE_pos and pelA_pos and pelF_pos and pelG_pos
 
@@ -92,7 +92,7 @@ RULE pel
     CATEGORY  Synthase-dependent
     DESCRIPTION Pel
     SUPERIORS pel-positive # Gram-negative pel has all the components of pel-positive, but not vice versa
-    CUTOFF 5
+    CUTOFF 15
     NEIGHBOURHOOD 10
     CONDITIONS pelA and pelB and pelC and pelD and pelE and pelF and pelG
 
@@ -101,7 +101,7 @@ RULE pel-like
     DESCRIPTION Pel-like
     RELATED pelA, pelB, pelC, pelD, pelE
     SUPERIORS pel
-    CUTOFF 5
+    CUTOFF 15
     NEIGHBOURHOOD 10
     CONDITIONS pelF and pelG
 
@@ -110,14 +110,14 @@ RULE pel-positive-like
     DESCRIPTION Gram-positive Pel-like
     RELATED pelD_pos, pelE_pos, pelA_pos
     SUPERIORS pel-positive, pel-like # pel-like and pel-positive-like hit a lot of the same stuff
-    CUTOFF 5
+    CUTOFF 15
     NEIGHBOURHOOD 10
     CONDITIONS pelF_pos and pelG_pos
 
 RULE alginate
     CATEGORY  Synthase-dependent
     DESCRIPTION Alginate
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS alg8 and alg44 and minimum(5, [algD, algK, algE, algG, algX, algL, algI, algJ, algF, algA])
 
@@ -126,14 +126,14 @@ RULE alginate-like
     DESCRIPTION Alginate-like
     RELATED algD, algL, algI, algJ, algF, algA
     SUPERIORS alginate
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS alg8 and alg44 and minimum(1, [algK, algE, algG, algX])
 
 RULE curdlan
     CATEGORY  Synthase-dependent
     DESCRIPTION Curdlan
-    CUTOFF 5
+    CUTOFF 10
     NEIGHBOURHOOD 10
     CONDITIONS crdA and crdS and crdC
 
@@ -142,7 +142,7 @@ RULE curdlan-like
     DESCRIPTION Curdlan-like
     RELATED crdA, crdS
     SUPERIORS curdlan, cellulose-like, cellulose-gram-positive-like
-    CUTOFF 5
+    CUTOFF 10
     NEIGHBOURHOOD 10
     CONDITIONS crdS
 
@@ -167,7 +167,7 @@ RULE PNAG-pga
     CATEGORY  Synthase-dependent
     DESCRIPTION PNAG (pga)
     RELATED pgaD
-    CUTOFF 5
+    CUTOFF 10
     NEIGHBOURHOOD 10
     CONDITIONS pgaA and pgaB and pgaC
 
@@ -176,11 +176,11 @@ RULE PNAG-pga-like
     DESCRIPTION PNAG-like (pga)
     RELATED pgaD, pgaA
     SUPERIORS PNAG-pga
-    CUTOFF 5
+    CUTOFF 10
     NEIGHBOURHOOD 10
     CONDITIONS pgaC and pgaB
 
-RULE Has
+RULE HA_has
     CATEGORY  Synthase-dependent
     DESCRIPTION Hyaluronic acid (has)
     CUTOFF 5
@@ -191,91 +191,93 @@ RULE Has
 # Wzx/Wzy rules
 ###########################################################
 
-RULE Amylovoran_Stewartan-like
+RULE amylovoran_stewartan-like
     CATEGORY  Wzy-dependent
     DESCRIPTION Amylovoran or stewartan like
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS amsF_amylovoran and minimum(7, [amsA_amylovoran, amsB_amylovoran, amsC_amylovoran, amsD_amylovoran, amsE_amylovoran, amsF_amylovoran, amsG_amylovoran, amsH_amylovoran, amsI_amylovoran, amsJ_amylovoran, amsK_amylovoran, amsL_amylovoran, galE_amylovoran, galF_amylovoran])
 
-RULE Acetan-like
+RULE acetan-like
     CATEGORY  Wzy-dependent
     DESCRIPTION Acetan like
-    CUTOFF 5
+    CUTOFF 15
     NEIGHBOURHOOD 10
     CONDITIONS aceA_acetan and gumE_acetan and aceE_acetan and aceD_acetan and aceG_acetan and aceH_acetan and minimum(7, [aceB_acetan, aceC_acetan, aceF_acetan, aceI_acetan, aceM_acetan, aceP_acetan, aceQ_acetan, aceR_acetan, eg_acetan, gumF_acetan, gumK_acetan])
 
 
-RULE Succinoglycan-like
+RULE succinoglycan-like
     CATEGORY  Wzy-dependent
     DESCRIPTION Succinoglycan like
-    CUTOFF 5
+    CUTOFF 30
     NEIGHBOURHOOD 10
-    CONDITIONS exoT_succinoglycan and exoQ_succinoglycan and exsA_succinoglycan and exoP_succinoglycan and exsE_succinoglycan and minimum(15, [exoA_succinoglycan, exoB_succinoglycan, exoF_succinoglycan, exoH_succinoglycan, exoI_succinoglycan, exoK_succinoglycan, exoL_succinoglycan, exoM_succinoglycan, exoN_succinoglycan, exoO_succinoglycan, exoU_succinoglycan, exoV_succinoglycan, exoW_succinoglycan, exoX_succinoglycan, exoY_succinoglycan, exoZ_succinoglycan, exsB_succinoglycan, exsC_succinoglycan, exsD_succinoglycan, exsF_succinoglycan, exsG_succinoglycan, exsH_succinoglycan, exsI_succinoglycan])
+    CONDITIONS exoT_succinoglycan and exoQ_succinoglycan and exsA_succinoglycan and exoP_succinoglycan and exsE_succinoglycan and minimum(10, [exoA_succinoglycan, exoB_succinoglycan, exoF_succinoglycan, exoH_succinoglycan, exoI_succinoglycan, exoK_succinoglycan, exoL_succinoglycan, exoM_succinoglycan, exoN_succinoglycan, exoO_succinoglycan, exoU_succinoglycan, exoV_succinoglycan, exoW_succinoglycan, exoX_succinoglycan, exoY_succinoglycan, exoZ_succinoglycan, exsB_succinoglycan, exsC_succinoglycan, exsD_succinoglycan, exsF_succinoglycan, exsG_succinoglycan, exsH_succinoglycan, exsI_succinoglycan])
 
-RULE Colanic-like
+RULE colanic-like
     CATEGORY  Wzy-dependent
     DESCRIPTION Colanic acid like
-    CUTOFF 5
+    CUTOFF 15
     NEIGHBOURHOOD 10
     CONDITIONS  wzx_colanic and wcaD_colanic and wza_colanic and wzb_colanic and wzc_colanic and minimum(1, [wcaA_colanic, wcaB_colanic, wcaC_colanic, wcaE_colanic, wcaF_colanic, wcaG_colanic, wcaH_colanic, wcaI_colanic, wcaJ_colanic, wcaK_colanic, wcaL_colanic, gmd_colanic, manB_colanic, manC_colanic])
 
-RULE Xanthan-like
+RULE xanthan-like
     CATEGORY  Wzy-dependent
     DESCRIPTION Xanthan like
-    CUTOFF 5
+    CUTOFF 10
     NEIGHBOURHOOD 10
     CONDITIONS gumE_xanthan and minimum(6, [gumB_xanthan, gumC_xanthan, gumD_xanthan, gumF_xanthan, gumG_xanthan, gumH_xanthan, gumI_xanthan, gumJ_xanthan, gumK_xanthan, gumL_xanthan, gumM_xanthan])
 
-RULE Galactoglucan-like
+RULE galactoglucan-like
     CATEGORY  Wzy-dependent
     DESCRIPTION Galactoglucan like
-    CUTOFF 5
+    CUTOFF 25
     NEIGHBOURHOOD 10
     CONDITIONS  wgdB_galactoglucan and wgdA_galactoglucan and wgeA_galactoglucan and wgeB_galactoglucan and wgeC_galactoglucan and wgeD_galactoglucan and minimum(1, [wgaA_galactoglucan, wgaB_galactoglucan, wgaC_galactoglucan, wgaD_galactoglucan, wgaE_galactoglucan, wgaF_galactoglucan, wgaG_galactoglucan, wgaH_galactoglucan, wgaI_galactoglucan, wgaJ_galactoglucan, wgcA_galactoglucan, wgeE_galactoglucan, wgeF_galactoglucan, wgeG_galactoglucan, wgeH_galactoglucan, wggR_galactoglucan])
 
-RULE Psl-like
+RULE psl-like
     CATEGORY  Wzy-dependent
     DESCRIPTION Psl like
-    CUTOFF 5
+    CUTOFF 15
     NEIGHBOURHOOD 10
     CONDITIONS pslA_psl and pslE_psl and pslJ_psl and pslK_psl and minimum(1, [pslB_psl, pslC_psl, pslD_psl, pslF_psl, pslG_psl, pslH_psl, pslI_psl, pslL_psl])
 
-RULE Pnag_eps-like
+RULE PNAG_eps-like
     CATEGORY  Wzy-dependent
     DESCRIPTION PNAG EPS (B. subtilis) like
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS  epsH_pnag and epsI_pnag and epsJ_pnag and epsK_pnag and minimum(1, [epsA_pnag, epsB_pnag, epsC_pnag, epsD_pnag, epsE_pnag, epsF_pnag, epsG_pnag, epsL_pnag, epsM_pnag, epsN_pnag, epsO_pnag])
 
 
-RULE Lactobacillus_eps-like
+RULE lactobacillus_eps-like
     CATEGORY  Wzy-dependent
     DESCRIPTION Lactobacillus EPS like
-    CUTOFF 5
+    CUTOFF 25
     NEIGHBOURHOOD 10
     CONDITIONS  epsA_lactobacillus and epsB_lactobacillus and epsC_lactobacillus and minimum(7, [1026_lactobacillus, 1027_lactobacillus, 1028_lactobacillus, 1029_lactobacillus, 1030_lactobacillus, 1031_lactobacillus, 1032_lactobacillus, 1033_lactobacillus, 1034_lactobacillus, epsD_lactobacillus, epsE_lactobacillus])
 
-RULE Sphingans-like
+RULE sphingans-like
     CATEGORY  Wzy-dependent
     DESCRIPTION Gellan, wellan, diutan or S88 like
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
-    CONDITIONS  spnD_sphingans and spnC_sphingans and spnE_sphingans and spnM_sphingans and spnN_sphingans and minimum(13, [1026_lactobacillus, 1027_lactobacillus, 1028_lactobacillus, 1029_lactobacillus, 1030_lactobacillus, 1031_lactobacillus, 1032_lactobacillus, 1033_lactobacillus, 1034_lactobacillus, epsD_lactobacillus, epsE_lactobacillus])
+    CONDITIONS  spnD_sphingans and spnC_sphingans and spnE_sphingans and spnM_sphingans and spnN_sphingans and minimum(13, [atrB_sphingans, atrD_sphingans, rmlA_sphingans, rmlB_sphingans, rmlC_sphingans, rmlD_sphingans, spnB_sphingans, spnF_sphingans, spnG_sphingans, spnI_sphingans, spnJ_sphingans, spnK_sphingans, spnL_sphingans, spnQ_sphingans, spnR_sphingans, spnS_sphingans, urf31_sphingans, urf314_sphingans, urf34_sphingans
+])
 
-RULE Zooglan-like
+
+RULE zooglan-like
     CATEGORY  Wzy-dependent
     DESCRIPTION Zooglan like
-    CUTOFF 5
+    CUTOFF 35
     NEIGHBOURHOOD 10
     CONDITIONS  epsH_zooglan and wzy_zooglan and capK_zooglan and asnH_zooglan and zooM2_zooglan and zooM3_zooglan and zooSA_zooglan and zooP_zooglan and wzc_zooglan and etk_zooglan and wza_zooglan and wzi_zooglan and lolD_zooglan and minimum(4, [asnB_zooglan, zooTRP_zooglan, wzxC_zooglan, zooGT8_zooglan, zooGT7_zooglan, zooGH_zooglan, zooM1_zooglan, zooGT6_zooglan, zooGT5_zooglan, zooGT4_zooglan, zooGT3_zooglan, zooGT2_zooglan, zooGT1_zooglan])
 
-RULE Emulsan
+RULE emulsan-like
     CATEGORY  Wzy-dependent
     DESCRIPTION Emulsan
-    CUTOFF 5
+    CUTOFF 30
     NEIGHBOURHOOD 10
-    CONDITIONS  wzc_emulsan and wza_emulsan and wzx_emulsan and wzy_emulsan and wzb_emulsan and weeA_emulsan and weeB_emulsan and weeC_emulsan and weeD_emulsan and weeE_emulsan and weeF_emulsan and weeG_emulsan and weeH_emulsan and weeI_emulsan and weeJ_emulsan and weeK_emulsan and galU_emulsan and ugd_emulsan and pgi_emulsan and galE_emulsan
+    CONDITIONS  wzc_emulsan and wza_emulsan and wzx_emulsan and wzy_emulsan and minimum(11, [wzb_emulsan, weeA_emulsan, weeB_emulsan, weeC_emulsan, weeD_emulsan, weeE_emulsan, weeF_emulsan, weeG_emulsan, weeH_emulsan, weeI_emulsan, weeJ_emulsan, weeK_emulsan, galU_emulsan, ugd_emulsan, pgi_emulsan, galE_emulsan])
 
 ###########################################################
 # Sucrase rules

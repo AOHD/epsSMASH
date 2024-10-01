@@ -164,34 +164,34 @@ eg_acetan	Glycoside hydrolase	240	individual_hmms/eg_acetan.hmm
 gumE_acetan	Polymerization or export protein (Wzy)	660	individual_hmms/gumE_acetan.hmm
 gumF_acetan	Acetyltransferase	650	individual_hmms/gumF_acetan.hmm
 gumK_acetan	Glucuronosyltransferase	400	individual_hmms/gumK_acetan.hmm
-exsA_succinoglycan	Protein belonging to ABC transporter	240	individual_hmms/exsA_succinoglycan.hmm
-exsB_succinoglycan	Negatively affect EPS I synthesis	510	individual_hmms/exsB_succinoglycan.hmm
-exsC_succinoglycan	NA	260	individual_hmms/exsC_succinoglycan.hmm
-exsD_succinoglycan	NA	540	individual_hmms/exsD_succinoglycan.hmm
-exsE_succinoglycan	Protein belonging to ABC transporter	1330	individual_hmms/exsE_succinoglycan.hmm
-exsF_succinoglycan	Regulator	240	individual_hmms/exsF_succinoglycan.hmm
-exsG_succinoglycan	Regulator	2010	individual_hmms/exsG_succinoglycan.hmm
-exsH_succinoglycan	Succinoglycan glucanase	1030	individual_hmms/exsH_succinoglycan.hmm
-exsI_succinoglycan	Regulator	170	individual_hmms/exsI_succinoglycan.hmm
-exoA_succinoglycan	Glucosyltransferase for subunit synthesis	750	individual_hmms/exoA_succinoglycan.hmm
-exoB_succinoglycan	UDP-glucose 4-epimerase which synthesizes UDP-galactose from UDP-glucose	750	individual_hmms/exoB_succinoglycan.hmm
-exoF_succinoglycan	Galactosyl-IP-transferase	850	individual_hmms/exoF_succinoglycan.hmm
-exoH_succinoglycan	Provides succinyl	800	individual_hmms/exoH_succinoglycan.hmm
-exoI_succinoglycan	Succinoglycan glucanase	400	individual_hmms/exoI_succinoglycan.hmm
-exoK_succinoglycan	β-1,3-1,4-glucanase	600	individual_hmms/exoK_succinoglycan.hmm
-exoL_succinoglycan	Glucosyltransferase for subunit synthesis	860	individual_hmms/exoL_succinoglycan.hmm
-exoM_succinoglycan	Glucosyltransferase for subunit synthesis	670	individual_hmms/exoM_succinoglycan.hmm
-exoN_succinoglycan	UDP-glucose pyrophosphorylase activity and synthesizes UDP-glucose from glucose-1-phosphate	680	individual_hmms/exoN_succinoglycan.hmm
-exoO_succinoglycan	Glucosyltransferase for subunit synthesis	700	individual_hmms/exoO_succinoglycan.hmm
-exoP_succinoglycan	Autophosphorylated tyrosine kinase, wzc homolg (PCP2)	1750	individual_hmms/exoP_succinoglycan.hmm
-exoQ_succinoglycan	Polimerization and export (Wzy)	900	individual_hmms/exoQ_succinoglycan.hmm
-exoT_succinoglycan	Wzx flippase	1050	individual_hmms/exoT_succinoglycan.hmm
-exoU_succinoglycan	Glucosyltransferase for subunit synthesis	750	individual_hmms/exoU_succinoglycan.hmm
-exoV_succinoglycan	Provides pyruvyl groups	690	individual_hmms/exoV_succinoglycan.hmm
-exoW_succinoglycan	Glucosyltransferase for subunit synthesis	700	individual_hmms/exoW_succinoglycan.hmm
-exoX_succinoglycan	Repressor	210	individual_hmms/exoX_succinoglycan.hmm
-exoY_succinoglycan	Galactosyl-IP-transferase	490	individual_hmms/exoY_succinoglycan.hmm
-exoZ_succinoglycan	Acetyltransferase	705	individual_hmms/exoZ_succinoglycan.hmm
+exsA_succinoglycan	Protein belonging to ABC transporter	200	individual_hmms/exsA_succinoglycan.hmm
+exsB_succinoglycan	Negatively affect EPS I synthesis	450	individual_hmms/exsB_succinoglycan.hmm
+exsC_succinoglycan	NA	200	individual_hmms/exsC_succinoglycan.hmm
+exsD_succinoglycan	NA	450	individual_hmms/exsD_succinoglycan.hmm
+exsE_succinoglycan	Protein belonging to ABC transporter	1200	individual_hmms/exsE_succinoglycan.hmm
+exsF_succinoglycan	Regulator	150	individual_hmms/exsF_succinoglycan.hmm
+exsG_succinoglycan	Regulator	1700	individual_hmms/exsG_succinoglycan.hmm
+exsH_succinoglycan	Succinoglycan glucanase	900	individual_hmms/exsH_succinoglycan.hmm
+exsI_succinoglycan	Regulator	100	individual_hmms/exsI_succinoglycan.hmm
+exoA_succinoglycan	Glucosyltransferase for subunit synthesis	650	individual_hmms/exoA_succinoglycan.hmm
+exoB_succinoglycan	UDP-glucose 4-epimerase which synthesizes UDP-galactose from UDP-glucose	650	individual_hmms/exoB_succinoglycan.hmm
+exoF_succinoglycan	Galactosyl-IP-transferase	700	individual_hmms/exoF_succinoglycan.hmm
+exoH_succinoglycan	Provides succinyl	700	individual_hmms/exoH_succinoglycan.hmm
+exoI_succinoglycan	Succinoglycan glucanase	300	individual_hmms/exoI_succinoglycan.hmm
+exoK_succinoglycan	β-1,3-1,4-glucanase	500	individual_hmms/exoK_succinoglycan.hmm
+exoL_succinoglycan	Glucosyltransferase for subunit synthesis	700	individual_hmms/exoL_succinoglycan.hmm
+exoM_succinoglycan	Glucosyltransferase for subunit synthesis	550	individual_hmms/exoM_succinoglycan.hmm
+exoN_succinoglycan	UDP-glucose pyrophosphorylase activity and synthesizes UDP-glucose from glucose-1-phosphate	600	individual_hmms/exoN_succinoglycan.hmm
+exoO_succinoglycan	Glucosyltransferase for subunit synthesis	600	individual_hmms/exoO_succinoglycan.hmm
+exoP_succinoglycan	Autophosphorylated tyrosine kinase, wzc homolg (PCP2)	1500	individual_hmms/exoP_succinoglycan.hmm
+exoQ_succinoglycan	Polimerization and export (Wzy)	700	individual_hmms/exoQ_succinoglycan.hmm
+exoT_succinoglycan	Wzx flippase	800	individual_hmms/exoT_succinoglycan.hmm
+exoU_succinoglycan	Glucosyltransferase for subunit synthesis	600	individual_hmms/exoU_succinoglycan.hmm
+exoV_succinoglycan	Provides pyruvyl groups	550	individual_hmms/exoV_succinoglycan.hmm
+exoW_succinoglycan	Glucosyltransferase for subunit synthesis	600	individual_hmms/exoW_succinoglycan.hmm
+exoX_succinoglycan	Repressor	150	individual_hmms/exoX_succinoglycan.hmm
+exoY_succinoglycan	Galactosyl-IP-transferase	450	individual_hmms/exoY_succinoglycan.hmm
+exoZ_succinoglycan	Acetyltransferase	600	individual_hmms/exoZ_succinoglycan.hmm
 wza_colanic	Outer Membrane Polysaccharide Export (OPX)	700	individual_hmms/wza_colanic.hmm
 wzb_colanic	Protein tyrosine phosphatase (Wzb)	200	individual_hmms/wzb_colanic.hmm
 wzc_colanic	Polysaccharide copolymerase (PCP2)	1200	individual_hmms/wzc_colanic.hmm
@@ -272,9 +272,9 @@ epsL_pnag	Phosphoglycosyltransferase	50	individual_hmms/epsL_pnag.hmm
 epsM_pnag	Acetyltransferase	50	individual_hmms/epsM_pnag.hmm
 epsN_pnag	Aminotransferase/sugartransferase	50	individual_hmms/epsN_pnag.hmm
 epsO_pnag	Glycosyltransferase	50	individual_hmms/epsO_pnag.hmm
-epsA_lactobacillus	Transcriptional regulation	300	individual_hmms/epsA_lactobacillus.hmm
-epsB_lactobacillus	Capsular polysaccharide biosynthesis proteins and polymerisation and chain length determination proteins (PCP2)	230	individual_hmms/epsB_lactobacillus.hmm
-epsC_lactobacillus	Tyrosine protein kinase Wzc (PCP2)	250	individual_hmms/epsC_lactobacillus.hmm
+epsA_lactobacillus	Transcriptional regulation	250	individual_hmms/epsA_lactobacillus.hmm
+epsB_lactobacillus	Capsular polysaccharide biosynthesis proteins and polymerisation and chain length determination proteins (PCP2)	150	individual_hmms/epsB_lactobacillus.hmm
+epsC_lactobacillus	Tyrosine protein kinase Wzc (PCP2)	200	individual_hmms/epsC_lactobacillus.hmm
 epsD_lactobacillus	Protein-tyrosine-phosphate phosphohydrolase	250	individual_hmms/epsD_lactobacillus.hmm
 epsE_lactobacillus	Undecaprenyl-phosphate galactosephosphotransferase	200	individual_hmms/epsE_lactobacillus.hmm
 1026_lactobacillus	Glycosyltransferase	270	individual_hmms/1026_lactobacillus.hmm
@@ -282,7 +282,7 @@ epsE_lactobacillus	Undecaprenyl-phosphate galactosephosphotransferase	200	indivi
 1028_lactobacillus	Glycosyltransferase	70	individual_hmms/1028_lactobacillus.hmm
 1029_lactobacillus	Glycosyltransferase	50	individual_hmms/1029_lactobacillus.hmm
 1030_lactobacillus	Glycosyltransferase	25	individual_hmms/1030_lactobacillus.hmm
-1031_lactobacillus	Polimerization and export (Wzy)	100	individual_hmms/1031_lactobacillus.hmm
+1031_lactobacillus	Polimerization and export (Wzy)	50	individual_hmms/1031_lactobacillus.hmm
 1032_lactobacillus	UDP-galactopyranose mutase	600	individual_hmms/1032_lactobacillus.hmm
 1033_lactobacillus	Glycosyltransferase	230	individual_hmms/1033_lactobacillus.hmm
 1034_lactobacillus	Wzx flippase	450	individual_hmms/1034_lactobacillus.hmm
@@ -336,23 +336,23 @@ etk_zooglan	EPS chain length determination	100	individual_hmms/etk_zooglan.hmm
 wza_zooglan	EPS export Wza (OPX)	100	individual_hmms/wza_zooglan.hmm
 wzi_zooglan	Binding EPS to cell surface	100	individual_hmms/wzi_zooglan.hmm
 lolD_zooglan	Lipoprotein sorting	100	individual_hmms/lolD_zooglan.hmm
-wzc_emulsan	Tyrosine protein kinase Wzc (PCP2)	1510	individual_hmms/wzc_emulsan.hmm
-wzb_emulsan	Tyrosine phosphatase	290	individual_hmms/wzb_emulsan.hmm
-wza_emulsan	Outer-membrane lipoprotein (OPX)	750	individual_hmms/wza_emulsan.hmm
-weeA_emulsan	UDP-N-acetylglucosamine-2-epimerase	730	individual_hmms/weeA_emulsan.hmm
-weeB_emulsan	UDP-N-acetyl-D-galactosamine uronic acid dehydrogenase	680	individual_hmms/weeB_emulsan.hmm
-weeC_emulsan	O/N-Acetylgalactosamine acetyltransferase	150	individual_hmms/weeC_emulsan.hmm
-wzx_emulsan	Wzx flippase	170	individual_hmms/wzx_emulsan.hmm
-wzy_emulsan	Polimerization and export (Wzy)	150	individual_hmms/wzy_emulsan.hmm
-weeD_emulsan	Mannosyltransferase C	190	individual_hmms/weeD_emulsan.hmm
-weeE_emulsan	NA	1440	individual_hmms/weeE_emulsan.hmm
-weeF_emulsan	NA	1100	individual_hmms/weeF_emulsan.hmm
-weeG_emulsan	Glycosyltransferase	260	individual_hmms/weeG_emulsan.hmm
-weeH_emulsan	UDP-galactose phosphate transferase	420	individual_hmms/weeH_emulsan.hmm
-weeI_emulsan	Acetyltransferase	420	individual_hmms/weeI_emulsan.hmm
-weeJ_emulsan	Perosamine synthetase	220	individual_hmms/weeJ_emulsan.hmm
-weeK_emulsan	dTDP-glucose 4,6-dehydratase/UDP-glucose 4-epimerase	1280	individual_hmms/weeK_emulsan.hmm
-galU_emulsan	NA	620	individual_hmms/galU_emulsan.hmm
-ugd_emulsan	NA	850	individual_hmms/ugd_emulsan.hmm
-pgi_emulsan	NA	1190	individual_hmms/pgi_emulsan.hmm
-galE_emulsan	UDP-glucose 4-epimerase	590	individual_hmms/galE_emulsan.hmm
+wzc_emulsan	Tyrosine protein kinase Wzc (PCP2)	900	individual_hmms/wzc_emulsan.hmm
+wzb_emulsan	Tyrosine phosphatase	200	individual_hmms/wzb_emulsan.hmm
+wza_emulsan	Outer-membrane lipoprotein (OPX)	650	individual_hmms/wza_emulsan.hmm
+weeA_emulsan	UDP-N-acetylglucosamine-2-epimerase	500	individual_hmms/weeA_emulsan.hmm
+weeB_emulsan	UDP-N-acetyl-D-galactosamine uronic acid dehydrogenase	500	individual_hmms/weeB_emulsan.hmm
+weeC_emulsan	O/N-Acetylgalactosamine acetyltransferase	100	individual_hmms/weeC_emulsan.hmm
+wzx_emulsan	Wzx flippase	100	individual_hmms/wzx_emulsan.hmm
+wzy_emulsan	Polimerization and export (Wzy)	100	individual_hmms/wzy_emulsan.hmm
+weeD_emulsan	Mannosyltransferase C	100	individual_hmms/weeD_emulsan.hmm
+weeE_emulsan	NA	1200	individual_hmms/weeE_emulsan.hmm
+weeF_emulsan	NA	500	individual_hmms/weeF_emulsan.hmm
+weeG_emulsan	Glycosyltransferase	150	individual_hmms/weeG_emulsan.hmm
+weeH_emulsan	UDP-galactose phosphate transferase	300	individual_hmms/weeH_emulsan.hmm
+weeI_emulsan	Acetyltransferase	350	individual_hmms/weeI_emulsan.hmm
+weeJ_emulsan	Perosamine synthetase	200	individual_hmms/weeJ_emulsan.hmm
+weeK_emulsan	dTDP-glucose 4,6-dehydratase/UDP-glucose 4-epimerase	1000	individual_hmms/weeK_emulsan.hmm
+galU_emulsan	NA	500	individual_hmms/galU_emulsan.hmm
+ugd_emulsan	NA	700	individual_hmms/ugd_emulsan.hmm
+pgi_emulsan	NA	1000	individual_hmms/pgi_emulsan.hmm
+galE_emulsan	UDP-glucose 4-epimerase	500	individual_hmms/galE_emulsan.hmm
