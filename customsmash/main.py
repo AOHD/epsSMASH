@@ -10,7 +10,7 @@ import sys
 import antismash
 from antismash.__main__ import main as antismash_main
 # import some modules from antiSMASH that won't be overridden
-# in particula some generic module
+# in particular some generic module
 from antismash.detection import cluster_hmmer, genefunctions
 from antismash.modules import pfam2go
 

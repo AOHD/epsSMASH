@@ -46,6 +46,10 @@
     @include secmet(black, rgb(126, 221, 150), black);  // change colours to suit
 }
 
+.Wzy-dependent {
+    @include secmet(black, rgb(255, 237, 77), black);  // change colours to suit
+}
+
 // a special case for hybrid/multiprotocluster regions, 
 // needs to remain at the bottom to override all the above
 .hybrid {

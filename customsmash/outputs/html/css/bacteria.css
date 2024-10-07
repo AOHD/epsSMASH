@@ -48,6 +48,16 @@ rect.Monosaccharide-synthesis { fill: #7edd96; stroke: black; }
 
 .Monosaccharide-synthesis:hover { background-color: #a2e7b4; }
 
+.Wzy-dependent { background-color: #ffed4d; }
+
+.Wzy-dependent a, .Wzy-dependent a:link, .Wzy-dependent a:visited { color: black; }
+
+rect.Wzy-dependent { fill: #ffed4d; stroke: black; }
+
+.Wzy-dependent.active { border-color: black; border-width: 2px; border-style: solid; }
+
+.Wzy-dependent:hover { background-color: #fff27b; }
+
 .hybrid { background-color: lightsteelblue; }
 
 .hybrid a, .hybrid a:link, .hybrid a:visited { color: midnightblue; }
