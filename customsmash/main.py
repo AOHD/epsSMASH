@@ -18,13 +18,14 @@ from antismash.modules import pfam2go
 # the structure and naming here are just arbitrary examples and can be changed
 # to suit
 from customsmash.detection import custom_detection
+from customsmash.detection import monosaccharides
 from customsmash.modules import custom_analysis
 from customsmash.outputs import html
 
 # replace the normal antismash modules with any combination of antiSMASH modules
 # and/or custom modules
 antismash.main.replace_analysis_modules([custom_analysis, pfam2go])
-antismash.main.replace_detection_modules([cluster_hmmer, custom_detection, genefunctions])
+antismash.main.replace_detection_modules([cluster_hmmer, monosaccharides, custom_detection, genefunctions])
 antismash.main.replace_html_module(html)
 
 # override search path for any user config file

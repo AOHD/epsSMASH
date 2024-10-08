@@ -33,98 +33,55 @@ from antismash.common.signature import get_signature_profiles
 from antismash.config.args import ModuleArgs
 from antismash.detection import DetectionStage
 from antismash.detection.hmm_detection import check_prereqs as original_check_prereqs
-from antismash.common.hmm_rule_parser.structures import Multipliers
-from antismash.config.args import ModuleArgs, SplitCommaAction
 
-NAME = "customsmash_detection"
+NAME = "monosaccharide_detection"
 SHORT_DESCRIPTION = "some kind of protocluster detection"
 # the detection stage defines when the module is run in the detection process
 DETECTION_STAGE = DetectionStage.AREA_FORMATION
 
 
 HMM_FILE = path.get_full_path(__file__, "data", "bgc_seeds.hmm")
-#RULE_FILE = path.get_full_path(__file__, "cluster_rules", "rules.txt")
+RULE_FILE = path.get_full_path(__file__, "cluster_rules", "rules.txt")
 SIGNATURE_FILE = path.get_full_path(__file__, "data", "hmmdetails.txt")
 
-_STRICTNESS_LEVELS = ["strict", "relaxed", "loose"]
-
-
-_RULESETS: dict[tuple[str, tuple[str, ...], tuple[str, ...], Multipliers], Ruleset] = {}
-
-def _get_rule_files_for_strictness(strictness: str) -> list[str]:
-    """ Returns a list of appropriate rule files for the given strictness level """
-    assert strictness in _STRICTNESS_LEVELS, strictness
-    files = []
-    for level in _STRICTNESS_LEVELS[:_STRICTNESS_LEVELS.index(strictness) + 1]:
-        files.append(path.get_full_path(__file__, "cluster_rules", f"{level}.txt"))
-    return files
-
-
-def _build_ruleset(options: ConfigType) -> Ruleset:
-    
-
-    strictness = options.hmmdetection_strictness
-    name_subset = set(options.hmmdetection_limit_to_rules)
-    category_subset = set(options.hmmdetection_limit_to_categories)
-    
-    # the cache key needs to be immutable
-    key = (strictness, tuple(name_subset), tuple(category_subset))
-    
+def _build_ruleset() -> Ruleset:
     categories = {"Synthase-dependent", "Sucrase-dependent", "Monosaccharide-synthesis", "Wzy-dependent"}  # contains all categories in the rules that will
                            # be used in the ruleset
     
     signatures = {sig.name: sig for sig in get_signature_profiles(SIGNATURE_FILE)}
 
-     # return any existing ruleset
-    ruleset = _RULESETS.get(key)
-    if ruleset:
-        return ruleset
 
-    # otherwise make a default ruleset for the strictness
-    ruleset = Ruleset.from_files(
-        signature_file = SIGNATURE_FILE, 
-        seeds = HMM_FILE,
-        rule_files = _get_rule_files_for_strictness(strictness),
-        categories = categories,
-        filter_file = os.devnull,
-        tool = "rule-based-clusters")
+    rules = create_rules([RULE_FILE], signature_names=set(signatures),
+                         valid_categories=categories)
 
-    # limit the rules used, if relevant
-    rules: Iterable[rule_parser.DetectionRule] = ruleset.rules
-    if name_subset:
-        rules = filter(lambda rule: rule.name in name_subset, rules)
-    if category_subset:
-        rules = filter(lambda rule: rule.category in category_subset, rules)
 
-    ruleset = ruleset.copy_with_replacements(rules=list(rules))
+    return Ruleset(
+        rules,
+        signatures,
+        valid_categories=categories,
+        database_file=HMM_FILE,
+        tool=NAME,
+        equivalence_groups=[],
+    )
 
-    # update the cache
-    _RULESETS[key] = ruleset
 
-    return ruleset
+_RULESET = _build_ruleset()
 
 
 class CustomDetectionResults(DetectionResults):
     """ A container for clusters predicted by rules in this module """
     schema_version = 1
 
-    def __init__(self, record_id: str, rule_results: RuleDetectionResults, restricted_to: list[str],
-                 strictness: str) -> None:
+    def __init__(self, record_id: str, rule_results: RuleDetectionResults) -> None:
         super().__init__(record_id)
         self.rule_results = rule_results
-        self.restricted_to = restricted_to
-        if strictness not in _STRICTNESS_LEVELS:
-            raise ValueError(f"unknown strictness level: {strictness}")
-        self.strictness = strictness
 
     def to_json(self) -> dict[str, Any]:
         # extend this as necessary, covering the full results so it can be regenerated
         return {
             "record_id": self.record_id,
             "schema_version": self.schema_version,
-            "restricted_to": self.restricted_to,
             "rule_results": self.rule_results.to_json(),
-            "strictness": self.strictness
         }
 
     @staticmethod
@@ -137,8 +94,6 @@ class CustomDetectionResults(DetectionResults):
         return CustomDetectionResults(
             json["record_id"],
             rule_results,
-            json["restricted_to"],
-            json["strictness"]
         )
 
     def get_predicted_protoclusters(self) -> list[Protocluster]:
@@ -147,44 +102,28 @@ class CustomDetectionResults(DetectionResults):
 
 
 def get_arguments() -> ModuleArgs:
-    """ Constructs commandline arguments and options for this module
+    """ Constructs commandline arguments and options for this module, these
+        will automatically be included by the usual antiSMASH module handling.
     """
-    args = ModuleArgs('HMM detection options', 'hmmdetection')
+    # starting with the base, supplying the description and prefix for all options
+    args = ModuleArgs("Additional analysis", "monosaccharide")
     # add a toggle for this module, specifically to disable it as it is enabled
     # by default above
     args.add_analysis_toggle(
-        'disable',   # the commmand line argument itself (the prefix is added automatically)
-         dest='disabled',  # the naming of the result in the options object (again prefix is added)
-         default=False,
+        '--monosaccharide',   # the commmand line argument itself (the prefix is added automatically)
+         dest='monosaccharide',  # the naming of the result in the options object (again prefix is added)
+         default=False,  # the default value if the option is not supplied
          action='store_true',
-         help="Disable cluster detection."
+         help="Run monosaccharide synthesis detection."
      )
-    args.add_option('strictness',
-                    dest='strictness',
-                    type=str,
-                    choices=["strict", "relaxed", "loose"],
-                    default="loose",
-                    help=("Defines which level of strictness to use for "
-                          "HMM-based cluster detection, (default: %(default)s)."))
-    args.add_option("limit-to-rule-names",
-                    dest="limit_to_rules",
-                    metavar="RULE1[,RULE2,...]",
-                    action=SplitCommaAction,
-                    default=[],
-                    help="Restrict detection to the named rules (default: no limits).")
-    args.add_option("limit-to-rule-categories",
-                    dest="limit_to_categories",
-                    metavar="CATEGORY1[,CATEGORY2,...]",
-                    action=SplitCommaAction,
-                    default=[],
-                    help="Restrict detection to the given rules (default: no limits).")
 
     return args
+
 
 def is_enabled(options: ConfigType) -> bool:
     """  Uses the supplied options to determine if the module should be run
     """
-    return not options.hmmdetection_disabled
+    return options.monosaccharide
 
 
 def run_on_record(record: Record, previous_results: Optional[CustomDetectionResults],
@@ -194,21 +133,11 @@ def run_on_record(record: Record, previous_results: Optional[CustomDetectionResu
     """
     if previous_results:
         return previous_results
-    
-    strictness = options.hmmdetection_strictness
-    logging.info("HMM detection using strictness: %s", strictness)
 
-
-    ruleset = _build_ruleset(options)
-    if options.hmmdetection_limit_to_rules:
-        logging.info("detection restricted to: %s", options.hmmdetection_limit_to_rules)
-    
-    if options.hmmdetection_strictness:
-        logging.info("detection strictness: %s", options.hmmdetection_strictness)
-    
+    ruleset = _build_ruleset()
     results = detect_protoclusters_and_signatures(record, ruleset)
     results.annotate_cds_features()
-    return CustomDetectionResults(record.id, results, restricted_to=options.hmmdetection_limit_to_rules, strictness=strictness)
+    return CustomDetectionResults(record.id, results)
 
 
 def regenerate_previous_results(results: dict[str, Any], record: Record,
@@ -292,13 +221,6 @@ def check_options(options: ConfigType) -> list[str]:
     failure_messages = []
     # the one option defined is to restrict the ruleset down to a single rule
     # if that option isn't in the rules, that's an error
-    if options.hmmdetection_limit_to_rules:
-        try:
-            _RULESET.get_rule_by_name(options.hmmdetection_limit_to_rules)
-        except ValueError:
-            failure_messages.append(f"Ruleset '{options.hmmdetection_limit_to_rules}' does not exist")
-    if options.hmmdetection_strictness not in _STRICTNESS_LEVELS:
-        issues.append(f"Unknown strictness level: {options.strictness}")
 
     # any other options should also be checked here
 

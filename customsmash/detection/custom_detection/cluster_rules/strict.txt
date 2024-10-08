@@ -11,7 +11,7 @@ RULE type-1-cellulose
     CATEGORY Synthase-dependent
     DESCRIPTION Type I cellulose
     RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA and BcsB and BcsC and BcsD
 
@@ -19,7 +19,7 @@ RULE type-2-cellulose
     CATEGORY  Synthase-dependent
     DESCRIPTION Type II cellulose
     RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA and BcsB and BcsC and BcsE and BcsG
 
@@ -27,7 +27,7 @@ RULE type-3-cellulose
     CATEGORY  Synthase-dependent
     DESCRIPTION Type II cellulose
     RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA and BcsB and BcsK and not BcsC
 
@@ -36,7 +36,7 @@ RULE acetylated-cellulose
     CATEGORY  Synthase-dependent
     DESCRIPTION Acetylated cellulose
     RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, BcsZ, bglX
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA and BcsB and BcsC and cellulose_acetylation
 
@@ -45,14 +45,15 @@ RULE generic-cellulose # The core cellulose cluster according to https://doi.org
     DESCRIPTION Type II cellulose
     RELATED BcsF, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, bglX, algF_cel, algI_cel, algJ_cel, algX_cel
     SUPERIORS type-1-cellulose, type-2-cellulose, type-3-cellulose, acetylated-cellulose
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA and BcsB and BcsC and BcsZ
+
 
 RULE cellulose-gram-positive
     CATEGORY  Synthase-dependent
     DESCRIPTION Gram positive cellulose
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS ccsA and ccsB and ccsZ and ccsI and ccsH
 
@@ -60,14 +61,14 @@ RULE cellulose-gram-positive
 RULE cyanocellulose
     CATEGORY  Synthase-dependent
     DESCRIPTION Cyanobacterial cellulose
-    CUTOFF 20
+    CUTOFF 10
     NEIGHBOURHOOD 10 # We don't want to pick up genes far away from the synthase
     CONDITIONS XcsA and XcsB and XcsC
 
 RULE pel-positive
     CATEGORY  Synthase-dependent
     DESCRIPTION Gram-positive Pel
-    CUTOFF 5
+    CUTOFF 15
     NEIGHBOURHOOD 10
     CONDITIONS pelD_pos and pelE_pos and pelA_pos and pelF_pos and pelG_pos
 
@@ -75,21 +76,21 @@ RULE pel
     CATEGORY  Synthase-dependent
     DESCRIPTION Pel
     SUPERIORS pel-positive # Gram-negative pel has all the components of pel-positive, but not vice versa
-    CUTOFF 5
+    CUTOFF 15
     NEIGHBOURHOOD 10
     CONDITIONS pelA and pelB and pelC and pelD and pelE and pelF and pelG
 
 RULE alginate
     CATEGORY  Synthase-dependent
     DESCRIPTION Alginate
-    CUTOFF 5
+    CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS alg8 and alg44 and minimum(5, [algD, algK, algE, algG, algX, algL, algI, algJ, algF, algA])
 
 RULE curdlan
     CATEGORY  Synthase-dependent
     DESCRIPTION Curdlan
-    CUTOFF 5
+    CUTOFF 10
     NEIGHBOURHOOD 10
     CONDITIONS crdA and crdS and crdC
 
@@ -105,11 +106,11 @@ RULE PNAG-pga
     CATEGORY  Synthase-dependent
     DESCRIPTION PNAG (pga)
     RELATED pgaD
-    CUTOFF 5
+    CUTOFF 10
     NEIGHBOURHOOD 10
     CONDITIONS pgaA and pgaB and pgaC
 
-RULE Has
+RULE HA_has
     CATEGORY  Synthase-dependent
     DESCRIPTION Hyaluronic acid (has)
     CUTOFF 5
