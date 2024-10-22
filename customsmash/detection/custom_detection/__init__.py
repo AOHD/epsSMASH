@@ -294,7 +294,7 @@ def check_options(options: ConfigType) -> list[str]:
     # if that option isn't in the rules, that's an error
     if options.hmmdetection_limit_to_rules:
         try:
-            _RULESET.get_rule_by_name(options.hmmdetection_limit_to_rules)
+            _RULESETS.get_rule_by_name(options.hmmdetection_limit_to_rules)
         except ValueError:
             failure_messages.append(f"Ruleset '{options.hmmdetection_limit_to_rules}' does not exist")
     if options.hmmdetection_strictness not in _STRICTNESS_LEVELS:

@@ -17,11 +17,15 @@ $nav-gradient-bottom: #007267ff;
 $gene-type-other: gray;
 $gene-type-biosynthetic: #810e15;
 $gene-type-biosynthetic-additional: #f16d75;
-$gene-type-regulatory: seagreen;
-$gene-type-transport: cornflowerblue;
+$gene-type-transport: #332288;
+$gene-type-regulatory: #117733;
+$gene-type-degradation: #44aa99;
+$gene-type-modification: #88ccee;
+$gene-type-glycosyltransferase: #ddcc77;
+$gene-type-polymerisation: #aa4499;
+$gene-type-precursor: #882255;
 $feature-resistance: #bbb;
 $feature-tta-codon: #444;
-
 $table-background: #f1f1f1;
 $tool-cassis: wheat;
 $kind-protoclusters: white;
@@ -566,6 +570,26 @@ table.region-table {
     fill: $gene-type-regulatory;
     stroke: black;
 }
+.svgene-type-degradation {
+    fill: $gene-type-degradation;
+    stroke: black;
+}
+.svgene-type-modification {
+    fill: $gene-type-modification;
+    stroke: black;
+}
+.svgene-type-glycosyltransferase {
+    fill: $gene-type-glycosyltransferase;
+    stroke: black;
+}
+.svgene-type-polymerisation {
+    fill: $gene-type-polymerisation;
+    stroke: black;
+}
+.svgene-type-precursor {
+    fill: $gene-type-precursor;
+    stroke: black;
+}
 .svgene-resistance {
     fill: $feature-resistance;
 }
@@ -691,6 +715,21 @@ table.region-table {
 }
 .legend-type-regulatory {
     background-color: $gene-type-regulatory;
+}
+.legend-type-degradation {
+    background-color: $gene-type-degradation;
+}
+.legend-type-modification {
+    background-color: $gene-type-modification;
+}
+.legend-type-glycosyltransferase {
+    background-color: $gene-type-glycosyltransferase;
+}
+.legend-type-polymerisation {
+    background-color: $gene-type-polymerisation;
+}
+.legend-type-precursor {
+    background-color: $gene-type-precursor;
 }
 
 .legend-border-cassis {

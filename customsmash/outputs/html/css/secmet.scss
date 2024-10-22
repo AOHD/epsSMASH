@@ -24,34 +24,34 @@
 // A region's colours will also use these, unless there are multiple protoclusters,
 // in which case the category will be used if all protoclusters are in the same category.
 // If different categories are involved in a hybrid region, the 'hybrid' rule will be used.
-.simple {
-    @include secmet(black, pink, black);  // change colours to suit
-}
-
-// here's the category that "simple" is part of, better names are a good idea
-.base {
-    @include secmet(black, rgb(213, 60, 85), black);  // colours don't have to match the rule itself
-}
+//.simple {
+//    @include secmet(black, pink, black);  // change colours to suit
+//}
+//
+//// here's the category that "simple" is part of, better names are a good idea
+//.base {
+//    @include secmet(black, rgb(213, 60, 85), black);  // colours don't have to match the rule itself
+//}
 
 // more category/rules would go here, if they exist
 .Synthase-dependent {
-    @include secmet(black, rgb(214, 75, 98), black);  // change colours to suit
+    @include secmet(black, #56b4e9, black);  // change colours to suit
 }
 
 .Sucrase-dependent {
-    @include secmet(black, rgb(60, 68, 217), black);  // change colours to suit
+    @include secmet(black, #f0e442, black);  // change colours to suit
 }
 
 .Monosaccharide-synthesis {
-    @include secmet(black, rgb(126, 221, 150), black);  // change colours to suit
+    @include secmet(black, #d55e00, black);  // change colours to suit
 }
 
 .Wzy-dependent {
-    @include secmet(black, rgb(255, 237, 77), black);  // change colours to suit
+    @include secmet(black, #cc79a7, black);  // change colours to suit
 }
 
 // a special case for hybrid/multiprotocluster regions, 
 // needs to remain at the bottom to override all the above
 .hybrid {
-    @include secmet(midnightblue, lightsteelblue, midnightblue); // change colours to suit
+    @include secmet(midnightblue, #009e73, midnightblue); // change colours to suit
 }

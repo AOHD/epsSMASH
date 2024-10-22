@@ -1,72 +1,52 @@
-.simple { background-color: pink; }
-
-.simple a, .simple a:link, .simple a:visited { color: black; }
-
-rect.simple { fill: pink; stroke: black; }
-
-.simple.active { border-color: black; border-width: 2px; border-style: solid; }
-
-.simple:hover { background-color: #ffeef1; }
-
-.base { background-color: #d53c55; }
-
-.base a, .base a:link, .base a:visited { color: black; }
-
-rect.base { fill: #d53c55; stroke: black; }
-
-.base.active { border-color: black; border-width: 2px; border-style: solid; }
-
-.base:hover { background-color: #dd6276; }
-
-.Synthase-dependent { background-color: #d64b62; }
+.Synthase-dependent { background-color: #56b4e9; }
 
 .Synthase-dependent a, .Synthase-dependent a:link, .Synthase-dependent a:visited { color: black; }
 
-rect.Synthase-dependent { fill: #d64b62; stroke: black; }
+rect.Synthase-dependent { fill: #56b4e9; stroke: black; }
 
 .Synthase-dependent.active { border-color: black; border-width: 2px; border-style: solid; }
 
-.Synthase-dependent:hover { background-color: #df7083; }
+.Synthase-dependent:hover { background-color: #7fc6ee; }
 
-.Sucrase-dependent { background-color: #3c44d9; }
+.Sucrase-dependent { background-color: #f0e442; }
 
 .Sucrase-dependent a, .Sucrase-dependent a:link, .Sucrase-dependent a:visited { color: black; }
 
-rect.Sucrase-dependent { fill: #3c44d9; stroke: black; }
+rect.Sucrase-dependent { fill: #f0e442; stroke: black; }
 
 .Sucrase-dependent.active { border-color: black; border-width: 2px; border-style: solid; }
 
-.Sucrase-dependent:hover { background-color: #6269e0; }
+.Sucrase-dependent:hover { background-color: #f3ea6d; }
 
-.Monosaccharide-synthesis { background-color: #7edd96; }
+.Monosaccharide-synthesis { background-color: #d55e00; }
 
 .Monosaccharide-synthesis a, .Monosaccharide-synthesis a:link, .Monosaccharide-synthesis a:visited { color: black; }
 
-rect.Monosaccharide-synthesis { fill: #7edd96; stroke: black; }
+rect.Monosaccharide-synthesis { fill: #d55e00; stroke: black; }
 
 .Monosaccharide-synthesis.active { border-color: black; border-width: 2px; border-style: solid; }
 
-.Monosaccharide-synthesis:hover { background-color: #a2e7b4; }
+.Monosaccharide-synthesis:hover { background-color: #ff7304; }
 
-.Wzy-dependent { background-color: #ffed4d; }
+.Wzy-dependent { background-color: #cc79a7; }
 
 .Wzy-dependent a, .Wzy-dependent a:link, .Wzy-dependent a:visited { color: black; }
 
-rect.Wzy-dependent { fill: #ffed4d; stroke: black; }
+rect.Wzy-dependent { fill: #cc79a7; stroke: black; }
 
 .Wzy-dependent.active { border-color: black; border-width: 2px; border-style: solid; }
 
-.Wzy-dependent:hover { background-color: #fff27b; }
+.Wzy-dependent:hover { background-color: #d99abd; }
 
-.hybrid { background-color: lightsteelblue; }
+.hybrid { background-color: #009e73; }
 
 .hybrid a, .hybrid a:link, .hybrid a:visited { color: midnightblue; }
 
-rect.hybrid { fill: lightsteelblue; stroke: midnightblue; }
+rect.hybrid { fill: #009e73; stroke: midnightblue; }
 
 .hybrid.active { border-color: midnightblue; border-width: 2px; border-style: solid; }
 
-.hybrid:hover { background-color: #d0dcec; }
+.hybrid:hover { background-color: #00cc94; }
 
 .serif, .tfbs-details-container .tfbs-hit-list .tfbs-svg-container * .tfbs-sequence, .ripp-body .ripp-motif .ripp-segment-sequence, .ripp-body .ripp-motif .ripp-name, .comparippson-container .comparippson-alignment .comparippson-midline, .comparippson-container .comparippson-alignment, .clusterblast-locustag, .jsdomain-orflabel, .generic-domain-orflabel, .svgene-locustag, .cc-svg-locustag { font-family: "Courier New", serif; }
 
@@ -248,9 +228,19 @@ table.region-table .linked-row { cursor: pointer; }
 
 .svgene-type-biosynthetic-additional { fill: #f16d75; stroke: black; }
 
-.svgene-type-transport { fill: cornflowerblue; stroke: black; }
+.svgene-type-transport { fill: #332288; stroke: black; }
 
-.svgene-type-regulatory { fill: seagreen; stroke: black; }
+.svgene-type-regulatory { fill: #117733; stroke: black; }
+
+.svgene-type-degradation { fill: #44aa99; stroke: black; }
+
+.svgene-type-modification { fill: #88ccee; stroke: black; }
+
+.svgene-type-glycosyltransferase { fill: #ddcc77; stroke: black; }
+
+.svgene-type-polymerisation { fill: #aa4499; stroke: black; }
+
+.svgene-type-precursor { fill: #882255; stroke: black; }
 
 .svgene-resistance { fill: #bbb; }
 
@@ -300,9 +290,19 @@ table.region-table .linked-row { cursor: pointer; }
 
 .legend-type-biosynthetic-additional { background-color: #f16d75; }
 
-.legend-type-transport { background-color: cornflowerblue; }
+.legend-type-transport { background-color: #332288; }
 
-.legend-type-regulatory { background-color: seagreen; }
+.legend-type-regulatory { background-color: #117733; }
+
+.legend-type-degradation { background-color: #44aa99; }
+
+.legend-type-modification { background-color: #88ccee; }
+
+.legend-type-glycosyltransferase { background-color: #ddcc77; }
+
+.legend-type-polymerisation { background-color: #aa4499; }
+
+.legend-type-precursor { background-color: #882255; }
 
 .legend-border-cassis { background-color: wheat; }
 
