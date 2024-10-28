@@ -167,3 +167,4 @@ test_species/
 
 # BGC seeds
 customsmash/detection/custom_detection/data/bgc_seeds*
+customsmash/detection/monosaccharides/data/bgc_seeds*
