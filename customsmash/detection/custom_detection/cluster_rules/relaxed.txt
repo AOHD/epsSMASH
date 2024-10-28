@@ -167,3 +167,5 @@ RULE emulsan-like
     CUTOFF 30
     NEIGHBOURHOOD 10
     CONDITIONS  wzc_emulsan and wza_emulsan and wzx_emulsan and wzy_emulsan and minimum(11, [wzb_emulsan, weeA_emulsan, weeB_emulsan, weeC_emulsan, weeD_emulsan, weeE_emulsan, weeF_emulsan, weeG_emulsan, weeH_emulsan, weeI_emulsan, weeJ_emulsan, weeK_emulsan, galU_emulsan, ugd_emulsan, pgi_emulsan, galE_emulsan])
+
+
