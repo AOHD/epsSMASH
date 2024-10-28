@@ -26,7 +26,8 @@ DEFINE ABC_group AS [
 ]
 
 DEFINE wza_OPX_group AS [
-    Poly_export, 
+    Poly_export, # PFAM entry
+    Wza_C, # PFAM entry
     l_gumB_xanthan,
     l_pslD_psl,
     l_wza_colanic,
@@ -41,6 +42,7 @@ DEFINE wza_OPX_group AS [
 DEFINE wzx_group AS [
     Polysacc_synt_C,
     Polysacc_synt,
+    Polysacc_synt_2,
     Polysacc_synt_3,
     l_aceE_acetan,
     l_amsL_amylovoran,
@@ -69,9 +71,9 @@ DEFINE wzc_PCP_group AS [
    l_wzc_emulsan,
    l_wzc_zooglan,
    Wzz,                 # PFAM entry
-   GNVR,                # PFAM entry, tyrosine kinase 
+   #GNVR,                # PFAM entry, tyrosine kinase so not a PCP
    l_spnE_sphingans, #?? 
-   l_epsB_pnag # Not reported as PCP but shows homology!!  (instead as regulator - has a tyrosine kinase) 
+   #l_epsB_pnag # Not reported as PCP but shows homology!!  (instead as regulator - has a tyrosine kinase) 
 ]
 
 DEFINE wzy_group AS [
@@ -85,7 +87,10 @@ DEFINE wzy_group AS [
   # l_amsL_amylovoran,     # zoogleanlike  & wzx-homolog 
     l_gumE_xanthan,        # xanthan-like
     l_gumE_acetan,         # xanthan-like
-    l_wcaD_colanic         # colanic-like
+    l_wcaD_colanic,         # colanic-like
+    WzyE,                   #Pfam entry
+    Wzy_C,                  #Pfam entry
+    O-ag_pol_Wzy           #Pfam entry
 ]
 
 DEFINE GT_group AS [
