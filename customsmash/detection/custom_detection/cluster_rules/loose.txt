@@ -72,7 +72,7 @@ DEFINE wzc_PCP_group AS [
    l_wzc_zooglan,
    Wzz,                 # PFAM entry
    #GNVR,                # PFAM entry, tyrosine kinase so not a PCP
-   l_spnE_sphingans, #?? 
+   l_spnE_sphingans #?? 
    #l_epsB_pnag # Not reported as PCP but shows homology!!  (instead as regulator - has a tyrosine kinase) 
 ]
 
