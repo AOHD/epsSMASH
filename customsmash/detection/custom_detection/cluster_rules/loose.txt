@@ -1,3 +1,5 @@
+######### LOOSE RULES ########## 
+
 
 RULE cellulose-like-like
     CATEGORY  Synthase-dependent
@@ -7,3 +9,429 @@ RULE cellulose-like-like
     CUTOFF 20
     NEIGHBOURHOOD 10
     CONDITIONS BcsA
+
+
+####### WZX / WZX  ##########
+
+## Defines a list of rules; 
+DEFINE relaxed_wzx AS emulsan-like, zooglan-like, sphingans-like, lactobacillus_eps-like, amylovoran_stewartan-like, acetan-like, succinoglycan-like, colanic-like, xanthan-like, galactoglucan-like, psl-like, PNAG_eps-like
+
+
+## Defines a list of hmms 
+
+DEFINE ABC_group AS [
+    ABC_tran,
+    ABC_membrane, 
+    ABC2_membrane
+]
+
+DEFINE wza_OPX_group AS [
+    Poly_export, 
+    l_gumB_xanthan,
+    l_pslD_psl,
+    l_wza_colanic,
+    l_amsH_amylovoran,
+    l_aceH_acetan,
+    l_spnD_sphingans,
+    l_wza_emulsan, 
+    l_wza_zooglan
+    ]
+
+### wzx_group
+DEFINE wzx_group AS [
+    Polysacc_synt_C,
+    Polysacc_synt,
+    Polysacc_synt_3,
+    l_aceE_acetan,
+    l_amsL_amylovoran,
+    l_wzxC_zooglan,
+    l_gumJ_xanthan,
+    l_wzx_colanic,
+    l_exoT_succinoglycan,
+    l_spnS_sphingans,
+    l_epsK_pnag, 
+    l_wzx_emulsan,
+    l_1034_lactobacillus,
+    l_pslK_psl
+    ]
+
+### wzc_PCP_group
+DEFINE wzc_PCP_group AS [
+   l_exoP_succinoglycan,
+   l_aceD_acetan,
+   l_epsC_lactobacillus,
+   l_epsB_lactobacillus,  
+   l_pslE_psl, 
+   l_gumC_xanthan,
+   l_wzc_colanic,
+   l_amsA_amylovoran,
+   l_spnC_sphingans,
+   l_wzc_emulsan,
+   l_wzc_zooglan,
+   Wzz,                 # PFAM entry
+   GNVR,                # PFAM entry, tyrosine kinase 
+   l_spnE_sphingans, #?? 
+   l_epsB_pnag # Not reported as PCP but shows homology!!  (instead as regulator - has a tyrosine kinase) 
+]
+
+DEFINE wzy_group AS [
+    l_wzy_zooglan,         # zoogleanlike
+    l_1031_lactobacillus,  # zoogleanlike # xanthan-like
+    # l_1034_lactobacillus,  # zoogleanlike  & wzx-homolog
+    l_pslJ_psl,            # zoogleanlike 
+    l_spnG_sphingans,      # zoogleanlike 
+    l_exoQ_succinoglycan,  # zoogleanlike 
+    l_wzy_emulsan,         # zoogleanlike 
+  # l_amsL_amylovoran,     # zoogleanlike  & wzx-homolog 
+    l_gumE_xanthan,        # xanthan-like
+    l_gumE_acetan,         # xanthan-like
+    l_wcaD_colanic         # colanic-like
+]
+
+DEFINE GT_group AS [
+    l_1026_lactobacillus,    # GT
+    l_1027_lactobacillus,    # GT
+    l_1028_lactobacillus,    # GT
+    l_1029_lactobacillus,    # GT
+    l_1030_lactobacillus,    # GT
+    l_1033_lactobacillus,    # GT
+    l_aceP_acetan,    # GT
+    l_aceQ_acetan,    # GT
+    l_aceR_acetan,    # GT
+    l_amsB_amylovoran,    # GT
+    l_amsD_amylovoran,    # GT
+    l_amsE_amylovoran,    # GT
+    l_amsK_amylovoran,    # GT
+    l_epsD_pnag,    # GT
+    l_epsE_pnag,    # GT
+    l_epsF_pnag,    # GT
+    l_epsH_pnag,    # GT
+    l_epsJ_pnag,    # GT
+    l_epsL_pnag,    # GT
+    l_epsM_pnag,    # GT
+    l_epsN_pnag,    # GT
+    l_epsO_pnag,    # GT
+    l_exoA_succinoglycan,    # GT
+    l_exoL_succinoglycan,    # GT
+    l_exoM_succinoglycan,    # GT
+    l_exoO_succinoglycan,    # GT
+    l_exoU_succinoglycan,    # GT
+    l_exoW_succinoglycan,    # GT
+    l_gumH_xanthan,    # GT
+    l_gumI_xanthan,    # GT
+    l_gumK_acetan,    # GT
+    l_gumK_xanthan,    # GT
+    l_gumM_xanthan,    # GT
+    l_pslC_psl,    # GT
+    l_pslF_psl,    # GT
+    l_pslH_psl,    # GT
+    l_pslI_psl,    # GT
+    l_spnL_sphingans,    # GT
+    l_spnQ_sphingans,    # GT
+    l_wcaA_colanic,    # GT
+    l_wcaC_colanic,    # GT
+    l_wcaE_colanic,    # GT
+    l_wcaL_colanic,    # GT
+    l_weeD_emulsan,    # GT
+    l_weeG_emulsan,    # GT
+    l_weeH_emulsan,    # GT
+    l_wgaB_galactoglucan,    # GT
+    l_wgaC_galactoglucan,    # GT
+    l_wgcA_galactoglucan,    # GT
+    l_wgeB_galactoglucan,    # GT
+    l_wgeD_galactoglucan,    # GT
+    l_wgeG_galactoglucan,    # GT
+    l_zooGT1_zooglan,    # GT
+    l_zooGT2_zooglan,    # GT
+    l_zooGT3_zooglan,    # GT
+    l_zooGT4_zooglan,    # GT
+    l_zooGT5_zooglan,    # GT
+    l_zooGT6_zooglan,    # GT
+    l_zooGT7_zooglan,    # GT
+    l_zooGT8_zooglan    # GT
+]
+
+
+##############################################
+############## + PCP + ABC based  ##############
+##############################################
+
+RULE GT_AND_PCP_ABC_OPX_wzx_wzy_NO     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+    SUPERIORS relaxed_wzx
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
+
+RULE GT_AND_PCP_ABC_wzx_NO_OPX_wzy     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_ABC_wzx_NO_OPX_wzy
+    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group) and not minimum(1, wzy_group)
+
+RULE GT_AND_PCP_ABC_wzy_NO_OPX_wzx     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_ABC_wzy_NO_OPX_wzx
+    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group)
+
+RULE GT_AND_PCP_ABC_wzx_wzy_NO_OPX     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_ABC_wzx_wzy_NO_OPX
+    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
+
+RULE GT_AND_PCP_ABC_OPX_wzy_NO_wzx     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_ABC_OPX_wzy_NO_wzx
+    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
+
+
+RULE GT_AND_PCP_ABC_OPX_WZX_NO_WZY     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_ABC_OPX_WZX_NO_WZY
+    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, ABC_group) and not minimum(1, wzy_group) and minimum(1, wzc_PCP_group)
+
+RULE GT_AND_PCP_ABC_OPX_NO_WZX_WZY     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_ABC_OPX_NO_WZX_WZY
+    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wzy_group) and minimum(1, wzc_PCP_group)
+
+
+DEFINE PCP_ABC_pos AS GT_AND_PCP_ABC_OPX_NO_WZX_WZY, GT_AND_PCP_ABC_OPX_WZX_NO_WZY, GT_AND_PCP_ABC_OPX_wzy_NO_wzx, GT_AND_PCP_ABC_wzx_wzy_NO_OPX, GT_AND_PCP_ABC_wzx_NO_OPX_wzy, GT_AND_PCP_ABC_OPX_wzx_wzy_NO, GT_AND_PCP_ABC_wzy_NO_OPX_wzx
+
+##############################################
+############## - PCP + ABC based  ##############
+##############################################
+
+RULE GT_AND_ABC_wzx_NO_PCP_OPX_wzy     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_ABC_wzx_NO_PCP_OPX_wzy
+    SUPERIORS relaxed_wzx, PCP_ABC_pos
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wzx_group) and not minimum(1, wzy_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group)
+
+RULE GT_AND_ABC_wzy_NO_PCP_OPX_wzx     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_ABC_wzy_NO_PCP_OPX_wzx
+    SUPERIORS relaxed_wzx, PCP_ABC_pos
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) 
+
+RULE GT_AND_ABC_wzx_wzy_NO_PCP_OPX     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_ABC_wzx_wzy_NO_PCP_OPX
+    SUPERIORS relaxed_wzx, PCP_ABC_pos
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) 
+
+RULE GT_AND_ABC_OPX_wzy_NO_PCP_wzx     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_ABC_OPX_wzy_NO_PCP_wzx
+    SUPERIORS relaxed_wzx, PCP_ABC_pos
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, wzc_PCP_group)
+
+RULE GT_AND_ABC_OPX_wzx_wzy_NO_PCP     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_ABC_OPX_wzx_wzy_NO_PCP
+    SUPERIORS relaxed_wzx, PCP_ABC_pos
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wzc_PCP_group)
+
+RULE GT_AND_ABC_OPX_WZX_NO_PCP_WZY     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_ABC_OPX_WZX_NO_PCP_WZY
+    SUPERIORS relaxed_wzx, PCP_ABC_pos
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wzy_group)
+
+RULE GT_AND_ABC_OPX_NO_PCP_WZX_WZY     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_ABC_OPX_NO_PCP_WZX_WZY
+    SUPERIORS relaxed_wzx, PCP_ABC_pos
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and not minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and minimum(1, wzy_group)
+
+
+##############################################
+############## + PCP - ABC based  ##############
+##############################################
+
+RULE GT_AND_PCP_OPX_wzx_wzy_NO_ABC     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+    SUPERIORS relaxed_wzx, PCP_ABC_pos
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, ABC_group)
+
+RULE GT_AND_PCP_wzx_NO_OPX_wzy_ABC     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_wzx_NO_OPX_wzy_ABC
+    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wza_OPX_group) and not minimum(1, wzy_group)
+
+RULE GT_AND_PCP_wzy_NO_OPX_wzx_ABC     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_wzy_NO_OPX_wzx_ABC
+    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wza_OPX_group)
+
+RULE GT_AND_PCP_wzx_wzy_NO_OPX_ABC     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_wzx_wzy_NO_OPX_ABC
+    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wza_OPX_group)
+
+RULE GT_AND_PCP_OPX_wzy_NO_wzx_ABC     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_OPX_wzy_NO_wzx_ABC
+    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, ABC_group)
+
+
+RULE GT_AND_PCP_OPX_WZX_NO_ABC_WZY     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_OPX_WZX_NO_ABC_WZY
+    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wzy_group)
+
+RULE GT_AND_PCP_OPX_NO_ABC_WZX_WZY     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_PCP_OPX_NO_ABC_WZX_WZY
+    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and not minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wzy_group)
+
+
+DEFINE PCP_or_ABC_pos AS GT_AND_PCP_OPX_NO_ABC_WZX_WZY, GT_AND_PCP_OPX_WZX_NO_ABC_WZY, GT_AND_PCP_OPX_wzy_NO_wzx_ABC, GT_AND_PCP_wzx_wzy_NO_OPX_ABC, GT_AND_PCP_OPX_wzx_wzy_NO_ABC, GT_AND_PCP_wzx_NO_OPX_wzy_ABC, GT_AND_ABC_wzx_NO_PCP_OPX_wzy, GT_AND_ABC_OPX_wzx_wzy_NO_PCP, GT_AND_ABC_OPX_WZX_NO_PCP_WZY, GT_AND_ABC_OPX_NO_PCP_WZX_WZY, GT_AND_ABC_wzx_wzy_NO_PCP_OPX, GT_AND_ABC_wzy_NO_PCP_OPX_wzx, GT_AND_ABC_OPX_wzy_NO_PCP_wzx, GT_AND_PCP_wzy_NO_OPX_wzx_ABC
+
+
+##############################################
+############## - PCP - ABC based  ###############
+##############################################
+
+RULE GT_AND_OPX_wzx_wzy_NO_PCP_ABC     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_OPX_wzx_wzy_NO_PCP_ABC
+    SUPERIORS relaxed_wzx, PCP_or_ABC_pos
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wzc_PCP_group) and not minimum(1, ABC_group)
+
+RULE GT_AND_wzx_wzy_NO_ABC_PCP_OPX     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_wzx_wzy_NO_ABC_PCP_OPX
+    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group)
+
+
+RULE GT_AND_OPX_wzy_NO_ABC_PCP_wzx     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_OPX_wzy_NO_ABC_PCP_wzx
+    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wzx_group)
+
+
+RULE GT_AND_wzy_NO_ABC_PCP_OPX_wzx     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_wzy_NO_ABC_PCP_OPX_wzx
+    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) and not minimum(1, wzx_group)
+
+RULE GT_AND_wzx_NO_ABC_PCP_OPX_wzy     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_wzx_NO_ABC_PCP_OPX_wzy
+    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) and not minimum(1, wzy_group)
+
+
+RULE GT_AND_OPX_NO_ABC_PCP_wzy     
+    CATEGORY  Wzy-dependent
+    DESCRIPTION GT_AND_wzx_NO_ABC_PCP_OPX_wzy
+    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC, GT_AND_OPX_wzy_NO_ABC_PCP_wzx
+    CUTOFF 20
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(1, GT_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) and not minimum(1, wzy_group)
+
+
+#
+#RULE OPX-class-1     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION OPX_class_1
+#    SUPERIORS 
+#    CUTOFF 20
+#    NEIGHBOURHOOD 10
+#    CONDITIONS minimum(1, wza_OPX_group) and minscore(SLBB,20) and minscore(Wza_C, 20) and not minscore(Caps_syn_GfcC_C, 20)
+#
+#
+#RULE OPX-class-2 
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION OPX_class_2
+#    SUPERIORS  
+#    CUTOFF 20
+#    NEIGHBOURHOOD 10
+#    CONDITIONS minimum(1, wza_OPX_group) and minscore(SLBB,20) and minscore(Caps_syn_GfcC_C, 20)
+#
+#RULE PCP-all_OPX-class-3  
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION OPX_class_3
+#    RELATED 
+#    SUPERIORS 
+#    CUTOFF 20
+#    NEIGHBOURHOOD 10
+#    CONDITIONS minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minscore(SLBB,20) and not minscore(Caps_syn_GfcC_C, 20) and not minscore(Wza_C, 20)
+#
+#RULE PCP-all_OPX-remain    
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION PCP-all_OPX_remain
+#    SUPERIORS relaxed_wzx, PCP-all_OPX-class-1, PCP-all_OPX-class-2, PCP-all_OPX-class-3
+#    CUTOFF 20
+#    NEIGHBOURHOOD 10
+#    CONDITIONS minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and not minscore(SLBB,20) 
+#
+
+
