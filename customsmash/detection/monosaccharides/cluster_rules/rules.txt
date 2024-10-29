@@ -192,3 +192,18 @@ RULE	UDP-glucose-synthesis
 	NEIGHBOURHOOD	10
 	CONDITIONS	minimum(1, [Glucose-1-phosphate_uridylyltransferase-A, Glucose-1-phosphate_uridylyltransferase-B])
 
+# Using manual made HMMs
+
+RULE	dTDP-Qui3NAc-synthesis
+	CATEGORY	Monosaccharide-synthesis
+	DESCRIPTION	dTDP-Qui3NAc-synthesis required steps: 4/5
+	CUTOFF	20
+	NEIGHBOURHOOD	10
+	CONDITIONS	Glucose-1-phosphate_thymidylyltransferase and dTDP_TDP-glucose_4-6-dehydratase and minimum(1, [dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A, dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B]) and ((dTDP_TDP-4-keto-6-deoxy-glucose_3-4-ketoisomerase and QdtC) or QdtD)
+
+RULE	dTDP-Qui4NAc-synthesis
+	CATEGORY	Monosaccharide-synthesis
+	DESCRIPTION	dTDP-Qui4NAc-synthesis required steps: 4
+	CUTOFF	20
+	NEIGHBOURHOOD	10
+	CONDITIONS	Glucose-1-phosphate_thymidylyltransferase and dTDP_TDP-glucose_4-6-dehydratase and minimum(1, [dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A, dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B]) and vioB

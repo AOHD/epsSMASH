@@ -62,3 +62,6 @@ UDP-4-keto-6-deoxy-glucose_3-5-epimerase-4-reductase	UDP-4-keto-6-deoxy glucose 
 CDP-4-keto-6-deoxy-glucose_C3-methyltransfase	Nucleotide-sugar C-methyltransferase	434	individual_hmms/CDP-4-keto-6-deoxy-glucose_C3-methyltransfase.hmm
 CDP-4-keto-3c-methyl-6-deoxy-gulose_4-reductase	CDP-6-deoxy/3,6-dideoxy-hexose 4-reductase (Axial, Equatorial)	138	individual_hmms/CDP-4-keto-3c-methyl-6-deoxy-gulose_4-reductase.hmm
 UDP-GlcNAc_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose C4 epimerase	250	individual_hmms/UDP-GlcNAc_4-epimerase.hmm
+qdtC	dTDP_TDP-3-amino-3-6-dideoxy-glucose_acetyltransferase	20	individual_hmms/qdtC.hmm
+qdtD	catalysing step 3 + step 5	20	individual_hmms/qdtD.hmm
+vioB	dTDP_TDP-4-amino-4-6-dideoxy-glucose_acetyltransferase	20	individual_hmms/vioB.hmm
