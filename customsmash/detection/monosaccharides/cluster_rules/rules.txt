@@ -199,7 +199,7 @@ RULE	dTDP-Qui3NAc-synthesis
 	DESCRIPTION	dTDP-Qui3NAc-synthesis required steps: 4/5
 	CUTOFF	20
 	NEIGHBOURHOOD	10
-	CONDITIONS	Glucose-1-phosphate_thymidylyltransferase and dTDP_TDP-glucose_4-6-dehydratase and minimum(1, [dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A, dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B]) and ((dTDP_TDP-4-keto-6-deoxy-glucose_3-4-ketoisomerase and QdtC) or QdtD)
+	CONDITIONS	Glucose-1-phosphate_thymidylyltransferase and dTDP_TDP-glucose_4-6-dehydratase and minimum(1, [dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A, dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B]) and ((dTDP_TDP-4-keto-6-deoxy-glucose_3-4-ketoisomerase and qdtC) or qdtD)
 
 RULE	dTDP-Qui4NAc-synthesis
 	CATEGORY	Monosaccharide-synthesis
@@ -207,3 +207,10 @@ RULE	dTDP-Qui4NAc-synthesis
 	CUTOFF	20
 	NEIGHBOURHOOD	10
 	CONDITIONS	Glucose-1-phosphate_thymidylyltransferase and dTDP_TDP-glucose_4-6-dehydratase and minimum(1, [dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A, dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B]) and vioB
+
+RULE	N-Acetylquinovosamine_QuiNAc
+	CATEGORY	Monosaccharide-synthesis
+	DESCRIPTION	N-Acetylquinovosamine (QuiNAc), required steps: 4 (this rule includes step 4 and 5)
+	CUTOFF	20
+	NEIGHBOURHOOD	10
+	CONDITIONS	wbpM and wbpV

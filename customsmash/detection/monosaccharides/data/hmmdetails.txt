@@ -65,3 +65,8 @@ UDP-GlcNAc_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose 
 qdtC	dTDP_TDP-3-amino-3-6-dideoxy-glucose_acetyltransferase	20	individual_hmms/qdtC.hmm
 qdtD	catalysing step 3 + step 5	20	individual_hmms/qdtD.hmm
 vioB	dTDP_TDP-4-amino-4-6-dideoxy-glucose_acetyltransferase	20	individual_hmms/vioB.hmm
+dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A	dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A	282	individual_hmms/dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A.hmm
+dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B	dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B	400	individual_hmms/dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B.hmm
+dTDP_TDP-4-keto-6-deoxy-glucose_3-4-ketoisomerase	dTDP_TDP-4-keto-6-deoxy-glucose_3-4-ketoisomerase	106	individual_hmms/dTDP_TDP-4-keto-6-deoxy-glucose_3-4-ketoisomerase.hmm
+wbpM	UDP-GlcNAc 4,6-dehydratase (step 4: N-Acetylquinovosamine (QuiNAc))	400	individual_hmms/wbpM.hmm
+wbpV	(step 5: N-Acetylquinovosamine (QuiNAc)	30	individual_hmms/wbpV.hmm
