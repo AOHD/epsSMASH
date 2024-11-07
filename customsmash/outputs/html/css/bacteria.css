@@ -264,7 +264,9 @@ table.region-table .linked-row { cursor: pointer; }
 
 .svgene-binding-site circle { fill: black; }
 
-.legend-items, .zoom-buttons { display: flex; justify-content: center; }
+.legend-items { display: flex; justify-content: center; flex-wrap: wrap; max-width: 100%; margin: 0 auto; gap: 0.5em; }
+
+.zoom-buttons { display: flex; justify-content: center; }
 
 .button-like { display: flex; align-items: center; border: 1px solid lightgrey; border-radius: 0.5em; margin-left: 1em; padding: 0.5em; padding-top: 0.3em; box-shadow: inset 0 -2px 2px grey; cursor: default; font-size: 80%; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 

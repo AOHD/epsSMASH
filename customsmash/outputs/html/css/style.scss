@@ -639,7 +639,16 @@ table.region-table {
     }
 }
 
-.legend-items, .zoom-buttons {
+.legend-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;    // Allow items to wrap onto the next row
+    max-width: 100%;     // Adjust this to control when items wrap (e.g., 50%, 100%, etc.)
+    margin: 0 auto;     // Center the container if needed
+    gap: 0.5em;         // Optional: add spacing between items for better readability
+}
+
+.zoom-buttons {
     display: flex;
     justify-content: center;
 }
