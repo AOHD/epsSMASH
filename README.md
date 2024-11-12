@@ -28,7 +28,7 @@ Download antismash databases
 
 `download-antismash-databases`
 
-Run custom-smash
+Run epsSMASH
 
-`custom-smash --help-showall`
+`epsSMASH --help-showall`
 

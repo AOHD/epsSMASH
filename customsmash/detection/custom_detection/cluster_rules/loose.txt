@@ -1,16 +1,5 @@
 ######### LOOSE RULES ########## 
 
-
-RULE cellulose-like-like
-    CATEGORY  Synthase-dependent
-    DESCRIPTION Cellulose-like
-    RELATED algF_cel, algI_cel, algJ_cel, algX_cel, BcsD, BcsE, BcsF, BcsG, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, bglX
-    SUPERIORS generic-cellulose
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS BcsA
-
-
 ####### WZX / WZX  ##########
 
 ## Defines a list of rules; 
@@ -61,7 +50,6 @@ DEFINE wzx_group AS [
 DEFINE wzc_PCP_group AS [
    l_exoP_succinoglycan,
    l_aceD_acetan,
-   l_epsC_lactobacillus,
    l_epsB_lactobacillus,  
    l_pslE_psl, 
    l_gumC_xanthan,
@@ -71,9 +59,10 @@ DEFINE wzc_PCP_group AS [
    l_wzc_emulsan,
    l_wzc_zooglan,
    Wzz,                 # PFAM entry
-   #GNVR,                # PFAM entry, tyrosine kinase so not a PCP
    l_spnE_sphingans #?? 
-   #l_epsB_pnag # Not reported as PCP but shows homology!!  (instead as regulator - has a tyrosine kinase) 
+   #l_epsB_pnag # Not reported as PCP but shows homology!!  (instead as regulator - has a tyrosine kinase)
+   #l_epsC_lactobacillus, tyrosine kinase so not a PCP
+   #GNVR                # PFAM entry, tyrosine kinase so not a PCP
 ]
 
 DEFINE wzy_group AS [
@@ -157,69 +146,119 @@ DEFINE GT_group AS [
 ]
 
 
+RULE wzy_dependent_putative
+    CATEGORY  Wzy-dependent
+    DESCRIPTION Loose rule for Wzy-dependent clusters
+    SUPERIORS relaxed_wzx
+    CUTOFF 25
+    NEIGHBOURHOOD 1
+    CONDITIONS (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and minimum(1, GT_group)
+
+
+RULE wzy_dependent_putative_NO_OPX
+    CATEGORY  Wzy-dependent
+    DESCRIPTION Loose rule for Wzy-dependent clusters
+    SUPERIORS relaxed_wzx, wzy_dependent_putative
+    CUTOFF 25
+    NEIGHBOURHOOD 1
+    CONDITIONS (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, wzc_PCP_group) and minimum(1, GT_group) 
+
+
+#RULE ABC_dependent_putative
+#    CATEGORY  ABC-dependent
+#    DESCRIPTION Loose rule for ABC-transporter dependent clusters
+#    SUPERIORS relaxed_wzx, wzy_dependent_putative, wzy_dependent_putative_NO_OPX
+#    CUTOFF 25
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and not (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, GT_group)
+
+#RULE ABC_dependent_putative_NO_OPX
+#    CATEGORY  ABC-dependent
+#    DESCRIPTION Loose rule for ABC-transporter dependent clusters
+#    SUPERIORS relaxed_wzx, wzy_dependent_putative, wzy_dependent_putative_NO_OPX, ABC_dependent_putative
+#    CUTOFF 25
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, ABC_group) and minimum(1, wzc_PCP_group) and not (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, GT_group)
+
+#RULE ABC_wzy_dependent_putative
+#    CATEGORY  Unknown
+#    DESCRIPTION Loose rule for ABC-transporter/Wzy-dependent clusters
+#    SUPERIORS relaxed_wzx, ABC_dependent_putative, wzy_dependent_putative, ABC_dependent_putative_NO_OPX, wzy_dependent_putative_NO_OPX
+#    CUTOFF 25
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and (minimum(1, wzy_group) or minimum(1, ABC_group) or minimum(1, wzx_group)) and minimum(1, GT_group)
+#
+#RULE ABC_wzy_dependent_putative_NO_OPX
+#    CATEGORY  Unknown
+#    DESCRIPTION Loose rule for ABC-transporter/Wzy-dependent clusters
+#    SUPERIORS relaxed_wzx, ABC_wzy_dependent_putative, ABC_dependent_putative, wzy_dependent_putative, ABC_dependent_putative_NO_OPX, wzy_dependent_putative_NO_OPX
+#    CUTOFF 25
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, wzc_PCP_group) and (minimum(1, wzy_group) or minimum(1, ABC_group) or minimum(1, wzx_group) or minimum(1, wza_OPX_group)) and minimum(1, GT_group)
+
 ##############################################
 ############## + PCP + ABC based  ##############
 ##############################################
 
-RULE GT_AND_PCP_ABC_OPX_wzx_wzy_NO     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-    SUPERIORS relaxed_wzx
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
-
-RULE GT_AND_PCP_ABC_wzx_NO_OPX_wzy     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_ABC_wzx_NO_OPX_wzy
-    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group) and not minimum(1, wzy_group)
-
-RULE GT_AND_PCP_ABC_wzy_NO_OPX_wzx     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_ABC_wzy_NO_OPX_wzx
-    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group)
-
-RULE GT_AND_PCP_ABC_wzx_wzy_NO_OPX     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_ABC_wzx_wzy_NO_OPX
-    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
-
-RULE GT_AND_PCP_ABC_OPX_wzy_NO_wzx     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_ABC_OPX_wzy_NO_wzx
-    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
-
-
-RULE GT_AND_PCP_ABC_OPX_WZX_NO_WZY     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_ABC_OPX_WZX_NO_WZY
-    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, ABC_group) and not minimum(1, wzy_group) and minimum(1, wzc_PCP_group)
-
-RULE GT_AND_PCP_ABC_OPX_NO_WZX_WZY     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_ABC_OPX_NO_WZX_WZY
-    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO, GT_AND_PCP_ABC_OPX_WZX_NO_WZY
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wzy_group) and minimum(1, wzc_PCP_group)
-
-
-DEFINE PCP_ABC_pos AS GT_AND_PCP_ABC_OPX_NO_WZX_WZY, GT_AND_PCP_ABC_OPX_WZX_NO_WZY, GT_AND_PCP_ABC_OPX_wzy_NO_wzx, GT_AND_PCP_ABC_wzx_wzy_NO_OPX, GT_AND_PCP_ABC_wzx_NO_OPX_wzy, GT_AND_PCP_ABC_OPX_wzx_wzy_NO, GT_AND_PCP_ABC_wzy_NO_OPX_wzx
+#RULE GT_AND_PCP_ABC_OPX_wzx_wzy_NO     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+#    SUPERIORS relaxed_wzx
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
+#
+#RULE GT_AND_PCP_ABC_wzx_NO_OPX_wzy     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_ABC_wzx_NO_OPX_wzy
+#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group) and not minimum(1, wzy_group)
+#
+#RULE GT_AND_PCP_ABC_wzy_NO_OPX_wzx     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_ABC_wzy_NO_OPX_wzx
+#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group)
+#
+#RULE GT_AND_PCP_ABC_wzx_wzy_NO_OPX     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_ABC_wzx_wzy_NO_OPX
+#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
+#
+#RULE GT_AND_PCP_ABC_OPX_wzy_NO_wzx     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_ABC_OPX_wzy_NO_wzx
+#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
+#
+#
+#RULE GT_AND_PCP_ABC_OPX_WZX_NO_WZY     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_ABC_OPX_WZX_NO_WZY
+#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, ABC_group) and not minimum(1, wzy_group) and minimum(1, wzc_PCP_group)
+#
+#RULE GT_AND_PCP_ABC_OPX_NO_WZX_WZY     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_ABC_OPX_NO_WZX_WZY
+#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO, GT_AND_PCP_ABC_OPX_WZX_NO_WZY
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wzy_group) and minimum(1, wzc_PCP_group)
+#
+#
+#DEFINE PCP_ABC_pos AS GT_AND_PCP_ABC_OPX_NO_WZX_WZY, GT_AND_PCP_ABC_OPX_WZX_NO_WZY, GT_AND_PCP_ABC_OPX_wzy_NO_wzx, GT_AND_PCP_ABC_wzx_wzy_NO_OPX, GT_AND_PCP_ABC_wzx_NO_OPX_wzy, GT_AND_PCP_ABC_OPX_wzx_wzy_NO, GT_AND_PCP_ABC_wzy_NO_OPX_wzx
 
 ##############################################
 ############## - PCP + ABC based  ##############
@@ -229,56 +268,56 @@ DEFINE PCP_ABC_pos AS GT_AND_PCP_ABC_OPX_NO_WZX_WZY, GT_AND_PCP_ABC_OPX_WZX_NO_W
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_ABC_wzx_NO_PCP_OPX_wzy
 #    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wzx_group) and not minimum(1, wzy_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group)
 #
 #RULE GT_AND_ABC_wzy_NO_PCP_OPX_wzx     
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_ABC_wzy_NO_PCP_OPX_wzx
 #    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) 
 #
 #RULE GT_AND_ABC_wzx_wzy_NO_PCP_OPX     
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_ABC_wzx_wzy_NO_PCP_OPX
 #    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) 
 #
 #RULE GT_AND_ABC_OPX_wzy_NO_PCP_wzx     
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_ABC_OPX_wzy_NO_PCP_wzx
 #    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, wzc_PCP_group)
 #
 #RULE GT_AND_ABC_OPX_wzx_wzy_NO_PCP     
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_ABC_OPX_wzx_wzy_NO_PCP
 #    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wzc_PCP_group)
 #
 #RULE GT_AND_ABC_OPX_WZX_NO_PCP_WZY     
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_ABC_OPX_WZX_NO_PCP_WZY
 #    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wzy_group)
 #
 #RULE GT_AND_ABC_OPX_NO_PCP_WZX_WZY     
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_ABC_OPX_NO_PCP_WZX_WZY
 #    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and not minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and minimum(1, wzy_group)
 
 
@@ -286,65 +325,65 @@ DEFINE PCP_ABC_pos AS GT_AND_PCP_ABC_OPX_NO_WZX_WZY, GT_AND_PCP_ABC_OPX_WZX_NO_W
 ############## + PCP - ABC based  ##############
 ##############################################
 
-RULE GT_AND_PCP_OPX_wzx_wzy_NO_ABC     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-    SUPERIORS relaxed_wzx, PCP_ABC_pos
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, ABC_group)
-
-RULE GT_AND_PCP_wzx_NO_OPX_wzy_ABC     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_wzx_NO_OPX_wzy_ABC
-    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wza_OPX_group) and not minimum(1, wzy_group)
-
-RULE GT_AND_PCP_wzy_NO_OPX_wzx_ABC     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_wzy_NO_OPX_wzx_ABC
-    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wza_OPX_group)
-
-RULE GT_AND_PCP_wzx_wzy_NO_OPX_ABC     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_wzx_wzy_NO_OPX_ABC
-    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wza_OPX_group)
-
-RULE GT_AND_PCP_OPX_wzy_NO_wzx_ABC     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_OPX_wzy_NO_wzx_ABC
-    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, ABC_group)
-
-
-RULE GT_AND_PCP_OPX_WZX_NO_ABC_WZY     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_OPX_WZX_NO_ABC_WZY
-    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wzy_group)
-
-RULE GT_AND_PCP_OPX_NO_ABC_WZX_WZY     
-    CATEGORY  Wzy-dependent
-    DESCRIPTION GT_AND_PCP_OPX_NO_ABC_WZX_WZY
-    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC, GT_AND_PCP_OPX_WZX_NO_ABC_WZY, GT_AND_PCP_OPX_wzy_NO_wzx_ABC
-    CUTOFF 20
-    NEIGHBOURHOOD 10
-    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and not minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wzy_group)
-
-
-DEFINE PCP_or_ABC_pos AS GT_AND_PCP_OPX_NO_ABC_WZX_WZY, GT_AND_PCP_OPX_WZX_NO_ABC_WZY, GT_AND_PCP_OPX_wzy_NO_wzx_ABC, GT_AND_PCP_wzx_wzy_NO_OPX_ABC, GT_AND_PCP_OPX_wzx_wzy_NO_ABC, GT_AND_PCP_wzx_NO_OPX_wzy_ABC, GT_AND_ABC_wzx_NO_PCP_OPX_wzy, GT_AND_ABC_OPX_wzx_wzy_NO_PCP, GT_AND_ABC_OPX_WZX_NO_PCP_WZY, GT_AND_ABC_OPX_NO_PCP_WZX_WZY, GT_AND_ABC_wzx_wzy_NO_PCP_OPX, GT_AND_ABC_wzy_NO_PCP_OPX_wzx, GT_AND_ABC_OPX_wzy_NO_PCP_wzx, GT_AND_PCP_wzy_NO_OPX_wzx_ABC
+#RULE GT_AND_PCP_OPX_wzx_wzy_NO_ABC     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+#    SUPERIORS relaxed_wzx, PCP_ABC_pos
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, ABC_group)
+#
+#RULE GT_AND_PCP_wzx_NO_OPX_wzy_ABC     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_wzx_NO_OPX_wzy_ABC
+#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wza_OPX_group) and not minimum(1, wzy_group)
+#
+#RULE GT_AND_PCP_wzy_NO_OPX_wzx_ABC     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_wzy_NO_OPX_wzx_ABC
+#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wza_OPX_group)
+#
+#RULE GT_AND_PCP_wzx_wzy_NO_OPX_ABC     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_wzx_wzy_NO_OPX_ABC
+#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wza_OPX_group)
+#
+#RULE GT_AND_PCP_OPX_wzy_NO_wzx_ABC     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_OPX_wzy_NO_wzx_ABC
+#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, ABC_group)
+#
+#
+#RULE GT_AND_PCP_OPX_WZX_NO_ABC_WZY     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_OPX_WZX_NO_ABC_WZY
+#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wzy_group)
+#
+#RULE GT_AND_PCP_OPX_NO_ABC_WZX_WZY     
+#    CATEGORY  Wzy-dependent
+#    DESCRIPTION GT_AND_PCP_OPX_NO_ABC_WZX_WZY
+#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC, GT_AND_PCP_OPX_WZX_NO_ABC_WZY, GT_AND_PCP_OPX_wzy_NO_wzx_ABC
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
+#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and not minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wzy_group)
+#
+#
+#DEFINE PCP_or_ABC_pos AS GT_AND_PCP_OPX_NO_ABC_WZX_WZY, GT_AND_PCP_OPX_WZX_NO_ABC_WZY, GT_AND_PCP_OPX_wzy_NO_wzx_ABC, GT_AND_PCP_wzx_wzy_NO_OPX_ABC, GT_AND_PCP_OPX_wzx_wzy_NO_ABC, GT_AND_PCP_wzx_NO_OPX_wzy_ABC, GT_AND_ABC_wzx_NO_PCP_OPX_wzy, GT_AND_ABC_OPX_wzx_wzy_NO_PCP, GT_AND_ABC_OPX_WZX_NO_PCP_WZY, GT_AND_ABC_OPX_NO_PCP_WZX_WZY, GT_AND_ABC_wzx_wzy_NO_PCP_OPX, GT_AND_ABC_wzy_NO_PCP_OPX_wzx, GT_AND_ABC_OPX_wzy_NO_PCP_wzx, GT_AND_PCP_wzy_NO_OPX_wzx_ABC
 
 
 ##############################################
@@ -355,16 +394,16 @@ DEFINE PCP_or_ABC_pos AS GT_AND_PCP_OPX_NO_ABC_WZX_WZY, GT_AND_PCP_OPX_WZX_NO_AB
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_OPX_wzx_wzy_NO_PCP_ABC
 #    SUPERIORS relaxed_wzx, PCP_or_ABC_pos
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wzc_PCP_group) and not minimum(1, ABC_group)
 #
 #RULE GT_AND_wzx_wzy_NO_ABC_PCP_OPX     
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_wzx_wzy_NO_ABC_PCP_OPX
 #    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group)
 #
 #
@@ -372,8 +411,8 @@ DEFINE PCP_or_ABC_pos AS GT_AND_PCP_OPX_NO_ABC_WZX_WZY, GT_AND_PCP_OPX_WZX_NO_AB
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_OPX_wzy_NO_ABC_PCP_wzx
 #    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wzx_group)
 #
 #
@@ -381,16 +420,16 @@ DEFINE PCP_or_ABC_pos AS GT_AND_PCP_OPX_NO_ABC_WZX_WZY, GT_AND_PCP_OPX_WZX_NO_AB
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_wzy_NO_ABC_PCP_OPX_wzx
 #    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) and not minimum(1, wzx_group)
 #
 #RULE GT_AND_wzx_NO_ABC_PCP_OPX_wzy     
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_wzx_NO_ABC_PCP_OPX_wzy
 #    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) and not minimum(1, wzy_group)
 #
 #
@@ -398,8 +437,8 @@ DEFINE PCP_or_ABC_pos AS GT_AND_PCP_OPX_NO_ABC_WZX_WZY, GT_AND_PCP_OPX_WZX_NO_AB
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION GT_AND_OPX_NO_ABC_PCP_wzy
 #    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC, GT_AND_OPX_wzy_NO_ABC_PCP_wzx
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, GT_group) and not minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and not minimum(1, wzy_group)
 
 
@@ -408,8 +447,8 @@ DEFINE PCP_or_ABC_pos AS GT_AND_PCP_OPX_NO_ABC_WZX_WZY, GT_AND_PCP_OPX_WZX_NO_AB
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION OPX_class_1
 #    SUPERIORS 
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, wza_OPX_group) and minscore(SLBB,20) and minscore(Wza_C, 20) and not minscore(Caps_syn_GfcC_C, 20)
 #
 #
@@ -417,8 +456,8 @@ DEFINE PCP_or_ABC_pos AS GT_AND_PCP_OPX_NO_ABC_WZX_WZY, GT_AND_PCP_OPX_WZX_NO_AB
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION OPX_class_2
 #    SUPERIORS  
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, wza_OPX_group) and minscore(SLBB,20) and minscore(Caps_syn_GfcC_C, 20)
 #
 #RULE PCP-all_OPX-class-3  
@@ -426,16 +465,16 @@ DEFINE PCP_or_ABC_pos AS GT_AND_PCP_OPX_NO_ABC_WZX_WZY, GT_AND_PCP_OPX_WZX_NO_AB
 #    DESCRIPTION OPX_class_3
 #    RELATED 
 #    SUPERIORS 
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minscore(SLBB,20) and not minscore(Caps_syn_GfcC_C, 20) and not minscore(Wza_C, 20)
 #
 #RULE PCP-all_OPX-remain    
 #    CATEGORY  Wzy-dependent
 #    DESCRIPTION PCP-all_OPX_remain
 #    SUPERIORS relaxed_wzx, PCP-all_OPX-class-1, PCP-all_OPX-class-2, PCP-all_OPX-class-3
-#    CUTOFF 20
-#    NEIGHBOURHOOD 10
+#    CUTOFF 35
+#    NEIGHBOURHOOD 1
 #    CONDITIONS minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and not minscore(SLBB,20) 
 #
 
