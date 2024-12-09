@@ -50,6 +50,14 @@
     @include secmet(black, #cc79a7, black);  // change colours to suit
 }
 
+.ABC-dependent {
+    @include secmet(black, #009e73, black);  // change colours to suit
+}
+
+.Unknown {
+    @include secmet(rgb(255, 255, 255), #000000, rgb(0, 0, 0));  // change colours to suit
+}
+
 // a special case for hybrid/multiprotocluster regions, 
 // needs to remain at the bottom to override all the above
 .hybrid {

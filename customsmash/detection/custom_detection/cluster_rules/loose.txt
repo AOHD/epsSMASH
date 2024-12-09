@@ -3,7 +3,7 @@
 ####### WZX / WZX  ##########
 
 ## Defines a list of rules; 
-DEFINE relaxed_wzx AS emulsan-like, zooglan-like, sphingans-like, lactobacillus_eps-like, amylovoran_stewartan-like, acetan-like, succinoglycan-like, colanic-like, xanthan-like, galactoglucan-like, psl-like, PNAG_eps-like
+DEFINE relaxed AS emulsan-like, zooglan-like, sphingans-like, lactobacillus_eps-like, amylovoran_stewartan-like, acetan-like, succinoglycan-like, colanic-like, xanthan-like, galactoglucan-like, psl-like, PNAG_eps-like
 
 
 ## Defines a list of hmms 
@@ -82,6 +82,17 @@ DEFINE wzy_group AS [
     O-ag_pol_Wzy           #Pfam entry
 ]
 
+DEFINE pGT_group AS [
+    l_aceA_acetan,
+    l_amsG_amylovoran,
+    l_epsC_pnag,
+    l_epsE_lactobacillus,
+    l_gumD_xanthan,
+    l_pslA_psl,
+    l_spnB_sphingans,
+    l_wcaJ_colanic
+]
+
 DEFINE GT_group AS [
     l_1026_lactobacillus,    # GT
     l_1027_lactobacillus,    # GT
@@ -102,8 +113,6 @@ DEFINE GT_group AS [
     l_epsH_pnag,    # GT
     l_epsJ_pnag,    # GT
     l_epsL_pnag,    # GT
-    l_epsM_pnag,    # GT
-    l_epsN_pnag,    # GT
     l_epsO_pnag,    # GT
     l_exoA_succinoglycan,    # GT
     l_exoL_succinoglycan,    # GT
@@ -146,336 +155,54 @@ DEFINE GT_group AS [
 ]
 
 
+
 RULE wzy_dependent_putative
     CATEGORY  Wzy-dependent
     DESCRIPTION Loose rule for Wzy-dependent clusters
-    SUPERIORS relaxed_wzx
+    SUPERIORS relaxed
     CUTOFF 25
     NEIGHBOURHOOD 1
-    CONDITIONS (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and minimum(1, GT_group)
+    CONDITIONS (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
 
 
 RULE wzy_dependent_putative_NO_OPX
     CATEGORY  Wzy-dependent
     DESCRIPTION Loose rule for Wzy-dependent clusters
-    SUPERIORS relaxed_wzx, wzy_dependent_putative
+    SUPERIORS wzy_dependent_putative, relaxed
     CUTOFF 25
     NEIGHBOURHOOD 1
-    CONDITIONS (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, wzc_PCP_group) and minimum(1, GT_group) 
+    CONDITIONS (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, wzc_PCP_group) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
 
 
-#RULE ABC_dependent_putative
-#    CATEGORY  ABC-dependent
-#    DESCRIPTION Loose rule for ABC-transporter dependent clusters
-#    SUPERIORS relaxed_wzx, wzy_dependent_putative, wzy_dependent_putative_NO_OPX
-#    CUTOFF 25
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and not (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, GT_group)
+RULE ABC_dependent_putative
+    CATEGORY  ABC-dependent
+    DESCRIPTION Loose rule for ABC-transporter dependent clusters
+    SUPERIORS wzy_dependent_putative, wzy_dependent_putative_NO_OPX, relaxed
+    CUTOFF 25
+    NEIGHBOURHOOD 1
+    CONDITIONS minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and not (minimum(1, wzy_group) or minimum(1, wzx_group)) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
 
-#RULE ABC_dependent_putative_NO_OPX
-#    CATEGORY  ABC-dependent
-#    DESCRIPTION Loose rule for ABC-transporter dependent clusters
-#    SUPERIORS relaxed_wzx, wzy_dependent_putative, wzy_dependent_putative_NO_OPX, ABC_dependent_putative
-#    CUTOFF 25
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, ABC_group) and minimum(1, wzc_PCP_group) and not (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, GT_group)
+RULE ABC_dependent_putative_NO_OPX
+    CATEGORY  ABC-dependent
+    DESCRIPTION Loose rule for ABC-transporter dependent clusters
+    SUPERIORS wzy_dependent_putative, wzy_dependent_putative_NO_OPX, ABC_dependent_putative, relaxed
+    CUTOFF 25
+    NEIGHBOURHOOD 1
+    CONDITIONS minimum(1, ABC_group) and minimum(1, wzc_PCP_group) and not (minimum(1, wzy_group) or minimum(1, wzx_group)) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
 
-#RULE ABC_wzy_dependent_putative
-#    CATEGORY  Unknown
-#    DESCRIPTION Loose rule for ABC-transporter/Wzy-dependent clusters
-#    SUPERIORS relaxed_wzx, ABC_dependent_putative, wzy_dependent_putative, ABC_dependent_putative_NO_OPX, wzy_dependent_putative_NO_OPX
-#    CUTOFF 25
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and (minimum(1, wzy_group) or minimum(1, ABC_group) or minimum(1, wzx_group)) and minimum(1, GT_group)
-#
-#RULE ABC_wzy_dependent_putative_NO_OPX
-#    CATEGORY  Unknown
-#    DESCRIPTION Loose rule for ABC-transporter/Wzy-dependent clusters
-#    SUPERIORS relaxed_wzx, ABC_wzy_dependent_putative, ABC_dependent_putative, wzy_dependent_putative, ABC_dependent_putative_NO_OPX, wzy_dependent_putative_NO_OPX
-#    CUTOFF 25
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, wzc_PCP_group) and (minimum(1, wzy_group) or minimum(1, ABC_group) or minimum(1, wzx_group) or minimum(1, wza_OPX_group)) and minimum(1, GT_group)
+RULE ABC_wzy_dependent_putative
+    CATEGORY  Unknown
+    DESCRIPTION Loose rule for ABC-transporter/Wzy-dependent clusters
+    SUPERIORS ABC_dependent_putative, wzy_dependent_putative, ABC_dependent_putative_NO_OPX, wzy_dependent_putative_NO_OPX, relaxed
+    CUTOFF 25
+    NEIGHBOURHOOD 1
+    CONDITIONS minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
 
-##############################################
-############## + PCP + ABC based  ##############
-##############################################
-
-#RULE GT_AND_PCP_ABC_OPX_wzx_wzy_NO     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-#    SUPERIORS relaxed_wzx
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
-#
-#RULE GT_AND_PCP_ABC_wzx_NO_OPX_wzy     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_ABC_wzx_NO_OPX_wzy
-#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group) and not minimum(1, wzy_group)
-#
-#RULE GT_AND_PCP_ABC_wzy_NO_OPX_wzx     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_ABC_wzy_NO_OPX_wzx
-#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group)
-#
-#RULE GT_AND_PCP_ABC_wzx_wzy_NO_OPX     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_ABC_wzx_wzy_NO_OPX
-#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wza_OPX_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
-#
-#RULE GT_AND_PCP_ABC_OPX_wzy_NO_wzx     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_ABC_OPX_wzy_NO_wzx
-#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and minimum(1, ABC_group) and minimum(1, wzc_PCP_group)
-#
-#
-#RULE GT_AND_PCP_ABC_OPX_WZX_NO_WZY     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_ABC_OPX_WZX_NO_WZY
-#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, ABC_group) and not minimum(1, wzy_group) and minimum(1, wzc_PCP_group)
-#
-#RULE GT_AND_PCP_ABC_OPX_NO_WZX_WZY     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_ABC_OPX_NO_WZX_WZY
-#    SUPERIORS relaxed_wzx, GT_AND_PCP_ABC_OPX_wzx_wzy_NO, GT_AND_PCP_ABC_OPX_WZX_NO_WZY
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wzy_group) and minimum(1, wzc_PCP_group)
-#
-#
-#DEFINE PCP_ABC_pos AS GT_AND_PCP_ABC_OPX_NO_WZX_WZY, GT_AND_PCP_ABC_OPX_WZX_NO_WZY, GT_AND_PCP_ABC_OPX_wzy_NO_wzx, GT_AND_PCP_ABC_wzx_wzy_NO_OPX, GT_AND_PCP_ABC_wzx_NO_OPX_wzy, GT_AND_PCP_ABC_OPX_wzx_wzy_NO, GT_AND_PCP_ABC_wzy_NO_OPX_wzx
-
-##############################################
-############## - PCP + ABC based  ##############
-##############################################
-
-#RULE GT_AND_ABC_wzx_NO_PCP_OPX_wzy     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_ABC_wzx_NO_PCP_OPX_wzy
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wzx_group) and not minimum(1, wzy_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group)
-#
-#RULE GT_AND_ABC_wzy_NO_PCP_OPX_wzx     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_ABC_wzy_NO_PCP_OPX_wzx
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) 
-#
-#RULE GT_AND_ABC_wzx_wzy_NO_PCP_OPX     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_ABC_wzx_wzy_NO_PCP_OPX
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) 
-#
-#RULE GT_AND_ABC_OPX_wzy_NO_PCP_wzx     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_ABC_OPX_wzy_NO_PCP_wzx
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, wzc_PCP_group)
-#
-#RULE GT_AND_ABC_OPX_wzx_wzy_NO_PCP     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_ABC_OPX_wzx_wzy_NO_PCP
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wzc_PCP_group)
-#
-#RULE GT_AND_ABC_OPX_WZX_NO_PCP_WZY     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_ABC_OPX_WZX_NO_PCP_WZY
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wzy_group)
-#
-#RULE GT_AND_ABC_OPX_NO_PCP_WZX_WZY     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_ABC_OPX_NO_PCP_WZX_WZY
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, ABC_group) and minimum(1, wza_OPX_group) and not minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and minimum(1, wzy_group)
-
-
-##############################################
-############## + PCP - ABC based  ##############
-##############################################
-
-#RULE GT_AND_PCP_OPX_wzx_wzy_NO_ABC     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, ABC_group)
-#
-#RULE GT_AND_PCP_wzx_NO_OPX_wzy_ABC     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_wzx_NO_OPX_wzy_ABC
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wza_OPX_group) and not minimum(1, wzy_group)
-#
-#RULE GT_AND_PCP_wzy_NO_OPX_wzx_ABC     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_wzy_NO_OPX_wzx_ABC
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wza_OPX_group)
-#
-#RULE GT_AND_PCP_wzx_wzy_NO_OPX_ABC     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_wzx_wzy_NO_OPX_ABC
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wza_OPX_group)
-#
-#RULE GT_AND_PCP_OPX_wzy_NO_wzx_ABC     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_OPX_wzy_NO_wzx_ABC
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, wzx_group) and not minimum(1, ABC_group)
-#
-#
-#RULE GT_AND_PCP_OPX_WZX_NO_ABC_WZY     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_OPX_WZX_NO_ABC_WZY
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wzy_group)
-#
-#RULE GT_AND_PCP_OPX_NO_ABC_WZX_WZY     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_PCP_OPX_NO_ABC_WZX_WZY
-#    SUPERIORS relaxed_wzx, PCP_ABC_pos, GT_AND_PCP_OPX_wzx_wzy_NO_ABC, GT_AND_PCP_OPX_WZX_NO_ABC_WZY, GT_AND_PCP_OPX_wzy_NO_wzx_ABC
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and not minimum(1, ABC_group) and not minimum(1, wzx_group) and not minimum(1, wzy_group)
-#
-#
-#DEFINE PCP_or_ABC_pos AS GT_AND_PCP_OPX_NO_ABC_WZX_WZY, GT_AND_PCP_OPX_WZX_NO_ABC_WZY, GT_AND_PCP_OPX_wzy_NO_wzx_ABC, GT_AND_PCP_wzx_wzy_NO_OPX_ABC, GT_AND_PCP_OPX_wzx_wzy_NO_ABC, GT_AND_PCP_wzx_NO_OPX_wzy_ABC, GT_AND_ABC_wzx_NO_PCP_OPX_wzy, GT_AND_ABC_OPX_wzx_wzy_NO_PCP, GT_AND_ABC_OPX_WZX_NO_PCP_WZY, GT_AND_ABC_OPX_NO_PCP_WZX_WZY, GT_AND_ABC_wzx_wzy_NO_PCP_OPX, GT_AND_ABC_wzy_NO_PCP_OPX_wzx, GT_AND_ABC_OPX_wzy_NO_PCP_wzx, GT_AND_PCP_wzy_NO_OPX_wzx_ABC
-
-
-##############################################
-############## - PCP - ABC based  ###############
-##############################################
-
-#RULE GT_AND_OPX_wzx_wzy_NO_PCP_ABC     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_OPX_wzx_wzy_NO_PCP_ABC
-#    SUPERIORS relaxed_wzx, PCP_or_ABC_pos
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, wzc_PCP_group) and not minimum(1, ABC_group)
-#
-#RULE GT_AND_wzx_wzy_NO_ABC_PCP_OPX     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_wzx_wzy_NO_ABC_PCP_OPX
-#    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzx_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group)
-#
-#
-#RULE GT_AND_OPX_wzy_NO_ABC_PCP_wzx     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_OPX_wzy_NO_ABC_PCP_wzx
-#    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wza_OPX_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wzx_group)
-#
-#
-#RULE GT_AND_wzy_NO_ABC_PCP_OPX_wzx     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_wzy_NO_ABC_PCP_OPX_wzx
-#    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzy_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) and not minimum(1, wzx_group)
-#
-#RULE GT_AND_wzx_NO_ABC_PCP_OPX_wzy     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_wzx_NO_ABC_PCP_OPX_wzy
-#    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and not minimum(1, wza_OPX_group) and not minimum(1, wzy_group)
-#
-#
-#RULE GT_AND_OPX_NO_ABC_PCP_wzy     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION GT_AND_OPX_NO_ABC_PCP_wzy
-#    SUPERIORS relaxed_wzx, PCP_or_ABC_pos, GT_AND_OPX_wzx_wzy_NO_PCP_ABC, GT_AND_OPX_wzy_NO_ABC_PCP_wzx
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, GT_group) and not minimum(1, wzx_group) and not minimum(1, ABC_group) and not minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and not minimum(1, wzy_group)
-
-
-#
-#RULE OPX-class-1     
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION OPX_class_1
-#    SUPERIORS 
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, wza_OPX_group) and minscore(SLBB,20) and minscore(Wza_C, 20) and not minscore(Caps_syn_GfcC_C, 20)
-#
-#
-#RULE OPX-class-2 
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION OPX_class_2
-#    SUPERIORS  
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, wza_OPX_group) and minscore(SLBB,20) and minscore(Caps_syn_GfcC_C, 20)
-#
-#RULE PCP-all_OPX-class-3  
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION OPX_class_3
-#    RELATED 
-#    SUPERIORS 
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and minscore(SLBB,20) and not minscore(Caps_syn_GfcC_C, 20) and not minscore(Wza_C, 20)
-#
-#RULE PCP-all_OPX-remain    
-#    CATEGORY  Wzy-dependent
-#    DESCRIPTION PCP-all_OPX_remain
-#    SUPERIORS relaxed_wzx, PCP-all_OPX-class-1, PCP-all_OPX-class-2, PCP-all_OPX-class-3
-#    CUTOFF 35
-#    NEIGHBOURHOOD 1
-#    CONDITIONS minimum(1, wzc_PCP_group) and minimum(1, wza_OPX_group) and not minscore(SLBB,20) 
-#
-
+RULE ABC_wzy_dependent_putative_NO_OPX
+    CATEGORY  Unknown
+    DESCRIPTION Loose rule for ABC-transporter/Wzy-dependent clusters
+    SUPERIORS ABC_dependent_putative, wzy_dependent_putative, ABC_dependent_putative_NO_OPX, wzy_dependent_putative_NO_OPX, ABC_wzy_dependent_putative, relaxed
+    CUTOFF 25
+    NEIGHBOURHOOD 1
+    CONDITIONS minimum(1, wzc_PCP_group) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
 

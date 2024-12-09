@@ -70,7 +70,7 @@ def _build_ruleset(options: ConfigType) -> Ruleset:
     # the cache key needs to be immutable
     key = (strictness, tuple(name_subset), tuple(category_subset))
     
-    categories = {"Synthase-dependent", "Sucrase-dependent", "Monosaccharide-synthesis", "Wzy-dependent"}  # contains all categories in the rules that will
+    categories = {"Synthase-dependent", "Sucrase-dependent", "Monosaccharide-synthesis", "Wzy-dependent", "ABC-dependent", "Unknown"}  # contains all categories in the rules that will
                            # be used in the ruleset
     
     signatures = {sig.name: sig for sig in get_signature_profiles(SIGNATURE_FILE)}

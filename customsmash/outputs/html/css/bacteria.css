@@ -38,6 +38,26 @@ rect.Wzy-dependent { fill: #cc79a7; stroke: black; }
 
 .Wzy-dependent:hover { background-color: #d99abd; }
 
+.ABC-dependent { background-color: #009e73; }
+
+.ABC-dependent a, .ABC-dependent a:link, .ABC-dependent a:visited { color: black; }
+
+rect.ABC-dependent { fill: #009e73; stroke: black; }
+
+.ABC-dependent.active { border-color: black; border-width: 2px; border-style: solid; }
+
+.ABC-dependent:hover { background-color: #00cc94; }
+
+.Unknown { background-color: #000000; }
+
+.Unknown a, .Unknown a:link, .Unknown a:visited { color: white; }
+
+rect.Unknown { fill: #000000; stroke: black; }
+
+.Unknown.active { border-color: black; border-width: 2px; border-style: solid; }
+
+.Unknown:hover { background-color: #171717; }
+
 .hybrid { background-color: #009e73; }
 
 .hybrid a, .hybrid a:link, .hybrid a:visited { color: midnightblue; }

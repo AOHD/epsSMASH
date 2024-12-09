@@ -314,13 +314,13 @@ ABC2_membrane	x	20	individual_hmms/ABC2_membrane.hmm
 ABC_membrane	x	20	individual_hmms/ABC_membrane.hmm
 ABC_tran	x	20	individual_hmms/ABC_tran.hmm
 # LOOSE RULES: Decrease in bitscore
+# Glycosyltransferases
 l_amsA_amylovoran	Polysaccharide copolymerase 2 (PCP-2)	20	individual_hmms_loose_rules/l_amsA_amylovoran.hmm
 l_amsB_amylovoran	Glycosyltransferase	20	individual_hmms_loose_rules/l_amsB_amylovoran.hmm
 l_amsC_amylovoran	Wzy polymerase	20	individual_hmms_loose_rules/l_amsC_amylovoran.hmm
 l_amsD_amylovoran	Glycosyltransferase	20	individual_hmms_loose_rules/l_amsD_amylovoran.hmm
 l_amsE_amylovoran	Glycosyltransferase	20	individual_hmms_loose_rules/l_amsE_amylovoran.hmm
 l_amsF_amylovoran	Depolymerase	20	individual_hmms_loose_rules/l_amsF_amylovoran.hmm
-l_amsG_amylovoran	Phosphoglycosyltransferase (Undecraprenyl primer)	20	individual_hmms_loose_rules/l_amsG_amylovoran.hmm
 l_amsH_amylovoran	Outer Membrane Polysaccharide Export (OPX)	20	individual_hmms_loose_rules/l_amsH_amylovoran.hmm
 l_amsI_amylovoran	Phosphatase	20	individual_hmms_loose_rules/l_amsI_amylovoran.hmm
 l_amsJ_amylovoran	Pyruvyl transferase	20	individual_hmms_loose_rules/l_amsJ_amylovoran.hmm
@@ -328,7 +328,6 @@ l_amsK_amylovoran	Glycosyltransferase	20	individual_hmms_loose_rules/l_amsK_amyl
 l_amsL_amylovoran	Wzx flippase	20	individual_hmms_loose_rules/l_amsL_amylovoran.hmm
 l_galE_amylovoran	UDP-galactose-4-epimerase	20	individual_hmms_loose_rules/l_galE_amylovoran.hmm
 l_galF_amylovoran	UTP-glucose-1-phosphate uridylyltransferase	20	individual_hmms_loose_rules/l_galF_amylovoran.hmm
-l_aceA_acetan	Phosphoglycosyltransferase (Undecraprenyl primer)	20	individual_hmms_loose_rules/l_aceA_acetan.hmm
 l_aceB_acetan	Glycosyltransferase	20	individual_hmms_loose_rules/l_aceB_acetan.hmm
 l_aceC_acetan	Glycosyltransferase	20	individual_hmms_loose_rules/l_aceC_acetan.hmm
 l_aceD_acetan	Polysaccharide copolymerase (PCP)	20	individual_hmms_loose_rules/l_aceD_acetan.hmm
@@ -386,7 +385,6 @@ l_wcaF_colanic	Acetyltransferase	20	individual_hmms_loose_rules/l_wcaF_colanic.h
 l_wcaG_colanic	Fucose-synthase	20	individual_hmms_loose_rules/l_wcaG_colanic.hmm
 l_wcaH_colanic	NA	20	individual_hmms_loose_rules/l_wcaH_colanic.hmm
 l_wcaI_colanic	Sugar monomers transfer	20	individual_hmms_loose_rules/l_wcaI_colanic.hmm
-l_wcaJ_colanic	Iniciates the stepwise assembly of the repeat unit	20	individual_hmms_loose_rules/l_wcaJ_colanic.hmm
 l_wcaK_colanic	NA	20	individual_hmms_loose_rules/l_wcaK_colanic.hmm
 l_wcaL_colanic	Sugar monomers transfer	20	individual_hmms_loose_rules/l_wcaL_colanic.hmm
 l_gmd_colanic	Precursor synthesis, GDP-mannose dehydratase	20	individual_hmms_loose_rules/l_gmd_colanic.hmm
@@ -394,7 +392,6 @@ l_manC_colanic	Biosynthesis mechanism of GDP-mannose	20	individual_hmms_loose_ru
 l_manB_colanic	Biosynthesis mechanism of GDP-mannose	20	individual_hmms_loose_rules/l_manB_colanic.hmm
 l_gumB_xanthan	Polysaccharide biosynthesis/export protein, Wza family (OPX)	20	individual_hmms_loose_rules/l_gumB_xanthan.hmm
 l_gumC_xanthan	Autokinase domain, sequence similarity to Wzc (PCP2)	20	individual_hmms_loose_rules/l_gumC_xanthan.hmm
-l_gumD_xanthan	Phosphoglycosyltransferase (Undecraprenyl primer)	20	individual_hmms_loose_rules/l_gumD_xanthan.hmm
 l_gumE_xanthan	Polimerization and export (Wzy)	20	individual_hmms_loose_rules/l_gumE_xanthan.hmm
 l_gumF_xanthan	Acetyltransferase I	20	individual_hmms_loose_rules/l_gumF_xanthan.hmm
 l_gumG_xanthan	Acetyltransferase II	20	individual_hmms_loose_rules/l_gumG_xanthan.hmm
@@ -403,7 +400,7 @@ l_gumI_xanthan	Mannosyltransferase	20	individual_hmms_loose_rules/l_gumI_xanthan
 l_gumJ_xanthan	Wzx flippase	20	individual_hmms_loose_rules/l_gumJ_xanthan.hmm
 l_gumK_xanthan	Glycosyltransferase	20	individual_hmms_loose_rules/l_gumK_xanthan.hmm
 l_gumL_xanthan	Pyruvyltransferase	20	individual_hmms_loose_rules/l_gumL_xanthan.hmm
-l_gumM_xanthan	Glucosyltransferase	20	individual_hmms_loose_rules/l_gumM_xanthan.hmm
+l_gumM_xanthan	Glucosyltransferase	100	individual_hmms_loose_rules/l_gumM_xanthan.hmm
 l_wgeH_galactoglucan	NA	20	individual_hmms_loose_rules/l_wgeH_galactoglucan.hmm
 l_wgeG_galactoglucan	Galactosyltransferase	20	individual_hmms_loose_rules/l_wgeG_galactoglucan.hmm
 l_wgeF_galactoglucan	NA	20	individual_hmms_loose_rules/l_wgeF_galactoglucan.hmm
@@ -426,7 +423,6 @@ l_wgaG_galactoglucan	Involved in the synthesis of deoxythymidine diphospho-sugar
 l_wgaH_galactoglucan	Involved in the synthesis of deoxythymidine diphospho-sugar precursors	20	individual_hmms_loose_rules/l_wgaH_galactoglucan.hmm
 l_wgaI_galactoglucan	Involved in the synthesis of deoxythymidine diphospho-sugar precursors	20	individual_hmms_loose_rules/l_wgaI_galactoglucan.hmm
 l_wgaJ_galactoglucan	Involved in the synthesis of deoxythymidine diphospho-sugar precursors	20	individual_hmms_loose_rules/l_wgaJ_galactoglucan.hmm
-l_pslA_psl	Polyprenyl glycosylphosphotransferase	20	individual_hmms_loose_rules/l_pslA_psl.hmm
 l_pslB_psl	Convertion of fructose-6-phosphate into GDP mannose	20	individual_hmms_loose_rules/l_pslB_psl.hmm
 l_pslC_psl	Glycosyltransferase family 2	20	individual_hmms_loose_rules/l_pslC_psl.hmm
 l_pslD_psl	Outer membrane lipoprotein Wza (OPX)	20	individual_hmms_loose_rules/l_pslD_psl.hmm
@@ -440,7 +436,6 @@ l_pslK_psl	Wzx flippase	20	individual_hmms_loose_rules/l_pslK_psl.hmm
 l_pslL_psl	Acyltransferase	20	individual_hmms_loose_rules/l_pslL_psl.hmm
 l_epsA_pnag	Regulation of epsB	20	individual_hmms_loose_rules/l_epsA_pnag.hmm
 l_epsB_pnag	Tyrosine autokinase	20	individual_hmms_loose_rules/l_epsB_pnag.hmm
-l_epsC_pnag	Biosynthesis of UDP-diNAcBac	20	individual_hmms_loose_rules/l_epsC_pnag.hmm
 l_epsD_pnag	Glycosyltransferase	20	individual_hmms_loose_rules/l_epsD_pnag.hmm
 l_epsE_pnag	Glycosyltransferase	20	individual_hmms_loose_rules/l_epsE_pnag.hmm
 l_epsF_pnag	Glycosyltransferase	20	individual_hmms_loose_rules/l_epsF_pnag.hmm
@@ -449,7 +444,7 @@ l_epsH_pnag	Glycosyltransferase	20	individual_hmms_loose_rules/l_epsH_pnag.hmm
 l_epsI_pnag	Pyruvyltransferase	20	individual_hmms_loose_rules/l_epsI_pnag.hmm
 l_epsJ_pnag	poly-GlcNAc transferase	20	individual_hmms_loose_rules/l_epsJ_pnag.hmm
 l_epsK_pnag	Wzx flippase	20	individual_hmms_loose_rules/l_epsK_pnag.hmm
-l_epsL_pnag	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_epsL_pnag.hmm
+l_epsL_pnag	Phosphoglycosyltransferase	100	individual_hmms_loose_rules/l_epsL_pnag.hmm
 l_epsM_pnag	Acetyltransferase	20	individual_hmms_loose_rules/l_epsM_pnag.hmm
 l_epsN_pnag	Aminotransferase/sugartransferase	20	individual_hmms_loose_rules/l_epsN_pnag.hmm
 l_epsO_pnag	Glycosyltransferase	20	individual_hmms_loose_rules/l_epsO_pnag.hmm
@@ -457,12 +452,11 @@ l_epsA_lactobacillus	Transcriptional regulation	20	individual_hmms_loose_rules/l
 l_epsB_lactobacillus	Capsular polysaccharide biosynthesis proteins and polymerisation and chain length determination proteins (PCP2)	150	individual_hmms_loose_rules/l_epsB_lactobacillus.hmm
 l_epsC_lactobacillus	Tyrosine protein kinase Wzc (PCP2)	20	individual_hmms_loose_rules/l_epsC_lactobacillus.hmm
 l_epsD_lactobacillus	Protein-tyrosine-phosphate phosphohydrolase	20	individual_hmms_loose_rules/l_epsD_lactobacillus.hmm
-l_epsE_lactobacillus	Undecaprenyl-phosphate galactosephosphotransferase	20	individual_hmms_loose_rules/l_epsE_lactobacillus.hmm
 l_1026_lactobacillus	Glycosyltransferase	20	individual_hmms_loose_rules/l_1026_lactobacillus.hmm
 l_1027_lactobacillus	Glycosyltransferase	20	individual_hmms_loose_rules/l_1027_lactobacillus.hmm
-l_1028_lactobacillus	Glycosyltransferase	20	individual_hmms_loose_rules/l_1028_lactobacillus.hmm
+l_1028_lactobacillus	Glycosyltransferase	100	individual_hmms_loose_rules/l_1028_lactobacillus.hmm
 l_1029_lactobacillus	Glycosyltransferase	20	individual_hmms_loose_rules/l_1029_lactobacillus.hmm
-l_1030_lactobacillus	Glycosyltransferase	20	individual_hmms_loose_rules/l_1030_lactobacillus.hmm
+l_1030_lactobacillus	Glycosyltransferase	100	individual_hmms_loose_rules/l_1030_lactobacillus.hmm
 l_1031_lactobacillus	Polimerization and export (Wzy)	20	individual_hmms_loose_rules/l_1031_lactobacillus.hmm
 l_1032_lactobacillus	UDP-galactopyranose mutase	20	individual_hmms_loose_rules/l_1032_lactobacillus.hmm
 l_1033_lactobacillus	Glycosyltransferase	20	individual_hmms_loose_rules/l_1033_lactobacillus.hmm
@@ -483,7 +477,6 @@ l_spnM_sphingans	Unknown related to polymerization and transport	20	individual_h
 l_spnN_sphingans	Unknown related to polymerization and transport	20	individual_hmms_loose_rules/l_spnN_sphingans.hmm
 l_atrD_sphingans	NA similar to ABC transporters	20	individual_hmms_loose_rules/l_atrD_sphingans.hmm
 l_atrB_sphingans	NA similar to ABC transporters	20	individual_hmms_loose_rules/l_atrB_sphingans.hmm
-l_spnB_sphingans	Glucosyl-isoprenyl phosphate transferase	20	individual_hmms_loose_rules/l_spnB_sphingans.hmm
 l_rmlA_sphingans	Biosynthesis of the rhamnose nucleotide sugars	20	individual_hmms_loose_rules/l_rmlA_sphingans.hmm
 l_rmlC_sphingans	Biosynthesis of the rhamnose nucleotide sugars	20	individual_hmms_loose_rules/l_rmlC_sphingans.hmm
 l_rmlB_sphingans	Biosynthesis of the rhamnose nucleotide sugars	20	individual_hmms_loose_rules/l_rmlB_sphingans.hmm
@@ -495,11 +488,11 @@ l_asnB_zooglan	Asparagine synthases	20	individual_hmms_loose_rules/l_asnB_zoogla
 l_zooTRP_zooglan	NA	20	individual_hmms_loose_rules/l_zooTRP_zooglan.hmm
 l_wzxC_zooglan	Wzx flippase	20	individual_hmms_loose_rules/l_wzxC_zooglan.hmm
 l_zooGT8_zooglan	Glycosyltransferase	20	individual_hmms_loose_rules/l_zooGT8_zooglan.hmm
-l_zooGT7_zooglan	Glycosyltransferase	20	individual_hmms_loose_rules/l_zooGT7_zooglan.hmm
+l_zooGT7_zooglan	Glycosyltransferase	100	individual_hmms_loose_rules/l_zooGT7_zooglan.hmm
 l_zooGH_zooglan	Glycosyl hydrolase	20	individual_hmms_loose_rules/l_zooGH_zooglan.hmm
 l_zooM1_zooglan	Acetyltransferase/Acyltransferase	20	individual_hmms_loose_rules/l_zooM1_zooglan.hmm
 l_zooGT6_zooglan	Glycosyltransferase	20	individual_hmms_loose_rules/l_zooGT6_zooglan.hmm
-l_zooGT5_zooglan	Glycosyltransferase	20	individual_hmms_loose_rules/l_zooGT5_zooglan.hmm
+l_zooGT5_zooglan	Glycosyltransferase	100	individual_hmms_loose_rules/l_zooGT5_zooglan.hmm
 l_epsH_zooglan	Transmembrane protein involved in EPS biosynthesis	20	individual_hmms_loose_rules/l_epsH_zooglan.hmm
 l_wzy_zooglan	Polimerization and export (Wzy)	20	individual_hmms_loose_rules/l_wzy_zooglan.hmm
 l_capK_zooglan	NA	20	individual_hmms_loose_rules/l_capK_zooglan.hmm
@@ -507,7 +500,7 @@ l_zooGT4_zooglan	Glycosyltransferase	20	individual_hmms_loose_rules/l_zooGT4_zoo
 l_zooGT3_zooglan	Glycosyltransferase	20	individual_hmms_loose_rules/l_zooGT3_zooglan.hmm
 l_asnH_zooglan	Asparagine synthase	20	individual_hmms_loose_rules/l_asnH_zooglan.hmm
 l_zooGT2_zooglan	Glycosyltransferase	20	individual_hmms_loose_rules/l_zooGT2_zooglan.hmm
-l_zooGT1_zooglan	Glycosyltransferase	20	individual_hmms_loose_rules/l_zooGT1_zooglan.hmm
+l_zooGT1_zooglan	Glycosyltransferase	100	individual_hmms_loose_rules/l_zooGT1_zooglan.hmm
 l_zooM2_zooglan	Aminoglycoside N(3)-acetyltransferase	20	individual_hmms_loose_rules/l_zooM2_zooglan.hmm
 l_zooM3_zooglan	Removal of acetyl groups from EPS	20	individual_hmms_loose_rules/l_zooM3_zooglan.hmm
 l_zooSA_zooglan	EPS export	20	individual_hmms_loose_rules/l_zooSA_zooglan.hmm
@@ -537,3 +530,12 @@ l_galU_emulsan	NA	20	individual_hmms_loose_rules/l_galU_emulsan.hmm
 l_ugd_emulsan	NA	20	individual_hmms_loose_rules/l_ugd_emulsan.hmm
 l_pgi_emulsan	NA	20	individual_hmms_loose_rules/l_pgi_emulsan.hmm
 l_galE_emulsan	UDP-glucose 4-epimerase	20	individual_hmms_loose_rules/l_galE_emulsan.hmm
+# Phosphoglycosyltransferases
+l_aceA_acetan	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_aceA_acetan.hmm
+l_amsG_amylovoran	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_amsG_amylovoran.hmm
+l_epsC_pnag	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_epsC_pnag.hmm
+l_epsE_lactobacillus	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_epsE_lactobacillus.hmm
+l_gumD_xanthan	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_gumD_xanthan.hmm
+l_pslA_psl	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_pslA_psl.hmm
+l_spnB_sphingans	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_spnB_sphingans.hmm
+l_wcaJ_colanic	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_wcaJ_colanic.hmm
