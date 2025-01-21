@@ -13,6 +13,7 @@ from antismash.__main__ import main as antismash_main
 # in particular some generic module
 from antismash.detection import cluster_hmmer
 from antismash.modules import pfam2go
+from antismash.modules import tfbs_finder
 
 # import those modules that are defined only within this custom pipeline,
 # the structure and naming here are just arbitrary examples and can be changed
@@ -24,7 +25,7 @@ from customsmash.outputs import html
 
 # replace the normal antismash modules with any combination of antiSMASH modules
 # and/or custom modules
-antismash.main.replace_analysis_modules([custom_analysis, pfam2go])
+antismash.main.replace_analysis_modules([custom_analysis, tfbs_finder, pfam2go])
 antismash.main.replace_detection_modules([cluster_hmmer, monosaccharides, custom_detection])
 antismash.main.replace_html_module(html)
 
