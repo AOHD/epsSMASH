@@ -12,22 +12,22 @@ from antismash.__main__ import main as antismash_main
 # import some modules from antiSMASH that won't be overridden
 # in particular some generic module
 from antismash.detection import cluster_hmmer
-from antismash.modules import pfam2go
-from antismash.modules import tfbs_finder
+from antismash.modules import pfam2go, tfbs_finder
 
 # import those modules that are defined only within this custom pipeline,
 # the structure and naming here are just arbitrary examples and can be changed
 # to suit
 from customsmash.detection import custom_detection
 from customsmash.detection import monosaccharides
-from customsmash.modules import custom_analysis
+from customsmash.modules import custom_analysis, customblast
 from customsmash.outputs import html
 
 # replace the normal antismash modules with any combination of antiSMASH modules
 # and/or custom modules
-antismash.main.replace_analysis_modules([custom_analysis, tfbs_finder, pfam2go])
+antismash.main.replace_analysis_modules([custom_analysis, customblast, pfam2go, tfbs_finder])
 antismash.main.replace_detection_modules([cluster_hmmer, monosaccharides, custom_detection])
 antismash.main.replace_html_module(html)
+antismash.outputs.svg.clusterblast = customblast
 
 # override search path for any user config file
 # a good naming convention is <name><major version> to avoid conflicts between version options
