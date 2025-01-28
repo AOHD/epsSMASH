@@ -23,7 +23,7 @@ maintainers = [
 ]
 
 [project.scripts]
-epsSMASH = "customsmash:__main__.entrypoint"
+epsSMASH = "epssmash:__main__.entrypoint"
 
 [tool.setuptools.dynamic]
-version = {attr = "customsmash.__version__"}
+version = {attr = "epssmash.__version__"}

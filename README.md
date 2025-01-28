@@ -3,7 +3,7 @@
 A bioinformatic tool which predicts biosynthetic gene clusters associated with EPS production.
 
 
-<img src="customsmash/outputs/html/images/bacteria_epssmash_logo.svg" alt="drawing" width="200"/>
+<img src="epssmash/outputs/html/images/bacteria_epssmash_logo.svg" alt="drawing" width="200"/>
 
 
 **NOTE**: This is a work in progress.
@@ -13,9 +13,9 @@ A bioinformatic tool which predicts biosynthetic gene clusters associated with E
 Clone custom-smash repo to your local machine
 `git clone https://github.com/AOHD/epsSMASH.git`
 
-Make a conda environment using the YAML file in `customsmash/config/`
+Make a conda environment using the YAML file in `epssmash/config/`
 
-`conda env create -f customsmash/config/config.yaml`
+`conda env create -f epssmash/config/config.yaml`
 
 
 Install custom-smash in the conda environment with pip
