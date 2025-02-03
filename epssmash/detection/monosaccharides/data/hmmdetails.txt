@@ -1,72 +1,145 @@
-# Monosaccharide synthesis
-Glucose-1-phosphate_thymidylyltransferase	Glucose-1-phosphate thymidylyltransferase	230	individual_hmms/Glucose-1-phosphate_thymidylyltransferase.hmm
-dTDP_TDP-glucose_4-6-dehydratase	TDP-/dTDP-glucose 4,6-dehydratase (Retaining)	400	individual_hmms/dTDP_TDP-glucose_4-6-dehydratase.hmm
-dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase-A	Nucleotide-sugar C4 aminotransferase (Axial, Equatorial)	400	individual_hmms/dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase-A.hmm
-dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase-B	Nucleotide-sugar C3/C4 aminotransferase (Axial, Equatorial)	282	individual_hmms/dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase-B.hmm
-dTDP_TDP-4-amino-4-6-dideoxy-glucose_formyltransferase	Nucleotide-sugar formyltransferase	273	individual_hmms/dTDP_TDP-4-amino-4-6-dideoxy-glucose_formyltransferase.hmm
-dTDP_TDP-4-keto-6-deoxy-glucose_3-5-epimerase-A	TDP-/dTDP-4-keto-6-deoxy glucose 3-/3,5-epimerase	160	individual_hmms/dTDP_TDP-4-keto-6-deoxy-glucose_3-5-epimerase-A.hmm
-dTDP_TDP-4-keto-6-deoxy-glucose_3-5-epimerase-B	NDP-sugar 3-/3,5-/5-epimerase	144	individual_hmms/dTDP_TDP-4-keto-6-deoxy-glucose_3-5-epimerase-B.hmm
-dTDP_TDP-4-keto-L-rhamnose_4-reductase-B	(TDP-/dTDP)-4-keto-L-rhamnose 4-reductase/(TDP-/dTDP)-4-keto-5-C-methyl-rhamnose 4-reductase (Equatorial)	135	individual_hmms/dTDP_TDP-4-keto-L-rhamnose_4-reductase-B.hmm
-UDP-GlcNAc_2-epimerase-A	NDP-Hex2NAc C2 epimerase (Hydrolyzing)	120	individual_hmms/UDP-GlcNAc_2-epimerase-A.hmm
-N-acetylneuraminic_acid_synthase	Nonulosonic acid synthetase	245	individual_hmms/N-acetylneuraminic_acid_synthase.hmm
-CMP-N-acetylneuraminic_acid_synthase-A	Neu5NAc cytidylyltransferase	211	individual_hmms/CMP-N-acetylneuraminic_acid_synthase-A.hmm
-CMP-N-acetylneuraminic_acid_synthase-B	Nonulosonic acid cytidylyltransferase	88	individual_hmms/CMP-N-acetylneuraminic_acid_synthase-B.hmm
-Glucose-1-phosphate_cytidylyltransferase	Glucose-1-phosphate cytidylyltransferase	157	individual_hmms/Glucose-1-phosphate_cytidylyltransferase.hmm
-CDP-glucose-4-6-dehydratase	CDP-glucose 4,6-dehydratase (Retaining)	292	individual_hmms/CDP-glucose-4-6-dehydratase.hmm
-CDP-4-keto-6-deoxy-glucose_3-epimerase	NDP-sugar 3-/3,5-/5-epimerase	144	individual_hmms/CDP-4-keto-6-deoxy-glucose_3-epimerase.hmm
-CDP-4-keto-6-deoxy-gulose_4-reductase	CDP-6-deoxy/3,6-dideoxy-hexose 4-reductase (Axial, Equatorial)	138	individual_hmms/CDP-4-keto-6-deoxy-gulose_4-reductase.hmm
-GDP-mannose-4-6-dehydratase	GDP-mannose/GDP-D-glycero-D-manno-heptose 4,6-dehydratase (Retaining)	200	individual_hmms/GDP-mannose-4-6-dehydratase.hmm
-GDP-4-keto-6-deoxy-mannose_4-aminotransferase	GDP-4-keto-6-deoxy-mannose 4-aminotransferase (Equatorial)	498	individual_hmms/GDP-4-keto-6-deoxy-mannose_4-aminotransferase.hmm
-GDP-mannose_6-dehydrogenase-A	GDP-mannose 6-dehydrogenase	340	individual_hmms/GDP-mannose_6-dehydrogenase-A.hmm
-GDP-mannose_6-dehydrogenase-B	UDP-glucose dehydrogenase/GDP-mannose 6-dehydrogenase	250	individual_hmms/GDP-mannose_6-dehydrogenase-B.hmm
-Fructose-6-phosphate_isomerase-A	Phosphomannoisomerase family 2	166	individual_hmms/Fructose-6-phosphate_isomerase-A.hmm
-Fructose-6-phosphate_isomerase-B	Phosphomannoisomerase family 1	145	individual_hmms/Fructose-6-phosphate_isomerase-B.hmm
-Fructose-6-phosphate_isomerase-C	Phosphogluco/Phosphomanno isomerase	58	individual_hmms/Fructose-6-phosphate_isomerase-C.hmm
-Fructose-6-phosphate_isomerase-D	Phosphomannoisomerase family 3 (FunFam 54112)	221	individual_hmms/Fructose-6-phosphate_isomerase-D.hmm
-Phosphomanno_mutase-A	Phosphoglucomutase/Phosphomannomutase family 1	450	individual_hmms/Phosphomanno_mutase-A.hmm
-Phosphomanno_mutase-B	Phosphoglucomutase/Phosphomannomutase family 2	99	individual_hmms/Phosphomanno_mutase-B.hmm
-Phosphomanno_mutase-C	Phosphoglucosamine/phosphomanno/phosphogluco mutase	60	individual_hmms/Phosphomanno_mutase-C.hmm
-Mannose-1-phosphate_guanylyltransferase-A	Mannose-1-phosphate guanylyltransferase family 1	200	individual_hmms/Mannose-1-phosphate_guanylyltransferase-A.hmm
-Mannose-1-phosphate_guanylyltransferase-B	Mannose-1-phosphate guanylyltransferase family 2	56	individual_hmms/Mannose-1-phosphate_guanylyltransferase-B.hmm
-GDP-4-keto-6-deoxy-mannose_3-dehydratase	NDP-4-keto-6-deoxy 3-dehydratase	339	individual_hmms/GDP-4-keto-6-deoxy-mannose_3-dehydratase.hmm
-GDP-4-keto-6-deoxy-mannose_5-epimerase-4-reductase	GDP-4-keto-6-deoxy-mannose 3,5-epimerase, 4-reductase/GDP-4-keto-3,6-dideoxy-mannose 5-epimerase, 4-reductase (Axial)	162	individual_hmms/GDP-4-keto-6-deoxy-mannose_5-epimerase-4-reductase.hmm
-GDP-4-keto-6-deoxy-mannose_4-reductase-A	GDP-4-ketosugar 4-reductase (Axial, Equatorial)	240	individual_hmms/GDP-4-keto-6-deoxy-mannose_4-reductase-A.hmm
-GDP-4-keto-6-deoxy-mannose_3-5-epimerase-4-reductase	GDP-4-keto-6-deoxy-mannose 3,5-epimerase, 4-reductase/GDP-4-keto-3,6-dideoxy-mannose 5-epimerase, 4-reductase (Axial)	162	individual_hmms/GDP-4-keto-6-deoxy-mannose_3-5-epimerase-4-reductase.hmm
-UDP-GlcNAc_2-epimerase-B	UDP-Hex2NAc C2 epimerase (Non-hydrolyzing)	160	individual_hmms/UDP-GlcNAc_2-epimerase-B.hmm
-UDP-N-acetyl-mannosamine_6-dehydrogenase	UDP-Hex2NAc 6-dehydrogenase	270	individual_hmms/UDP-N-acetyl-mannosamine_6-dehydrogenase.hmm
-UDP-N-acetyl-glucosamine_6-dehydrogenase	UDP-Hex2NAc 6-dehydrogenase	270	individual_hmms/UDP-N-acetyl-glucosamine_6-dehydrogenase.hmm
-UDP-N-acetyl-glucosaminuronic_acid_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose C4 epimerase	250	individual_hmms/UDP-N-acetyl-glucosaminuronic_acid_4-epimerase.hmm
-Fructose-6-phosphate_amidotransferase	Fructose-6-phosphate amidotransferase/Glc2NAc-6-phosphate synthase	50	individual_hmms/Fructose-6-phosphate_amidotransferase.hmm
-Glucosamine_6-phosphate_N-acetyltransferase	Glucosamine 6-phosphate N-acetyltransferase	73	individual_hmms/Glucosamine_6-phosphate_N-acetyltransferase.hmm
-Phosphoacetylglucosamine_mutase	Phosphoacetylglucosamine mutase	48	individual_hmms/Phosphoacetylglucosamine_mutase.hmm
-N-acetyl-glucosamine-1-phosphate_uridylyltransferase-A	Glc2NAc-1-phosphate uridylyltransferase	391	individual_hmms/N-acetyl-glucosamine-1-phosphate_uridylyltransferase-A.hmm
-Phosphoglucosamine_mutase-A	Phosphoglucosamine mutase	450	individual_hmms/Phosphoglucosamine_mutase-A.hmm
-Phosphoglucosamine_mutase-B	Phosphoglucosamine/phosphomanno/phosphogluco mutase	60	individual_hmms/Phosphoglucosamine_mutase-B.hmm
-Glucosamine-1-phosphate_N-acetyltransferase	Glucosamine-1-phosphate acetyltransferase (GlmU-CTD)	89	individual_hmms/Glucosamine-1-phosphate_N-acetyltransferase.hmm
-N-acetyl-glucosamine-1-phosphate_uridylyltransferase-B	Glc2NAc-1-phosphate uridylyltransferase (GlmU-NTD)	143	individual_hmms/N-acetyl-glucosamine-1-phosphate_uridylyltransferase-B.hmm
-Glucose-1-phosphate_uridylyltransferase-A	Glucose-1-phosphate uridylyltransferase family 1	124	individual_hmms/Glucose-1-phosphate_uridylyltransferase-A.hmm
-Glucose-1-phosphate_uridylyltransferase-B	Glucose-1-phosphate uridylyltransferase family 2	303	individual_hmms/Glucose-1-phosphate_uridylyltransferase-B.hmm
-UDP-Glucose_6-dehydrogenase-A	UDP-glucose 6-dehydrogenase	330	individual_hmms/UDP-Glucose_6-dehydrogenase-A.hmm
-UDP-Glucose_6-dehydrogenase-B	UDP-glucose dehydrogenase/GDP-mannose 6-dehydrogenase	250	individual_hmms/UDP-Glucose_6-dehydrogenase-B.hmm
-UDP-glucuronic_acid_decarboxylase	UDP-GlcA 5-decarboxylase/UDP-GlcA 5-decarboxylase, 4-oxidase	405	individual_hmms/UDP-glucuronic_acid_decarboxylase.hmm
-UDP-Glucose_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose C4 epimerase	250	individual_hmms/UDP-Glucose_4-epimerase.hmm
-UDP-galactopyranose_mutase	UDP-galactopyranose/(TDP-/dTDP)-fucopyranose mutase	80	individual_hmms/UDP-galactopyranose_mutase.hmm
-UDP-Xylose_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose C4 epimerase	250	individual_hmms/UDP-Xylose_4-epimerase.hmm
-UDP-glucuronic_acid_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose C4 epimerase	250	individual_hmms/UDP-glucuronic_acid_4-epimerase.hmm
-UDP-glucuronic_acid_decarboxylase-4-oxidase	UDP-GlcA 5-decarboxylase/UDP-GlcA 5-decarboxylase, 4-oxidase	405	individual_hmms/UDP-glucuronic_acid_decarboxylase-4-oxidase.hmm
-UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase-A	Nucleotide-sugar C4 aminotransferase (Axial, Equatorial)	400	individual_hmms/UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase-A.hmm
-UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase-B	Nucleotide-sugar C3/C4 aminotransferase (Axial, Equatorial)	282	individual_hmms/UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase-B.hmm
-UDP-4-amino-L-arabinose_formyltransferase	Nucleotide-sugar formyltransferase	273	individual_hmms/UDP-4-amino-L-arabinose_formyltransferase.hmm
-UDP-glucose_4-6-dehydratase	UDP-glucose 4,6-dehydratase (Retaining)	400	individual_hmms/UDP-glucose_4-6-dehydratase.hmm
-UDP-4-keto-6-deoxy-glucose_3-5-epimerase-4-reductase	UDP-4-keto-6-deoxy glucose 3,5-epimerase, 4-reductase	486	individual_hmms/UDP-4-keto-6-deoxy-glucose_3-5-epimerase-4-reductase.hmm
-CDP-4-keto-6-deoxy-glucose_C3-methyltransfase	Nucleotide-sugar C-methyltransferase	434	individual_hmms/CDP-4-keto-6-deoxy-glucose_C3-methyltransfase.hmm
-CDP-4-keto-3c-methyl-6-deoxy-gulose_4-reductase	CDP-6-deoxy/3,6-dideoxy-hexose 4-reductase (Axial, Equatorial)	138	individual_hmms/CDP-4-keto-3c-methyl-6-deoxy-gulose_4-reductase.hmm
-UDP-GlcNAc_4-epimerase	UDP-glucose/UDP-Glc2NAc/UDP-Glc2NAcA/UDP-GlcA/UDP-xylose C4 epimerase	250	individual_hmms/UDP-GlcNAc_4-epimerase.hmm
-qdtC	dTDP_TDP-3-amino-3-6-dideoxy-glucose_acetyltransferase	20	individual_hmms/qdtC.hmm
-qdtD	catalysing step 3 + step 5	20	individual_hmms/qdtD.hmm
-vioB	dTDP_TDP-4-amino-4-6-dideoxy-glucose_acetyltransferase	20	individual_hmms/vioB.hmm
-dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A	dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A	282	individual_hmms/dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A.hmm
-dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B	dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B	400	individual_hmms/dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B.hmm
-dTDP_TDP-4-keto-6-deoxy-glucose_3-4-ketoisomerase	dTDP_TDP-4-keto-6-deoxy-glucose_3-4-ketoisomerase	106	individual_hmms/dTDP_TDP-4-keto-6-deoxy-glucose_3-4-ketoisomerase.hmm
-wbpM	UDP-GlcNAc 4,6-dehydratase (step 4: N-Acetylquinovosamine (QuiNAc))	400	individual_hmms/wbpM.hmm
-wbpV	(step 5: N-Acetylquinovosamine (QuiNAc)	30	individual_hmms/wbpV.hmm
+GPE00231	Enzyme: CMP-N-N-diacetylpseudaminic_acid_synthase;CMP-N-N-diacetyllegionaminic_acid_synthase; HMM type: Srivastava_2020; Part of 2 pathway(s)	88	individual_hmms/GPE00231.hmm
+GPE00330	Enzyme: Glucose-1-phosphate_cytidylyltransferase; HMM type: Srivastava_2020; Part of 5 pathway(s)	157	individual_hmms/GPE00330.hmm
+GPE00430	Enzyme: Glucose-1-phosphate_uridylyltransferase-A; HMM type: Srivastava_2020; Part of 9 pathway(s)	100	individual_hmms/GPE00430.hmm
+GPE00530	Enzyme: Glucose-1-phosphate_uridylyltransferase-B; HMM type: Srivastava_2020; Part of 5 pathway(s)	250	individual_hmms/GPE00530.hmm
+GPE00620	Enzyme: Mannose-1-phosphate_guanylyltransferase-A; HMM type: Srivastava_2020; Part of 2 pathway(s)	200	individual_hmms/GPE00620.hmm
+GPE00720	Enzyme: Mannose-1-phosphate_guanylyltransferase-B; HMM type: Srivastava_2020; Part of 2 pathway(s)	56	individual_hmms/GPE00720.hmm
+GPE00831	Enzyme: N-acetyl-glucosamine-1-phosphate_uridylyltransferase-B; HMM type: Srivastava_2020; Part of 1 pathway(s)	100	individual_hmms/GPE00831.hmm
+GPE01130	Enzyme: Glucose-1-phosphate_thymidylyltransferase; HMM type: Srivastava_2020; Part of 9 pathway(s)	130	individual_hmms/GPE01130.hmm
+GPE01230	Enzyme: UDP-2-acetamido-2-6-dideoxy-beta-L-arabino-4-hexulose_4-aminotransferase-C;UDP-4-keto-6-deoxy-GlcNAc_4-aminotransferase-C;dTDP_TDP-3-keto-6-deoxy-galactose_3-aminotransferase-B;dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase-B;dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-B;UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase-B;UDP-2-acetamido-2-deoxy-3-oxo-glucuronate_3-aminotransferase-B; HMM type: Srivastava_2020; Part of 11 pathway(s)	250	individual_hmms/GPE01230.hmm
+GPE01330	Enzyme: Fructose-6-phosphate_amidotransferase; HMM type: Srivastava_2020; Part of 1 pathway(s)	50	individual_hmms/GPE01330.hmm
+GPE01430	Enzyme: GDP-4-keto-6-deoxy-mannose_4-aminotransferase; HMM type: Srivastava_2020; Part of 2 pathway(s)	200	individual_hmms/GPE01430.hmm
+GPE01530	Enzyme: UDP-2-acetamido-2-6-dideoxy-beta-L-arabino-4-hexulose_4-aminotransferase-A; HMM type: Srivastava_2020; Part of 1 pathway(s)	357	individual_hmms/GPE01530.hmm
+GPE01710	Enzyme: UDP-4-keto-6-deoxy-GlcNAc_4-aminotransferase-A; HMM type: Srivastava_2020; Part of 1 pathway(s)	250	individual_hmms/GPE01710.hmm
+GPE01830	Enzyme: UDP-2-acetamido-2-6-dideoxy-beta-L-arabino-4-hexulose_4-aminotransferase-B;UDP-4-keto-6-deoxy-GlcNAc_4-aminotransferase-B;dTDP_TDP-4-keto-6-deoxy-glucose_4-aminotransferase-A;UDP-beta-L-threo-pentapyranos-4-ulose_4-aminotransferase-A; HMM type: Srivastava_2020; Part of 8 pathway(s)	250	individual_hmms/GPE01830.hmm
+GPE01910	Enzyme: dTDP_TDP-3-keto-6-deoxy-galactose_3-aminotransferase-A;dTDP_TDP-3-keto-6-deoxy-glucose_3-aminotransferase-A;UDP-2-acetamido-2-deoxy-3-oxo-glucuronate_3-aminotransferase-A; HMM type: Srivastava_2020; Part of 3 pathway(s)	300	individual_hmms/GPE01910.hmm
+GPE02030	Enzyme: UDP-6-deoxy-L-talosamine_2-epimerase;UDP-L-rhamnosamine_2-epimerase;UDP-GlcNAc_2-epimerase-B;UDP-2-3-diacetamido-2-3-dideoxy-glucuronate_2-epimerase; HMM type: Srivastava_2020; Part of 5 pathway(s)	160	individual_hmms/GPE02030.hmm
+GPE02110	Enzyme: UDP-2-4-diacetamido-2-4-6-trideoxy-glucose_2-epimerase;UDP-GlcNAc_2-epimerase-A; HMM type: Srivastava_2020; Part of 2 pathway(s)	120	individual_hmms/GPE02110.hmm
+GPE02230	Enzyme: UDP-GlcNAc_4-epimerase;UDP-N-acetyl-glucosaminuronic_acid_4-epimerase;UDP-glucuronic_acid_4-epimerase;UDP-Glucose_4-epimerase;UDP-Xylose_4-epimerase; HMM type: Srivastava_2020; Part of 6 pathway(s)	150	individual_hmms/GPE02230.hmm
+GPE02430	Enzyme: dTDP_TDP-4-keto-6-deoxy-glucose_3-5-epimerase-A; HMM type: Srivastava_2020; Part of 2 pathway(s)	160	individual_hmms/GPE02430.hmm
+GPE02530	Enzyme: CDP-4-keto-6-deoxy-glucose_3-epimerase;CDP-3-6-dideoxy-glycero-glycero-4-hexulose-5-epimerase;dTDP_TDP-4-keto-6-deoxy-glucose_3-5-epimerase-B; HMM type: Srivastava_2020; Part of 4 pathway(s)	144	individual_hmms/GPE02530.hmm
+GPE03030	Enzyme: UDP-N-acetyl-glucosamine_6-dehydrogenase;UDP-N-acetyl-mannosamine_6-dehydrogenase; HMM type: Srivastava_2020; Part of 4 pathway(s)	200	individual_hmms/GPE03030.hmm
+GPE03130	Enzyme: UDP-Glucose_6-dehydrogenase-A; HMM type: Srivastava_2020; Part of 6 pathway(s)	250	individual_hmms/GPE03130.hmm
+GPE03210	Enzyme: GDP-mannose_6-dehydrogenase-A; HMM type: Srivastava_2020; Part of 1 pathway(s)	340	individual_hmms/GPE03210.hmm
+GPE03310	Enzyme: UDP-N-acetyl-glucosaminuronic_acid_3-dehydrogenase; HMM type: Srivastava_2020; Part of 1 pathway(s)	100	individual_hmms/GPE03310.hmm
+GPE03430	Enzyme: GDP-mannose_6-dehydrogenase-B;UDP-Glucose_6-dehydrogenase-B; HMM type: Srivastava_2020; Part of 7 pathway(s)	250	individual_hmms/GPE03430.hmm
+GPE04030	Enzyme: N-N-diacetylpseudaminic_acid_synthase;N-N-diacetyllegionaminic_acid_synthase; HMM type: Srivastava_2020; Part of 2 pathway(s)	245	individual_hmms/GPE04030.hmm
+GPE05020	Enzyme: GDP-glycero-manno-heptose_4-6_dehydratase;GDP-mannose-4-6-dehydratase; HMM type: Srivastava_2020; Part of 6 pathway(s)	120	individual_hmms/GPE05020.hmm
+GPE05230	Enzyme: CDP-glucose-4-6-dehydratase; HMM type: Srivastava_2020; Part of 5 pathway(s)	130	individual_hmms/GPE05230.hmm
+GPE05331	Enzyme: UDP-GlcNAc_4-6-dehydratase_Inverting; HMM type: Srivastava_2020; Part of 4 pathway(s)	200	individual_hmms/GPE05331.hmm
+GPE05332	Enzyme: UDP-GlcNAc_4-6-dehydratase; HMM type: Srivastava_2020; Part of 4 pathway(s)	200	individual_hmms/GPE05332.hmm
+GPE05430	Enzyme: dTDP_TDP-glucose_4-6-dehydratase; HMM type: Srivastava_2020; Part of 9 pathway(s)	400	individual_hmms/GPE05430.hmm
+GPE05510	Enzyme: UDP-glucose_4-6-dehydratase; HMM type: Srivastava_2020; Part of 1 pathway(s)	250	individual_hmms/GPE05510.hmm
+GPE05630	Enzyme: CDP-4-keto-6-deoxy-glucose_3-dehydrase;GDP-4-keto-6-deoxy-mannose_3-dehydratase; HMM type: Srivastava_2020; Part of 4 pathway(s)	200	individual_hmms/GPE05630.hmm
+GPE05710	Enzyme: UDP-4-keto-6-deoxy-glucose_3-5-epimerase-4-reductase; HMM type: Srivastava_2020; Part of 1 pathway(s)	350	individual_hmms/GPE05710.hmm
+GPE06030	Enzyme: GDP-4-keto-6-deoxy-mannose_5-epimerase-4-reductase;GDP-4-keto-6-deoxy-mannose_3-5-epimerase-4-reductase; HMM type: Srivastava_2020; Part of 2 pathway(s)	162	individual_hmms/GPE06030.hmm
+GPE06230	Enzyme: CDP-4-keto-6-deoxy-gulose_4-reductase;CDP-4-keto-3c-methyl-6-deoxy-gulose_4-reductase;CDP-3-6-dideoxy-L-glycero-glycero-4-hexulose-4-reductase;CDP-3-6-dideoxy-glycero-glycero-4-hexulose_4-reductase; HMM type: Srivastava_2020; Part of 5 pathway(s)	100	individual_hmms/GPE06230.hmm
+GPE06330	Enzyme: dTDP_TDP-4-keto-L-rhamnose_4-reductase-B; HMM type: Srivastava_2020; Part of 2 pathway(s)	135	individual_hmms/GPE06330.hmm
+GPE06510	Enzyme: GDP-4-keto-6-deoxy-lyxo-heptose_reductase;GDP-4-keto-6-deoxy-mannose_4-reductase-A; HMM type: Srivastava_2020; Part of 2 pathway(s)	120	individual_hmms/GPE06510.hmm
+GPE07030	Enzyme: Fructose-6-phosphate_isomerase-A; HMM type: Srivastava_2020; Part of 1 pathway(s)	166	individual_hmms/GPE07030.hmm
+GPE07130	Enzyme: Fructose-6-phosphate_isomerase-B; HMM type: Srivastava_2020; Part of 1 pathway(s)	145	individual_hmms/GPE07130.hmm
+GPE07230	Enzyme: Fructose-6-phosphate_isomerase-C; HMM type: Srivastava_2020; Part of 1 pathway(s)	58	individual_hmms/GPE07230.hmm
+GPE07330	Enzyme: Fructose-6-phosphate_isomerase-D; HMM type: Srivastava_2020; Part of 1 pathway(s)	221	individual_hmms/GPE07330.hmm
+GPE07510	Enzyme: dTDP_TDP-4-keto-6-deoxy-glucose_3-4-ketoisomerase; HMM type: Srivastava_2020; Part of 2 pathway(s)	106	individual_hmms/GPE07510.hmm
+GPE08410	Enzyme: UDP-4-amino-4-6-dideoxy-N-acetyl-beta-L-altrosamine_acetyltransferase; HMM type: Srivastava_2020; Part of 1 pathway(s)	60	individual_hmms/GPE08410.hmm
+GPE08510	Enzyme: Glucosamine-1-phosphate_N-acetyltransferase; HMM type: Srivastava_2020; Part of 1 pathway(s)	89	individual_hmms/GPE08510.hmm
+GPE09130	Enzyme: Phosphoglucosamine_mutase-A; HMM type: Srivastava_2020; Part of 1 pathway(s)	450	individual_hmms/GPE09130.hmm
+GPE09230	Enzyme: Phosphomanno_mutase-A; HMM type: Srivastava_2020; Part of 1 pathway(s)	450	individual_hmms/GPE09230.hmm
+GPE09330	Enzyme: Phosphomanno_mutase-B; HMM type: Srivastava_2020; Part of 1 pathway(s)	99	individual_hmms/GPE09330.hmm
+GPE09430	Enzyme: Phosphoacetylglucosamine_mutase; HMM type: Srivastava_2020; Part of 1 pathway(s)	48	individual_hmms/GPE09430.hmm
+GPE09510	Enzyme: dTDP_TDP-fucose_mutase;UDP-galactopyranose_mutase; HMM type: Srivastava_2020; Part of 2 pathway(s)	80	individual_hmms/GPE09510.hmm
+GPE09630	Enzyme: Phosphomanno_mutase-C;Phosphoglucosamine_mutase-B; HMM type: Srivastava_2020; Part of 2 pathway(s)	60	individual_hmms/GPE09630.hmm
+GPE20030	Enzyme: UDP-glucuronic_acid_decarboxylase-4-oxidase;UDP-glucuronic_acid_decarboxylase; HMM type: Srivastava_2020; Part of 4 pathway(s)	120	individual_hmms/GPE20030.hmm
+GPE40110	Enzyme: CDP-4-keto-6-deoxy-glucose_C3-methyltransfase; HMM type: Srivastava_2020; Part of 1 pathway(s)	250	individual_hmms/GPE40110.hmm
+GPE50010	Enzyme: dTDP_TDP-4-amino-4-6-dideoxy-glucose_formyltransferase;UDP-4-amino-L-arabinose_formyltransferase; HMM type: Srivastava_2020; Part of 2 pathway(s)	100	individual_hmms/GPE50010.hmm
+K00067	Enzyme: dTDP-4-dehydrorhamnose_reductase; HMM type: HMM_KEGG; Part of 2 pathway(s)	150	individual_hmms/K00067.hmm
+K00523	Enzyme: CDP-4-dehydro-6-deoxyglucose_reductase-B; HMM type: HMM_KEGG; Part of 3 pathway(s)	150	individual_hmms/K00523.hmm
+K00973	Enzyme: glucose-1-phosphate_thymidylyltransferase; HMM type: HMM_KEGG; Part of 9 pathway(s)	150	individual_hmms/K00973.hmm
+K00978	Enzyme: glucose-1-phosphate_cytidylyltransferase; HMM type: HMM_KEGG; Part of 5 pathway(s)	150	individual_hmms/K00978.hmm
+K00979	Enzyme: CMP-KDO_synthetase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K00979.hmm
+K00983	Enzyme: N-acylneuraminate_cytidylyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K00983.hmm
+K01627	Enzyme: 2-dehydro-3-deoxyphosphooctonate_aldolase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K01627.hmm
+K01654	Enzyme: N-acetylneuraminate_synthase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K01654.hmm
+K01709	Enzyme: CDP-glucose_4-6-dehydratase; HMM type: HMM_KEGG; Part of 5 pathway(s)	150	individual_hmms/K01709.hmm
+K01710	Enzyme: dTDP-glucose-4-6-dehydratase; HMM type: HMM_KEGG; Part of 9 pathway(s)	140	individual_hmms/K01710.hmm
+K01790	Enzyme: dTDP-4-dehydrorhamnose-3-5-epimerase; HMM type: HMM_KEGG; Part of 2 pathway(s)	150	individual_hmms/K01790.hmm
+K02805	Enzyme: dTDP-4-amino-4-6-dideoxygalactose_transaminase; HMM type: HMM_KEGG; Part of 2 pathway(s)	150	individual_hmms/K02805.hmm
+K03270	Enzyme: KDO_8-P_phosphatase; HMM type: HMM_KEGG; Part of 1 pathway(s)	110	individual_hmms/K03270.hmm
+K03271	Enzyme: D-sedoheptulose-7-phosphate_isomerase; HMM type: HMM_KEGG; Part of 2 pathway(s)	100	individual_hmms/K03271.hmm
+K03272	Enzyme: D-beta-D-heptose-7-phosphate_kinase; HMM type: HMM_KEGG; Part of 1 pathway(s)	100	individual_hmms/K03272.hmm
+K03273	Enzyme: D-glycero-D-manno-heptose-1-7-bisphosphate_phosphatase; HMM type: HMM_KEGG; Part of 2 pathway(s)	100	individual_hmms/K03273.hmm
+K03274	Enzyme: ADP-L-glycero-D-manno-heptose-6-epimerase; HMM type: HMM_KEGG; Part of 1 pathway(s)	100	individual_hmms/K03274.hmm
+K05304	Enzyme: sialic_acid_synthase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K05304.hmm
+K06041	Enzyme: arabinose-5-phosphate_isomerase; HMM type: HMM_KEGG; Part of 1 pathway(s)	110	individual_hmms/K06041.hmm
+K06118	Enzyme: UDP-sulfoquinovose_synthase; HMM type: HMM_KEGG; Part of 1 pathway(s)	250	individual_hmms/K06118.hmm
+K07031	Enzyme: D-glycero-alpha-D-manno-heptose-7-phosphate_kinase; HMM type: HMM_KEGG; Part of 1 pathway(s)	100	individual_hmms/K07031.hmm
+K08068	Enzyme: UDP-N-acetylglucosamine_2-epimerase_hydrolysing_A; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K08068.hmm
+K10046	Enzyme: GDP-Mannose_3-5-epimerase; HMM type: HMM_KEGG; Part of 1 pathway(s)	120	individual_hmms/K10046.hmm
+K12409	Enzyme: bifunctional_UDP-N-acetylglucosamine_2-epimerase-N-acetylmannosamine_kinase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K12409.hmm
+K12452	Enzyme: CDP-4-dehydro-6-deoxyglucose_reductase-A; HMM type: HMM_KEGG; Part of 3 pathway(s)	150	individual_hmms/K12452.hmm
+K12453	Enzyme: CDP-paratose_synthetase; HMM type: HMM_KEGG; Part of 2 pathway(s)	150	individual_hmms/K12453.hmm
+K12454	Enzyme: CDP-paratose-2-epimerase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K12454.hmm
+K12455	Enzyme: CDP-abequose_synthase_A; HMM type: HMM_KEGG; Part of 2 pathway(s)	150	individual_hmms/K12455.hmm
+K13018	Enzyme: UDP-2-acetamido-3-amino-2-3-dideoxy-glucuronate_N-acetyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K13018.hmm
+K13306	Enzyme: dTDP-4-dehydro-6-deoxyglucose_reductase; HMM type: HMM_KEGG; Part of 2 pathway(s)	125	individual_hmms/K13306.hmm
+K13308	Enzyme: dTDP-4-amino-4-6-dideoxy-D-glucose_transaminase_B; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K13308.hmm
+K15669	Enzyme: D-glycero-alpha-D-manno-heptose 1-phosphate_guanylyltransferase; HMM type: HMM_KEGG; Part of 2 pathway(s)	100	individual_hmms/K15669.hmm
+K15857	Enzyme: CDP-3-6-dideoxy-D-glycero-D-glycero-4-hexulose-5-epimerase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K15857.hmm
+K15858	Enzyme: CDP-3-6-dideoxy-D-glycero-L-glycero-4-hexulose-4-reductase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K15858.hmm
+K15894	Enzyme: UDP-N-acetylglucosamine_4-6-dehydratase_B; HMM type: HMM_KEGG; Part of 5 pathway(s)	100	individual_hmms/K15894.hmm
+K15895	Enzyme: UDP-4-amino-4-6-dideoxy-L-N-acetyl-beta-L-altrosamine_transaminase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K15895.hmm
+K15896	Enzyme: UDP-4-amino-4-6-dideoxy-N-acetyl-beta-L-altrosamine_N-acetyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	60	individual_hmms/K15896.hmm
+K15897	Enzyme: UDP-2-4-diacetamido-2-4-6-trideoxy-beta-L-altropyranose_hydrolase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K15897.hmm
+K15898	Enzyme: pseudaminic_acid_synthase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K15898.hmm
+K15899	Enzyme: pseudaminic_acid_cytidylyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K15899.hmm
+K15910	Enzyme: UDP-N-acetylbacillosamine_transaminase_A; HMM type: HMM_KEGG; Part of 2 pathway(s)	150	individual_hmms/K15910.hmm
+K15912	Enzyme: UDP-N-acetylglucosamine_4-6-dehydratase_D_A; HMM type: HMM_KEGG; Part of 4 pathway(s)	150	individual_hmms/K15912.hmm
+K15913	Enzyme: UDP-N-acetylbacillosamine_N-acetyltransferase; HMM type: HMM_KEGG; Part of 2 pathway(s)	80	individual_hmms/K15913.hmm
+K16704	Enzyme: dTDP-4-amino-4-6-dideoxy-D-galactose_acyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	120	individual_hmms/K16704.hmm
+K17939	Enzyme: GDP-4-amino-4-6-dideoxy-mannose_acetyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	30	individual_hmms/K17939.hmm
+K17947	Enzyme: dTDP-L-rhamnose-4-epimerase; HMM type: HMM_KEGG; Part of 1 pathway(s)	200	individual_hmms/K17947.hmm
+K18429	Enzyme: GDP-UDP-N_N-diacetylbacillosamine-2-epimerase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K18429.hmm
+K18430	Enzyme: N-N-diacetyllegionaminate_synthase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K18430.hmm
+K18431	Enzyme: CMP-N-N-diacetyllegionaminic_acid_synthase_B; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K18431.hmm
+K19068	Enzyme: UDP-2-acetamido-2-6-beta-L-arabino-hexul-4-ose_reductase_A; HMM type: HMM_KEGG; Part of 3 pathway(s)	100	individual_hmms/K19068.hmm
+K19180	Enzyme: dTDP-6-deoxy-L-talose 4-dehydrogenase_NAD; HMM type: HMM_KEGG; Part of 1 pathway(s)	220	individual_hmms/K19180.hmm
+K19632	Enzyme: CDP-abequose_synthase_B; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K19632.hmm
+K19652	Enzyme: dTDP-6-deoxy-L-talose_4-dehydrogenase; HMM type: HMM_KEGG; Part of 1 pathway(s)	220	individual_hmms/K19652.hmm
+K19854	Enzyme: dTDP-3-amino-3-6-dideoxy-alpha-D-glucopyranose_transaminase_B; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K19854.hmm
+K20429	Enzyme: dTDP-4-amino-4-6-dideoxy-D-glucose_transaminase_A; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K20429.hmm
+K20678	Enzyme: dTDP-fucopyranose_mutase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K20678.hmm
+K20679	Enzyme: TDP-4-oxo-6-deoxy-alpha-D-glucose-3-4-oxoisomerase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K20679.hmm
+K20680	Enzyme: dTDP-3-amino-3-6-dideoxy-alpha-D-galactopyranose_transaminase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K20680.hmm
+K20681	Enzyme: dTDP-3-amino-3-6-dideoxy-alpha-D-galactopyranose_3-N-acetyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K20681.hmm
+K21344	Enzyme: D-glycero-alpha-D-manno-heptose 1-phosphate_guanylyltransferase; HMM type: HMM_KEGG; Part of 2 pathway(s)	100	individual_hmms/K21344.hmm
+K21345	Enzyme: D-glycero-beta-D-manno-heptose 1-phosphate_adenylyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	100	individual_hmms/K21345.hmm
+K21379	Enzyme: dTDP-4-amino-4-6-dideoxy-D-glucose_acyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	110	individual_hmms/K21379.hmm
+K21749	Enzyme: N-acylneuraminate_3-deoxy-D-glycero-D-galacto-nononate_cytidylyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K21749.hmm
+K23987	Enzyme: dTDP-4-dehydrorhamnose-3-5-epimerase-reductase; HMM type: HMM_KEGG; Part of 2 pathway(s)	320	individual_hmms/K23987.hmm
+K24249	Enzyme: TDP-4-oxo-6-deoxy-alpha-D-glucose-3-4-oxoisomerase_B; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24249.hmm
+K24250	Enzyme: dTDP-3-amino-3-6-dideoxy-alpha-D-glucopyranose_transaminase_A; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24250.hmm
+K24251	Enzyme: dTDP-D-Quip3N_acetylase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24251.hmm
+K24252	Enzyme: UDP-2-acetamido-2-6-beta-L-arabino-hexul-4-ose_reductase_B; HMM type: HMM_KEGG; Part of 3 pathway(s)	100	individual_hmms/K24252.hmm
+K24256	Enzyme: UDP-L-QuiNAc_synthase; HMM type: HMM_KEGG; Part of 1 pathway(s)	100	individual_hmms/K24256.hmm
+K24257	Enzyme: UDP-N-acetylglucosamine_2-epimerase_hydrolysing_B; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24257.hmm
+K24258	Enzyme: UDP-N-acetyl-L-fucosamine_synthase; HMM type: HMM_KEGG; Part of 1 pathway(s)	120	individual_hmms/K24258.hmm
+K24280	Enzyme: UDP-4-amino-4-6-dideoxy-N-acetyl-beta-L-idosamine-transaminase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24280.hmm
+K24281	Enzyme: UDP-4-amino-4-6-dideoxy-N-acetyl-beta-L-idosamine_acetyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	100	individual_hmms/K24281.hmm
+K24282	Enzyme: UDP-2-4-diacetamido-2-4-6-trideoxy-beta-L-idose_2-epimerase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24282.hmm
+K24283	Enzyme: UDP-2-4-diacetamido-2-4-6-trideoxy-beta-L-gulopyranose-hydrolase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24283.hmm
+K24284	Enzyme: 2-4-diacetamido-2-4-6-trideoxy-beta-L-gulose_transferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24284.hmm
+K24285	Enzyme: N-N-diacetyl-8-epilegionaminate_cytidylyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	100	individual_hmms/K24285.hmm
+K24300	Enzyme: UDP-N-acetylglucosamine_4-6-dehydratase_D_B; HMM type: HMM_KEGG; Part of 4 pathway(s)	150	individual_hmms/K24300.hmm
+K24301	Enzyme: UDP-N-acetylglucosamine_4-6-dehydratase_D_C; HMM type: HMM_KEGG; Part of 4 pathway(s)	150	individual_hmms/K24301.hmm
+K24302	Enzyme: UDP-N-acetylbacillosamine_transaminase_B; HMM type: HMM_KEGG; Part of 2 pathway(s)	150	individual_hmms/K24302.hmm
+K24303	Enzyme: UDP-N-acetylbacillosamine_alanyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	100	individual_hmms/K24303.hmm
+K24304	Enzyme: UDP-2-acetamido-4-D-alanylamino-2-4-6-trideoxy-alpha-D-glucose-2-epimerase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24304.hmm
+K24305	Enzyme: UDP-2-acetamido-4-D-alanylamino-2-4-6-trideoxy-alpha-D-mannopyranose_hydrolase; HMM type: HMM_KEGG; Part of 1 pathway(s)	100	individual_hmms/K24305.hmm
+K24306	Enzyme: 2-acetamido-4-D-alanylamino-2-4-6-trideoxy-D-mannopyranose_transferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24306.hmm
+K24307	Enzyme: 5-N-acetyl-7-N-D-alanyl-legionaminic_acid_cytidylyltransferase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24307.hmm
+K24310	Enzyme: UDP-N-acetyl-alpha-D-quinovosamine_dehydrogenase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24310.hmm
+K24311	Enzyme: UDP-4-keto-6-deoxy-GlcNAc-4-reductase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24311.hmm
+K24312	Enzyme: UDP-4-keto-D-FucNAc_4-reductase; HMM type: HMM_KEGG; Part of 1 pathway(s)	150	individual_hmms/K24312.hmm
+K24336	Enzyme: UDP-N-acetylglucosamine_4-6-dehydratase_A; HMM type: HMM_KEGG; Part of 4 pathway(s)	100	individual_hmms/K24336.hmm
+wbpM	Enzyme: wbpM; HMM type: manual_hmm; Part of 1 pathway(s)	150	individual_hmms/wbpM.hmm
+wbpV	Enzyme: wbpV; HMM type: manual_hmm; Part of 1 pathway(s)	150	individual_hmms/wbpV.hmm
