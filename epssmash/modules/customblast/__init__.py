@@ -29,6 +29,7 @@ from antismash.modules.clusterblast import (
     load_clusterblast_database,
     will_handle,
     run_knownclusterblast_on_record,
+    prepare_known_data,
 )
 from antismash.modules.clusterblast.core import (
     get_core_gene_ids,
@@ -257,8 +258,11 @@ def perform_clusterblast(options: ConfigType, record: Record,
 def prepare_data(logging_only: bool = False) -> list[str]:
     """ Prepare the databases. """
     failure_messages = []
+    # known
+    failure_messages.extend(prepare_known_data(logging_only))
+
     # general
-    clusterblastdir = os.path.join(get_config().database_dir, "customblast")
+    clusterblastdir = os.path.join(get_config().database_dir, "clusterblast")
     if "mounted_at_runtime" in clusterblastdir:  # can't prepare these
         return failure_messages
     cluster_defs = os.path.join(clusterblastdir, 'clusters.txt')
