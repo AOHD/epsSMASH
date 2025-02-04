@@ -145,6 +145,7 @@ def load_reference_clusters(searchtype: str) -> dict[str, ReferenceCluster]:
         logging.info("CustomBlast: Loading gene cluster database into memory...")
         if options.database_dir is None:
             raise ValueError("No database directory specified")
+        data_dir = os.path.join(options.database_dir, 'customblast')
     elif searchtype == "knownclusterblast":
         logging.info("KnownClusterBlast: Loading gene cluster database into memory...")
         kcb_root = os.path.join(options.database_dir, "knownclusterblast")
