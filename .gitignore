@@ -166,8 +166,8 @@ results/
 test_species/
 
 # BGC seeds
-customsmash/detection/custom_detection/data/bgc_seeds*
-customsmash/detection/monosaccharides/data/bgc_seeds*
+epssmash/detection/custom_detection/data/bgc_seeds*
+epssmash/detection/monosaccharides/data/bgc_seeds*
 
 # patches
 *.patch
