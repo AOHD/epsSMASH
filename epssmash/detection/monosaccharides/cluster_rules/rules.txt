@@ -38,7 +38,7 @@ RULE	CMP-KDO-synthesis
 	DESCRIPTION	CMP-KDO-synthesis required steps: 4
 	CUTOFF	20
 	NEIGHBOURHOOD	2
-	CONDITIONS	minimum(1, [K06041]) and minimum(1, [K01627]) and minimum(1, [K03270]) and minimum(1, [K00979])
+	CONDITIONS	minimum(3, [K06041, K01627, K03270, K00979])
 
 RULE	CMP-L-8eLeg5NAc7NAc-synthesis
 	CATEGORY	Monosaccharide-synthesis
