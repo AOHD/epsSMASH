@@ -96,9 +96,9 @@ DEFINE pGT_group AS [
 DEFINE GT_group AS [
     l_1026_lactobacillus,    # GT
     l_1027_lactobacillus,    # GT
-    l_1028_lactobacillus,    # GT
+    l_1028_lactobacillus,    # GT XXX
     l_1029_lactobacillus,    # GT
-    l_1030_lactobacillus,    # GT
+    l_1030_lactobacillus,    # GT XXX
     l_1033_lactobacillus,    # GT
     l_aceP_acetan,    # GT
     l_aceQ_acetan,    # GT
@@ -112,7 +112,7 @@ DEFINE GT_group AS [
     l_epsF_pnag,    # GT
     l_epsH_pnag,    # GT
     l_epsJ_pnag,    # GT
-    l_epsL_pnag,    # GT
+    l_epsL_pnag,    # GT XXX
     l_epsO_pnag,    # GT
     l_exoA_succinoglycan,    # GT
     l_exoL_succinoglycan,    # GT
@@ -124,7 +124,7 @@ DEFINE GT_group AS [
     l_gumI_xanthan,    # GT
     l_gumK_acetan,    # GT
     l_gumK_xanthan,    # GT
-    l_gumM_xanthan,    # GT
+    l_gumM_xanthan,    # GT XXX
     l_pslC_psl,    # GT
     l_pslF_psl,    # GT
     l_pslH_psl,    # GT
@@ -144,17 +144,17 @@ DEFINE GT_group AS [
     l_wgeB_galactoglucan,    # GT
     l_wgeD_galactoglucan,    # GT
     l_wgeG_galactoglucan,    # GT
-    l_zooGT1_zooglan,    # GT
+    l_zooGT1_zooglan,    # GT XXX
     l_zooGT2_zooglan,    # GT
     l_zooGT3_zooglan,    # GT
     l_zooGT4_zooglan,    # GT
-    l_zooGT5_zooglan,    # GT
+    l_zooGT5_zooglan,    # GT XXX
     l_zooGT6_zooglan,    # GT
-    l_zooGT7_zooglan,    # GT
+    l_zooGT7_zooglan,    # GT XXX
     l_zooGT8_zooglan    # GT
 ]
 
-
+l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan, l_1030_lactobacillus, l_1028_lactobacillus
 
 RULE wzy_dependent_putative
     CATEGORY  Wzy-dependent
