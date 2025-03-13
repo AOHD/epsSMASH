@@ -67,7 +67,7 @@ hasB	UDP-glucose dehydrogenase	790	individual_hmms/hasB.hmm
 hasC	UDP-glucose pyrophosphorylase	637	individual_hmms/hasC.hmm
 # Sucrase-dependent systems
 Glyco_hydro_68	Glycosyl hydrolase family 68 (Levansucrase or inulosucrase)	125	individual_hmms/Glyco_hydro_68.hmm
-GH70	Glycosyl hydrolase family 70 (alpha-glucansucrases)	150	individual_hmms/GH70.hmm
+GH70	Glycosyl hydrolase family 70 (alpha-glucansucrases)	200	individual_hmms/GH70.hmm
 # Wzx/Wzy-dependent systems
 amsA_amylovoran	Polysaccharide copolymerase 2 (PCP-2)	200	individual_hmms/amsA_amylovoran.hmm
 amsB_amylovoran	Glycosyltransferase	50	individual_hmms/amsB_amylovoran.hmm
@@ -314,7 +314,6 @@ ABC2_membrane	x	20	individual_hmms/ABC2_membrane.hmm
 ABC_membrane	x	20	individual_hmms/ABC_membrane.hmm
 ABC_tran	x	20	individual_hmms/ABC_tran.hmm
 # LOOSE RULES: Decrease in bitscore
-# Glycosyltransferases
 l_amsA_amylovoran	Polysaccharide copolymerase 2 (PCP-2)	20	individual_hmms_loose_rules/l_amsA_amylovoran.hmm
 l_amsC_amylovoran	Wzy polymerase	20	individual_hmms_loose_rules/l_amsC_amylovoran.hmm
 l_amsF_amylovoran	Depolymerase	20	individual_hmms_loose_rules/l_amsF_amylovoran.hmm

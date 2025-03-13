@@ -59,27 +59,23 @@ DEFINE wzc_PCP_group AS [
    l_wzc_emulsan,
    l_wzc_zooglan,
    Wzz,                 # PFAM entry
-   l_spnE_sphingans #?? 
-   #l_epsB_pnag # Not reported as PCP but shows homology!!  (instead as regulator - has a tyrosine kinase)
-   #l_epsC_lactobacillus, tyrosine kinase so not a PCP
-   #GNVR                # PFAM entry, tyrosine kinase so not a PCP
+   l_spnE_sphingans
 ]
 
 DEFINE wzy_group AS [
-    l_wzy_zooglan,         # zoogleanlike
-    l_1031_lactobacillus,  # zoogleanlike # xanthan-like
-    # l_1034_lactobacillus,  # zoogleanlike  & wzx-homolog
-    l_pslJ_psl,            # zoogleanlike 
-    l_spnG_sphingans,      # zoogleanlike 
-    l_exoQ_succinoglycan,  # zoogleanlike 
-    l_wzy_emulsan,         # zoogleanlike 
-  # l_amsL_amylovoran,     # zoogleanlike  & wzx-homolog 
-    l_gumE_xanthan,        # xanthan-like
-    l_gumE_acetan,         # xanthan-like
-    l_wcaD_colanic,         # colanic-like
-    WzyE,                   #Pfam entry
-    Wzy_C,                  #Pfam entry
-    O-ag_pol_Wzy           #Pfam entry
+    l_wzy_zooglan,
+    l_1031_lactobacillus,
+    l_amsC_amylovoran,
+    l_pslJ_psl,
+    l_spnG_sphingans, 
+    l_exoQ_succinoglycan,
+    l_wzy_emulsan,
+    l_gumE_xanthan,
+    l_gumE_acetan,
+    l_wcaD_colanic,
+    WzyE,
+    Wzy_C,
+    O-ag_pol_Wzy
 ]
 
 DEFINE pGT_group AS [
@@ -154,7 +150,8 @@ DEFINE GT_group AS [
     l_zooGT8_zooglan    # GT
 ]
 
-l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan, l_1030_lactobacillus, l_1028_lactobacillus
+# l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan, l_1030_lactobacillus, l_1028_lactobacillus cover 89% of all glycosyltransferases. 
+# We use these as the GTs in our loose rules so we can ask for >= 2 GTs in each gene cluster using antiSMASH rule syntax
 
 RULE wzy_dependent_putative
     CATEGORY  Wzy-dependent
