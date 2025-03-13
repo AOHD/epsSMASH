@@ -141,7 +141,7 @@ wcaF_colanic	Acetyltransferase	300	individual_hmms/wcaF_colanic.hmm
 wcaG_colanic	Fucose-synthase	600	individual_hmms/wcaG_colanic.hmm
 wcaH_colanic	NA	200	individual_hmms/wcaH_colanic.hmm
 wcaI_colanic	Sugar monomers transfer	700	individual_hmms/wcaI_colanic.hmm
-wcaJ_colanic	Iniciates the stepwise assembly of the repeat unit	890	individual_hmms/wcaJ_colanic.hmm
+wcaJ_colanic	Initiates the stepwise assembly of the repeat unit	890	individual_hmms/wcaJ_colanic.hmm
 wcaK_colanic	NA	700	individual_hmms/wcaK_colanic.hmm
 wcaL_colanic	Sugar monomers transfer	730	individual_hmms/wcaL_colanic.hmm
 gmd_colanic	Precursor synthesis, GDP-mannose dehydratase	780	individual_hmms/gmd_colanic.hmm
