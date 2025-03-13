@@ -45,7 +45,6 @@ DETECTION_STAGE = DetectionStage.AREA_FORMATION
 HMM_FILE = path.get_full_path(__file__, "data", "bgc_seeds.hmm")
 #RULE_FILE = path.get_full_path(__file__, "cluster_rules", "rules.txt")
 SIGNATURE_FILE = path.get_full_path(__file__, "data", "hmmdetails.txt")
-EQUIVALENCE_GROUPS = path.get_full_path(__file__, "filterhmmdetails.txt")
 
 _STRICTNESS_LEVELS = ["strict", "relaxed", "loose"]
 
@@ -87,7 +86,7 @@ def _build_ruleset(options: ConfigType) -> Ruleset:
         seeds = HMM_FILE,
         rule_files = _get_rule_files_for_strictness(strictness),
         categories = categories,
-        filter_file = EQUIVALENCE_GROUPS,
+        filter_file = os.devnull,
         tool = "rule-based-clusters")
 
     # limit the rules used, if relevant
