@@ -122,14 +122,14 @@ RULE Hyaluronic_acid_has
 # Wzx/Wzy rules
 ###########################################################
 
-RULE amylovoran_stewartan-like
+RULE amylovoran_stewartan
     CATEGORY  Wzy-dependent
     DESCRIPTION Amylovoran or stewartan like
     CUTOFF 20
     NEIGHBOURHOOD 1
     CONDITIONS amsF_amylovoran and minimum(7, [amsA_amylovoran, amsB_amylovoran, amsC_amylovoran, amsD_amylovoran, amsE_amylovoran, amsF_amylovoran, amsG_amylovoran, amsH_amylovoran, amsI_amylovoran, amsJ_amylovoran, amsK_amylovoran, amsL_amylovoran, galE_amylovoran, galF_amylovoran])
 
-RULE acetan-like
+RULE acetan
     CATEGORY  Wzy-dependent
     DESCRIPTION Acetan like
     CUTOFF 15
@@ -137,42 +137,42 @@ RULE acetan-like
     CONDITIONS aceA_acetan and gumE_acetan and aceE_acetan and aceD_acetan and aceG_acetan and aceH_acetan and minimum(7, [aceB_acetan, aceC_acetan, aceF_acetan, aceI_acetan, aceM_acetan, aceP_acetan, aceQ_acetan, aceR_acetan, eg_acetan, gumF_acetan, gumK_acetan])
 
 
-RULE succinoglycan-like
+RULE succinoglycan
     CATEGORY  Wzy-dependent
     DESCRIPTION Succinoglycan like
     CUTOFF 30
     NEIGHBOURHOOD 1
     CONDITIONS exoT_succinoglycan and exoQ_succinoglycan and exsA_succinoglycan and exoP_succinoglycan and exsE_succinoglycan and minimum(10, [exoA_succinoglycan, exoB_succinoglycan, exoF_succinoglycan, exoH_succinoglycan, exoI_succinoglycan, exoK_succinoglycan, exoL_succinoglycan, exoM_succinoglycan, exoN_succinoglycan, exoO_succinoglycan, exoU_succinoglycan, exoV_succinoglycan, exoW_succinoglycan, exoX_succinoglycan, exoY_succinoglycan, exoZ_succinoglycan, exsB_succinoglycan, exsC_succinoglycan, exsD_succinoglycan, exsF_succinoglycan, exsG_succinoglycan, exsH_succinoglycan, exsI_succinoglycan])
 
-RULE colanic-like
+RULE colanic
     CATEGORY  Wzy-dependent
     DESCRIPTION Colanic acid like
     CUTOFF 15
     NEIGHBOURHOOD 1
     CONDITIONS  wzx_colanic and wcaD_colanic and wza_colanic and wzb_colanic and wzc_colanic and minimum(1, [wcaA_colanic, wcaB_colanic, wcaC_colanic, wcaE_colanic, wcaF_colanic, wcaG_colanic, wcaH_colanic, wcaI_colanic, wcaJ_colanic, wcaK_colanic, wcaL_colanic, gmd_colanic, manB_colanic, manC_colanic])
 
-RULE xanthan-like
+RULE xanthan
     CATEGORY  Wzy-dependent
     DESCRIPTION Xanthan like
     CUTOFF 10
     NEIGHBOURHOOD 1
     CONDITIONS gumE_xanthan and minimum(6, [gumB_xanthan, gumC_xanthan, gumD_xanthan, gumF_xanthan, gumG_xanthan, gumH_xanthan, gumI_xanthan, gumJ_xanthan, gumK_xanthan, gumL_xanthan, gumM_xanthan])
 
-RULE galactoglucan-like
+RULE galactoglucan
     CATEGORY  Wzy-dependent
     DESCRIPTION Galactoglucan like
     CUTOFF 25
     NEIGHBOURHOOD 1
     CONDITIONS  wgdB_galactoglucan and wgdA_galactoglucan and wgeA_galactoglucan and wgeB_galactoglucan and wgeC_galactoglucan and wgeD_galactoglucan and minimum(1, [wgaA_galactoglucan, wgaB_galactoglucan, wgaC_galactoglucan, wgaD_galactoglucan, wgaE_galactoglucan, wgaF_galactoglucan, wgaG_galactoglucan, wgaH_galactoglucan, wgaI_galactoglucan, wgaJ_galactoglucan, wgcA_galactoglucan, wgeE_galactoglucan, wgeF_galactoglucan, wgeG_galactoglucan, wgeH_galactoglucan, wggR_galactoglucan])
 
-RULE psl-like
+RULE psl
     CATEGORY  Wzy-dependent
     DESCRIPTION Psl like
     CUTOFF 15
     NEIGHBOURHOOD 1
     CONDITIONS pslA_psl and pslE_psl and pslJ_psl and pslK_psl and minimum(1, [pslB_psl, pslC_psl, pslD_psl, pslF_psl, pslG_psl, pslH_psl, pslI_psl, pslL_psl])
 
-RULE PNAG_eps-like
+RULE PNAG_eps
     CATEGORY  Wzy-dependent
     DESCRIPTION PNAG EPS (B. subtilis) like
     CUTOFF 20
@@ -180,14 +180,14 @@ RULE PNAG_eps-like
     CONDITIONS  epsH_pnag and epsI_pnag and epsJ_pnag and epsK_pnag and minimum(1, [epsA_pnag, epsB_pnag, epsC_pnag, epsD_pnag, epsE_pnag, epsF_pnag, epsG_pnag, epsL_pnag, epsM_pnag, epsN_pnag, epsO_pnag])
 
 
-RULE lactobacillus_eps-like
+RULE lactobacillus_eps
     CATEGORY  Wzy-dependent
     DESCRIPTION Lactobacillus EPS like
     CUTOFF 25
     NEIGHBOURHOOD 1
     CONDITIONS  epsA_lactobacillus and epsB_lactobacillus and epsC_lactobacillus and minimum(7, [1026_lactobacillus, 1027_lactobacillus, 1028_lactobacillus, 1029_lactobacillus, 1030_lactobacillus, 1031_lactobacillus, 1032_lactobacillus, 1033_lactobacillus, 1034_lactobacillus, epsD_lactobacillus, epsE_lactobacillus])
 
-RULE sphingans-like
+RULE sphingans
     CATEGORY  Wzy-dependent
     DESCRIPTION Gellan, wellan, diutan or S88 like
     CUTOFF 20
@@ -195,14 +195,14 @@ RULE sphingans-like
     CONDITIONS  spnD_sphingans and spnC_sphingans and spnE_sphingans and spnM_sphingans and spnN_sphingans and minimum(13, [atrB_sphingans, atrD_sphingans, rmlA_sphingans, rmlB_sphingans, rmlC_sphingans, rmlD_sphingans, spnB_sphingans, spnF_sphingans, spnG_sphingans, spnI_sphingans, spnJ_sphingans, spnK_sphingans, spnL_sphingans, spnQ_sphingans, spnR_sphingans, spnS_sphingans, urf31_sphingans, urf314_sphingans, urf34_sphingans])
 
 
-RULE zooglan-like
+RULE zooglan
     CATEGORY  Wzy-dependent
     DESCRIPTION Zooglan like
     CUTOFF 35
     NEIGHBOURHOOD 1
     CONDITIONS  wza_zooglan and etk_zooglan and wzc_zooglan and zooP_zooglan and zooSA_zooglan and zooM2_zooglan and zooM3_zooglan and zooGT1_zooglan and zooGT2_zooglan and epsH_zooglan and asnH_zooglan and wzy_zooglan and minimum(4, [asnB_zooglan, zooTRP_zooglan, wzxC_zooglan, zooGT8_zooglan, zooGT7_zooglan, capK_zooglan, wzi_zooglan, lolD_zooglan, zooGH_zooglan, zooM1_zooglan, zooGT6_zooglan, zooGT5_zooglan, zooGT4_zooglan, zooGT3_zooglan])
 
-RULE emulsan-like
+RULE emulsan
     CATEGORY  Wzy-dependent
     DESCRIPTION Emulsan
     CUTOFF 30
@@ -214,7 +214,7 @@ RULE emulsan-like
 # Sucrase rules
 ###########################################################
 
-RULE fructan-sucrases
+RULE fructansucrases
     CATEGORY  Sucrase-dependent
     DESCRIPTION Levan or inulin
     CUTOFF 5
