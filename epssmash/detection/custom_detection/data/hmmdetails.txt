@@ -58,13 +58,13 @@ icaA	PNAG (ica) glycosyl transferase	150	individual_hmms/icaA.hmm
 icaB	PNAG (ica) deacetylase	130	individual_hmms/icaB.hmm
 icaC	PNAG (ica) polymerase	100	individual_hmms/icaC.hmm
 icaD	PNAG (ica) regulatory protein	20	individual_hmms/icaD.hmm
-pgaA	TPR-rich PNAG (pga) transport protein	300	individual_hmms/pgaA.hmm
-pgaB	PNAG (pga) deacetylase	300	individual_hmms/pgaB.hmm
-pgaC	PNAG (pga) synthase	500	individual_hmms/pgaC.hmm
+pgaA	TPR-rich PNAG (pga) transport protein	200	individual_hmms/pgaA.hmm
+pgaB	PNAG (pga) deacetylase	200	individual_hmms/pgaB.hmm
+pgaC	PNAG (pga) synthase	400	individual_hmms/pgaC.hmm
 pgaD	PNAG (pga) c-di-GMP binding regulator	20	individual_hmms/pgaD.hmm
-hasA	Hyaluronic acid synthase	870	individual_hmms/hasA.hmm
-hasB	UDP-glucose dehydrogenase	790	individual_hmms/hasB.hmm
-hasC	UDP-glucose pyrophosphorylase	637	individual_hmms/hasC.hmm
+hasA	Hyaluronic acid synthase	800	individual_hmms/hasA.hmm
+hasB	UDP-glucose dehydrogenase	700	individual_hmms/hasB.hmm
+hasC	UDP-glucose pyrophosphorylase	500	individual_hmms/hasC.hmm
 # Sucrase-dependent systems
 Glyco_hydro_68	Glycosyl hydrolase family 68 (Levansucrase or inulosucrase)	125	individual_hmms/Glyco_hydro_68.hmm
 GH70	Glycosyl hydrolase family 70 (alpha-glucansucrases)	200	individual_hmms/GH70.hmm

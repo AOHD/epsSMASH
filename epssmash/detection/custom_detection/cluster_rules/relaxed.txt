@@ -25,20 +25,11 @@ RULE cellulose-gram-positive-like
 RULE pel-like
     CATEGORY  Synthase-dependent
     DESCRIPTION Pel-like
-    RELATED pelA, pelB, pelC, pelD, pelE
-    SUPERIORS pel
+    RELATED pelA, pelB, pelC, pelD, pelE, pelD_pos, pelE_pos, pelA_pos
+    SUPERIORS pel, pel-positive
     CUTOFF 15
     NEIGHBOURHOOD 1
-    CONDITIONS pelF and pelG
-
-RULE pel-positive-like
-    CATEGORY  Synthase-dependent
-    DESCRIPTION Gram-positive Pel-like
-    RELATED pelD_pos, pelE_pos, pelA_pos
-    SUPERIORS pel-positive, pel-like # pel-like and pel-positive-like hit a lot of the same stuff
-    CUTOFF 15
-    NEIGHBOURHOOD 1
-    CONDITIONS pelF_pos and pelG_pos
+    CONDITIONS (pelF and pelG) or (pelF_pos and pelG_pos)
 
 RULE alginate-like
     CATEGORY  Synthase-dependent
