@@ -110,7 +110,7 @@ RULE PNAG-pga
     NEIGHBOURHOOD 1
     CONDITIONS pgaA and pgaB and pgaC
 
-RULE HA_has
+RULE Hyaluronic_acid_has
     CATEGORY  Synthase-dependent
     DESCRIPTION Hyaluronic acid (has)
     CUTOFF 5
