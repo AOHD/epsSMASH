@@ -3,7 +3,7 @@
 ####### WZX / WZX  ##########
 
 ## Defines a list of rules; 
-DEFINE relaxed AS emulsan-like, zooglan-like, sphingans-like, lactobacillus_eps-like, amylovoran_stewartan-like, acetan-like, succinoglycan-like, colanic-like, xanthan-like, galactoglucan-like, psl-like, PNAG_eps-like
+DEFINE relaxed AS emulsan, zooglan, sphingans, lactobacillus_eps, amylovoran_stewartan, acetan, succinoglycan, colanic, xanthan, galactoglucan, psl, PNAG_eps
 
 
 ## Defines a list of hmms 

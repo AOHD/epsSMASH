@@ -24,7 +24,7 @@ RULE cellulose-gram-positive-like
 
 RULE pel-like
     CATEGORY  Synthase-dependent
-    DESCRIPTION Pel-like
+    DESCRIPTION Pel-like (Gram-negative or Gram-positive)
     RELATED pelA, pelB, pelC, pelD, pelE, pelD_pos, pelE_pos, pelA_pos
     SUPERIORS pel, pel-positive
     CUTOFF 15
