@@ -10,7 +10,7 @@ RULE cellulose-like
     RELATED algF_cel, algI_cel, algJ_cel, algX_cel, BcsD, BcsE, BcsF, BcsG, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, bglX
     SUPERIORS generic-cellulose
     CUTOFF 20
-    NEIGHBOURHOOD 1
+    NEIGHBOURHOOD 5
     CONDITIONS BcsA and minimum(1, [BcsB, BcsC, BcsK, BcsZ])
 
 RULE cellulose-gram-positive-like
@@ -19,7 +19,7 @@ RULE cellulose-gram-positive-like
     RELATED ccsI, ccsH
     SUPERIORS cellulose-gram-positive
     CUTOFF 20
-    NEIGHBOURHOOD 1
+    NEIGHBOURHOOD 5
     CONDITIONS ccsA and minimum(1, [ccsB, ccsZ])
 
 RULE pel-like
@@ -28,7 +28,7 @@ RULE pel-like
     RELATED pelA, pelB, pelC, pelD, pelE, pelD_pos, pelE_pos, pelA_pos
     SUPERIORS pel, pel-positive
     CUTOFF 15
-    NEIGHBOURHOOD 1
+    NEIGHBOURHOOD 5
     CONDITIONS (pelF and pelG) or (pelF_pos and pelG_pos)
 
 RULE alginate-like
@@ -37,7 +37,7 @@ RULE alginate-like
     RELATED algD, algL, algI, algJ, algF, algA
     SUPERIORS alginate
     CUTOFF 20
-    NEIGHBOURHOOD 1
+    NEIGHBOURHOOD 5
     CONDITIONS alg8 and alg44 and minimum(1, [algK, algE, algG, algX])
 
 RULE curdlan-like
@@ -46,7 +46,7 @@ RULE curdlan-like
     RELATED crdA, crdS
     SUPERIORS curdlan, cellulose-like, cellulose-gram-positive-like
     CUTOFF 10
-    NEIGHBOURHOOD 1
+    NEIGHBOURHOOD 5
     CONDITIONS crdS
 
 RULE PNAG-ica-like
@@ -55,7 +55,7 @@ RULE PNAG-ica-like
     RELATED icaD, icaC
     SUPERIORS PNAG-ica
     CUTOFF 5
-    NEIGHBOURHOOD 1
+    NEIGHBOURHOOD 5
     CONDITIONS icaA and icaB
 
 RULE PNAG-pga-like
@@ -64,7 +64,7 @@ RULE PNAG-pga-like
     RELATED pgaD, pgaA
     SUPERIORS PNAG-pga
     CUTOFF 10
-    NEIGHBOURHOOD 1
+    NEIGHBOURHOOD 5
     CONDITIONS pgaC and pgaB
 
 

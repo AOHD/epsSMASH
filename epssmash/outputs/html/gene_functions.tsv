@@ -273,14 +273,14 @@ pelD_pos	regulatory
 pelE_pos	transport
 pelA_pos	degradation
 pelF_pos	polymerisation
-pelG_pos	modification
+pelG_pos	transport
 pelA	degradation
 pelB	transport
 pelC	transport
 pelD	regulatory
 pelE	transport
 pelF	polymerisation
-pelG	modification
+pelG	transport
 icaA	polymerisation
 icaB	modification
 icaC	polymerisation
