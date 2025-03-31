@@ -159,7 +159,7 @@ RULE xanthan
     CONDITIONS gumE_xanthan and minimum(6, [gumB_xanthan, gumC_xanthan, gumD_xanthan, gumF_xanthan, gumG_xanthan, gumH_xanthan, gumI_xanthan, gumJ_xanthan, gumK_xanthan, gumL_xanthan, gumM_xanthan])
 
 RULE galactoglucan
-    CATEGORY  Wzy-dependent
+    CATEGORY  ABC-dependent
     DESCRIPTION Galactoglucan
     CUTOFF 25
     NEIGHBOURHOOD 5

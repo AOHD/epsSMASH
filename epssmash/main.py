@@ -18,14 +18,13 @@ from antismash.modules import pfam2go, tfbs_finder
 # the structure and naming here are just arbitrary examples and can be changed
 # to suit
 from epssmash.detection import custom_detection
-from epssmash.detection import monosaccharides
 from epssmash.modules import custom_analysis, customblast
 from epssmash.outputs import html
 
 # replace the normal antismash modules with any combination of antiSMASH modules
 # and/or custom modules
 antismash.main.replace_analysis_modules([custom_analysis, customblast, pfam2go, tfbs_finder])
-antismash.main.replace_detection_modules([cluster_hmmer, monosaccharides, custom_detection])
+antismash.main.replace_detection_modules([cluster_hmmer, custom_detection])
 antismash.main.replace_html_module(html)
 antismash.outputs.svg.clusterblast = customblast
 
