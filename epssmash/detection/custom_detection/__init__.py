@@ -11,12 +11,16 @@ Some functions are expected by antiSMASH, for details antismash.custom_typing.py
 This module could instead be implemented as a class, using the above information and
 inheriting antismash.custom_typing.AntismashModule
 """
+
 import logging
 import os
+import shutil
+import tempfile
 from typing import Any, Optional, Self
+from importlib.resources import files, as_file
+from pathlib import Path
 
-# import any components being reused from antiSMASH
-from antismash.common import path
+from antismash.common import path  # Remove if no longer needed
 from antismash.common.hmmer import ensure_database_pressed
 from antismash.common.hmm_rule_parser.cluster_prediction import (
     create_rules,
@@ -41,10 +45,14 @@ SHORT_DESCRIPTION = "some kind of protocluster detection"
 # the detection stage defines when the module is run in the detection process
 DETECTION_STAGE = DetectionStage.AREA_FORMATION
 
+# Initialize cache directory with proper structure
+_cache_dir = Path(tempfile.gettempdir()) / 'epssmash_cache'
+_cache_dir.mkdir(exist_ok=True)
+(_cache_dir / 'individual_hmms').mkdir(exist_ok=True)
 
-HMM_FILE = path.get_full_path(__file__, "data", "bgc_seeds.hmm")
-#RULE_FILE = path.get_full_path(__file__, "cluster_rules", "rules.txt")
-SIGNATURE_FILE = path.get_full_path(__file__, "data", "hmmdetails.txt")
+# Placeholder variables to be set in prepare_data
+HMM_FILE = None
+SIGNATURE_FILE = None
 
 _STRICTNESS_LEVELS = ["strict", "relaxed", "loose"]
 
@@ -54,11 +62,16 @@ _RULESETS: dict[tuple[str, tuple[str, ...], tuple[str, ...], Multipliers], Rules
 def _get_rule_files_for_strictness(strictness: str) -> list[str]:
     """ Returns a list of appropriate rule files for the given strictness level """
     assert strictness in _STRICTNESS_LEVELS, strictness
-    files = []
+    rule_files = []
     for level in _STRICTNESS_LEVELS[:_STRICTNESS_LEVELS.index(strictness) + 1]:
-        files.append(path.get_full_path(__file__, "cluster_rules", f"{level}.txt"))
-    return files
-
+        # Use importlib.resources to access the rule files
+        rule_resource = files(__package__).joinpath('cluster_rules', f"{level}.txt")
+        with as_file(rule_resource) as rule_src:
+            dest = os.path.join(_cache_dir, f"{level}.txt")
+            if not os.path.exists(dest) or os.path.getmtime(rule_src) > os.path.getmtime(dest):
+                shutil.copyfile(rule_src, dest)
+            rule_files.append(dest)
+    return rule_files
 
 def _build_ruleset(options: ConfigType) -> Ruleset:
     
@@ -220,63 +233,91 @@ def regenerate_previous_results(results: dict[str, Any], record: Record,
     # but this step is omitted in the demo
     return CustomDetectionResults.from_json(results, record)
 
+def _copy_resource(source_package_path: str, dest_path: Path) -> Path:
+    """Helper to copy package resources to cache"""
+    resource = files(__package__).joinpath(source_package_path)
+    with as_file(resource) as src_file:
+        if not dest_path.exists() or src_file.stat().st_mtime > dest_path.stat().st_mtime:
+            shutil.copyfile(src_file, dest_path)
+    return dest_path
 
 def prepare_data(logging_only: bool = False) -> list[str]:
-    """ Ensures packaged data is fully prepared
-
-        Arguments:
-            logging_only: whether to return error messages instead of raising exceptions
-
-        Returns:
-            a list of error messages (only if logging_only is True)
-    """
+    """Ensures packaged data is fully prepared"""
+    global HMM_FILE, SIGNATURE_FILE
+    
     failure_messages = []
-
-    # Check that hmmdetails.txt is readable and well-formatted
+    
     try:
-        profiles = get_signature_profiles(SIGNATURE_FILE)
-    except ValueError as err:
-        if not logging_only:
-            raise
-        return [str(err)]
+        # 1. Create all required cache directories
+        cache_dirs = [
+            _cache_dir / 'individual_hmms',
+            _cache_dir / 'individual_hmms_loose_rules'
+        ]
+        for dir_path in cache_dirs:
+            dir_path.mkdir(exist_ok=True)
+        
+        # 2. Process signature file
+        sig_dest = _cache_dir / 'hmmdetails.txt'
+        SIGNATURE_FILE = str(_copy_resource('data/hmmdetails.txt', sig_dest))
+        
+        # 3. Process individual HMMs - check multiple possible locations
+        sig_resource = files(__package__).joinpath('data/hmmdetails.txt')
+        with as_file(sig_resource) as sig_src:
+            signatures = get_signature_profiles(str(sig_src))
+            
+            hmm_files = []
+            for sig in signatures:
+                hmm_filename = os.path.basename(sig.hmm_file)
+                
+                # Define source and destination paths based on original location
+                if "loose_rules" in sig.hmm_file:
+                    src_subdir = "individual_hmms_loose_rules"
+                else:
+                    src_subdir = "individual_hmms"
+                
+                src_path = f"data/{src_subdir}/{hmm_filename}"
+                dest_path = _cache_dir / src_subdir / hmm_filename
+                
+                try:
+                    _copy_resource(src_path, dest_path)
+                    hmm_files.append(dest_path)
+                except Exception as e:
+                    msg = f"Failed to copy {hmm_filename} from {src_subdir}: {str(e)}"
+                    if logging_only:
+                        failure_messages.append(msg)
+                    else:
+                        raise RuntimeError(msg) from e
 
-    # the path to the markov model
-    seeds_hmm = path.get_full_path(__file__, 'data', 'bgc_seeds.hmm')
-    hmm_files = [os.path.join("data", "individual_hmms", sig.hmm_file) for sig in profiles]
-    # include the listing, since tools like wget will keep modified timestamps on the HMMs
-    description_file = path.get_full_path(__file__, 'data', 'hmmdetails.txt')
-    outdated = False
-    if not path.locate_file(seeds_hmm):
-        logging.debug("%s: %s doesn't exist, regenerating", NAME, seeds_hmm)
-        outdated = True
-    else:
-        seeds_timestamp = os.path.getmtime(seeds_hmm)
-        for component in hmm_files + [description_file]:
-            if os.path.getmtime(component) > seeds_timestamp:
-                logging.debug("%s out of date, regenerating", seeds_hmm)
-                outdated = True
-                break
-
-    # regenerate if missing or out of date
-    if outdated:
-        # try to generate file from all specified profiles in hmmdetails
-        try:
-            with open(seeds_hmm, "w", encoding="utf-8") as all_hmms_handle:
-                for hmm_file in hmm_files:
-                    with open(path.get_full_path(__file__, hmm_file), "r", encoding="utf-8") as handle:
-                        all_hmms_handle.write(handle.read())
-        except OSError:
-            if not logging_only:
-                raise
-            failure_messages.append(f"Failed to generate file {seeds_hmm!r}")
-
-    # if regeneration failed, don't try to run hmmpress
-    if failure_messages:
-        return failure_messages
-
-    failure_messages.extend(ensure_database_pressed(seeds_hmm, return_not_raise=logging_only))
-
+        # 4. Generate combined seeds.hmm in the main cache directory
+        seeds_hmm = _cache_dir / 'bgc_seeds.hmm'
+        HMM_FILE = str(seeds_hmm)
+        
+        # Check if we need to rebuild
+        needs_rebuild = (not seeds_hmm.exists() or 
+                        any(hmm.stat().st_mtime > seeds_hmm.stat().st_mtime 
+                            for hmm in hmm_files) or
+                        sig_dest.stat().st_mtime > seeds_hmm.stat().st_mtime)
+        
+        if needs_rebuild:
+            with open(seeds_hmm, 'w', encoding='utf-8') as outfile:
+                for hmm in hmm_files:
+                    with open(hmm, 'r', encoding='utf-8') as infile:
+                        outfile.write(infile.read())
+        
+        # 5. Press the HMM database
+        if not failure_messages:
+            failure_messages.extend(
+                ensure_database_pressed(str(seeds_hmm), return_not_raise=logging_only)
+            )
+            
+    except Exception as e:
+        if logging_only:
+            return [str(e)]
+        raise
+    
     return failure_messages
+
+
 
 
 def check_prereqs(options: ConfigType) -> list[str]:

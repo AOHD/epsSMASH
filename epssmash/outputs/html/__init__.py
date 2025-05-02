@@ -13,7 +13,7 @@ import shutil
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 import warnings
 import csv
-
+import importlib.resources
 import sass
 
 from antismash.outputs import html
@@ -346,9 +346,9 @@ original_convert = html.js.convert_cds_features
 #    "pgaD": "regulatory"
 #}
 
-def read_tsv_to_dict(tsv_file_path):
+def read_tsv_to_dict():
     table = {}
-    with open(tsv_file_path, mode='r') as file:
+    with importlib.resources.open_text("epssmash.outputs.html", "gene_functions.tsv") as file:
         reader = csv.reader(file, delimiter='\t')
         for row in reader:
             if len(row) == 2:
@@ -364,8 +364,7 @@ def format_dict_as_string(table):
     return formatted_string
 
 
-tsv_file_path = os.path.join(os.path.dirname(__file__), "gene_functions.tsv")
-TABLE = read_tsv_to_dict(tsv_file_path)
+TABLE = read_tsv_to_dict()
 
 def convert_cds_features(record: Record, features: Iterable[CDSFeature], options: ConfigType,
                          mibig_entries: Dict[str, List[clusterblast.results.MibigEntry]], offset: int = 0,

@@ -28,8 +28,6 @@ from antismash.modules.clusterblast import (
     get_result_limit,
     load_clusterblast_database,
     will_handle,
-    run_knownclusterblast_on_record,
-    prepare_known_data,
 )
 from antismash.modules.clusterblast.core import (
     get_core_gene_ids,
@@ -77,12 +75,6 @@ def get_arguments() -> ModuleArgs:
                              default=False,
                              help="Compare identified clusters against a "
                                   "database of epsSMASH-predicted clusters.")
-    args.add_analysis_toggle('knownclusters',
-                             dest='knownclusters',
-                             action='store_true',
-                             default=False,
-                             help="Compare identified clusters against known "
-                                  "gene clusters from the literature.")
     args.add_option('min-homology-scale',
                     dest='min_homology_scale',
                     metavar="LIMIT",
@@ -125,7 +117,7 @@ def check_prereqs(options: ConfigType) -> list[str]:
 
 
 def is_enabled(options: ConfigType) -> bool:
-    return options.cb_general or options.cb_knownclusters
+    return options.cb_general
 
 
 def load_reference_clusters(searchtype: str) -> dict[str, ReferenceCluster]:
@@ -145,13 +137,7 @@ def load_reference_clusters(searchtype: str) -> dict[str, ReferenceCluster]:
         logging.info("CustomBlast: Loading gene cluster database into memory...")
         if options.database_dir is None:
             raise ValueError("No database directory specified")
-        data_dir = os.path.join(options.database_dir, 'customblast')
-    elif searchtype == "knownclusterblast":
-        logging.info("KnownClusterBlast: Loading gene cluster database into memory...")
-        kcb_root = os.path.join(options.database_dir, "knownclusterblast")
-        version = path.find_latest_database_version(kcb_root)
-        data_dir = os.path.join(kcb_root, version)
-        print(data_dir)    
+        data_dir = os.path.join(options.database_dir, 'customblast') 
 
     reference_cluster_file = os.path.join(data_dir, "clusters.txt")
     with open(reference_cluster_file, "r", encoding="utf-8") as handle:
@@ -179,7 +165,7 @@ def load_reference_proteins(searchtype: str) -> dict[str, Protein]:
 
         Arguments:
             searchtype: determines which database to use, allowable values:
-                            clusterblast, subclusterblast, knownclusterblast
+                            clusterblast, subclusterblast
         Returns:
             a dictionary mapping protein name to Protein instance
     """
@@ -187,11 +173,6 @@ def load_reference_proteins(searchtype: str) -> dict[str, Protein]:
     if searchtype == "clusterblast":
         logging.info("ClusterBlast: Loading gene cluster database proteins into memory...")
         data_dir = os.path.join(options.database_dir, 'customblast')
-    elif searchtype == "knownclusterblast":
-        logging.info("KnownClusterBlast: Loading gene cluster database proteins into memory...")
-        kcb_root = os.path.join(options.database_dir, "knownclusterblast")
-        version = path.find_latest_database_version(kcb_root)
-        data_dir = os.path.join(kcb_root, version)
         
     
     protein_file = os.path.join(data_dir, "proteins.fasta")
@@ -259,8 +240,6 @@ def perform_clusterblast(options: ConfigType, record: Record,
 def prepare_data(logging_only: bool = False) -> list[str]:
     """ Prepare the databases. """
     failure_messages = []
-    # known
-    failure_messages.extend(prepare_known_data(logging_only))
 
     # general
     clusterblastdir = os.path.join(get_config().database_dir, "clusterblast")
@@ -291,6 +270,4 @@ def run_on_record(record: Record, results: Optional[ClusterBlastResults],
     if options.cb_general and not results.general:
         clusters, proteins = load_clusterblast_database()
         results.general = perform_clusterblast(options, record, clusters, proteins)
-    if options.cb_knownclusters and not results.knowncluster:
-        results.knowncluster = run_knownclusterblast_on_record(record, options)
     return results

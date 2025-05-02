@@ -27,3 +27,14 @@ epsSMASH = "epssmash:__main__.entrypoint"
 
 [tool.setuptools.dynamic]
 version = {attr = "epssmash.__version__"}
+
+[tool.setuptools.package-data]
+epssmash = [
+    "detection/custom_detection/data/*.hmm",
+    "detection/custom_detection/data/*.txt",
+    "detection/custom_detection/data/individual_hmms/*.hmm",
+    "detection/custom_detection/data/individual_hmms_loose_rules/*.hmm",
+    "detection/custom_detection/cluster_rules/*.txt",
+    "config/default.cfg",
+    "outputs/html/gene_functions.tsv"
+]

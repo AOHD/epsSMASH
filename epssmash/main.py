@@ -6,6 +6,7 @@
 """
 
 import sys
+import importlib.resources
 
 import antismash
 from antismash.__main__ import main as antismash_main
@@ -32,8 +33,9 @@ antismash.outputs.svg.clusterblast = customblast
 # a good naming convention is <name><major version> to avoid conflicts between version options
 antismash.config.set_user_config_file("~/.epssmash1.cfg")  # if it doesn't exist, it's ignored
 # override default config file path
-antismash.config.set_alternate_defaults_file(antismash.common.path.get_full_path(__file__, "config", "default.cfg"))
-
+with importlib.resources.path("epssmash.config", "default.cfg") as default_cfg_path:
+    antismash.config.set_alternate_defaults_file(str(default_cfg_path))
+    
 __version__ = "1.0"
 
 
