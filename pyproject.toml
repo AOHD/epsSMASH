@@ -36,5 +36,6 @@ epssmash = [
     "detection/custom_detection/data/individual_hmms_loose_rules/*.hmm",
     "detection/custom_detection/cluster_rules/*.txt",
     "config/default.cfg",
-    "outputs/html/gene_functions.tsv"
+    "outputs/html/gene_functions.tsv",
+    "outputs/html/images/*"
 ]
