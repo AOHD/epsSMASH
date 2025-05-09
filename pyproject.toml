@@ -37,5 +37,6 @@ epssmash = [
     "detection/custom_detection/cluster_rules/*.txt",
     "config/default.cfg",
     "outputs/html/gene_functions.tsv",
-    "outputs/html/images/*"
+    "outputs/html/images/*",
+    "outputs/html/css/*",
 ]
