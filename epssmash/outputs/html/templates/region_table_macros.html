@@ -1,0 +1,55 @@
+{% macro table_header() -%}
+ <thead>
+  <tr>
+   <th>Region</th>
+   <th>Type</th>
+   <th>From</th>
+   <th>To</th>
+  </tr>
+ </thead>
+{%- endmacro %}
+
+{% macro region_button(region, element_class, css) -%}
+    <{{element_class}} class="regbutton {{css}} {{region.anchor_id}}">
+{%- endmacro %}
+
+{% macro region_row(region, cycle, record_index, options, css) -%}
+   <tr class="linked-row {{cycle}}" data-anchor="#{{region.anchor_id}}">
+     {{region_button(region, "td", css)}}
+      <a href="#{{region.anchor_id}}">Region&nbsp{% if record_index %}{{record_index}}.{% endif %}{{region.get_region_number()}}</a>
+     </td>
+     <td>
+       {% set join = joiner(",") %}
+       {% for subtype in region.products -%}
+         {{join()}}<a class="external-link" href="{{options.urls.docs_baseurl}}glossary/#{{subtype.lower()}}" target="_blank">{{subtype}}</a>
+       {%- endfor %}
+     </td>
+     <td class="digits">{{"{:,d}".format(region.location.start + 1)}}</td>
+     <td class="digits table-split-left">{{"{:,d}".format(region.location.end)}}</td>
+   </tr>
+{%- endmacro %}
+
+{% macro single_record_table(record, multi_record, options, get_region_css) -%}
+<table class="region-table">
+ {{ table_header() }}
+ <tbody>
+ {% for region in record.regions -%}
+  {{ region_row(region, loop.cycle('odd', 'even'), (multi_record and record.record_index) or 0, options, get_region_css(region)) }}
+ {% endfor %}
+ </tbody>
+</table>
+{%- endmacro %}
+
+{% macro compact_records_table(records, options, get_region_css) -%}
+<table class="region-table">
+ {{ table_header() }}
+ <tbody>
+ {% set style = cycler('odd', 'even') %}
+ {% for record in records %}
+  {% for region in record.regions -%}
+   {{ region_row(region, style.next(), record.record_index, options, get_region_css(region)) }}
+  {% endfor %}
+ {% endfor %}
+ </tbody>
+</table>
+{%- endmacro %}

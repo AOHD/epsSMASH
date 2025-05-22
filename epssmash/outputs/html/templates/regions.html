@@ -1,0 +1,105 @@
+{% for record in records %}
+{% set results = results_by_record_id[record.id] %}
+{% for region in record.regions %}
+<div class="page" id='{{region.anchor_id}}' style="display: none;">
+ <div class="region-grid">
+  <div class = "content">
+    <div class ="description-container">
+      <div class="heading"> {{record.id}} - Region {{region.get_region_number()}} - {{region.get_product_string()}} {{help_tooltip(svg_tooltip, "region_svg")}}</div>
+      <div class="region-download">
+        <a href = {{ '%s.region%03d.gbk' % (record.id, region.get_region_number()) }}>Download region GenBank file</a>
+      </div>
+      <div class="region-download">
+        <div class="link-like download-svg" data-tag="{{region.anchor_id}}-svg" data-filename="{{record.id}}_{{region.anchor_id}}.svg">Download region SVG</div>
+      </div>
+      <div class = 'description-text'>
+        {{region.description_text()}}
+        {% if region.detection_rules %}
+        <a class="cluster-rules-header" id="{{region.anchor_id}}-rules-header" href="#{{region.anchor_id}}">Show pHMM detection rules used</a>
+        {% endif %}
+        {% if region.contig_edge %}
+          <div class="contig-edge-warning">Region on contig edge.</div>
+        {% endif %}
+      </div>
+      {% if region.detection_rules %}
+      <div class="cluster-rules" id="{{region.anchor_id}}-rules">
+        {{- region.detection_rules|join('<br>'|safe) -}}
+      </div>
+      {% endif %}
+      <div class="region-svg-container">
+       <div id='{{region.anchor_id}}-svg'>
+       </div>
+      </div>
+    </div>
+    <div class="legend">
+      <h4>Legend:</h4>
+      <div class="legend-items">
+        {%- for legend in legends -%}
+         {%- if legend.is_relevant(results, region, record, options) -%}
+          {{legend.build_html()}}
+         {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="zoom-buttons">
+      <div class="button-like zoom-button zoom-reset"><img src="images/expand-arrows-alt-solid.svg" alt="reset zoom">reset view</div>
+      <div class="button-like zoom-button zoom-in"><img src="images/search-solid.svg" alt="zoom">zoom to selection</div>
+    </div>
+  </div>
+
+  <div class="focus-panel">
+    <div class="heading">
+      <span>Gene details</span>
+      {{help_tooltip("Shows details of the most recently selected gene, including names, products, location, and other annotations.", "focus-panel")}}
+    </div>
+    <div class="focus-panel-content focus-panel-content-{{region.anchor_id}}">
+        <div style="text-align: center; margin-top: 30%;">
+            Select a gene to view the details available for it
+        </div>
+    </div>
+  </div>
+
+  {% set all_module_sections = sections[record.id][region.get_region_number()] %}
+  <div class="body-details">
+    <div class="body-details-headers">
+    {% for module_sections in all_module_sections %}
+     {% for section in module_sections.detail_sections %}
+      <div class="body-details-header {{region.anchor_id}}-{{section.class_name}}" data-name="{{region.anchor_id}}-{{section.class_name}}">
+        {{section.label}}
+      </div>
+     {% endfor %}
+    {% endfor %}
+    </div>
+    {% for module_sections in all_module_sections %}
+     {% for section in module_sections.detail_sections %}
+    <div class="body-details-section {{region.anchor_id}}-{{section.class_name}}">
+      {{section.content}}
+    </div>
+     {% endfor %}
+    {% endfor %}
+  </div>
+
+  <div class="sidepanel">
+    <div class="sidepanel-details-headers">
+    {% for module_sections in all_module_sections %}
+     {% for section in module_sections.sidepanel_sections %}
+      <div class="sidepanel-details-header {{region.anchor_id}}-{{section.class_name}}" data-name="{{region.anchor_id}}-{{section.class_name}}">
+        {{section.label}}
+      </div>
+     {% endfor %}
+    {% endfor %}
+    </div>
+    {% for module_sections in all_module_sections %}
+     {% for section in module_sections.sidepanel_sections %}
+    <div class="sidepanel-details-section {{region.anchor_id}}-{{section.class_name}}">
+      {{section.content}}
+    </div>
+     {% endfor %}
+    {% endfor %}
+  </div>
+
+ </div>
+
+</div>
+{% endfor %}
+{% endfor %}
