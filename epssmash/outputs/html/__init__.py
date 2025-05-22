@@ -27,12 +27,11 @@ from antismash.common.secmet import CDSFeature, Feature, Record, Region
 from antismash.custom_typing import AntismashModule
 from antismash.config import ConfigType
 from antismash.config.args import ModuleArgs
-from antismash.outputs.html.generator import generate_webpage, find_local_antismash_js_path
+from antismash.outputs.html.generator import LegendBase, find_local_antismash_js_path, build_json_data, write_regions_js, FileTemplate, TEMPLATE_PATH, OptionsLayer, RecordLayer, generate_html_sections, docs_link, build_antismash_js_url, js
 from antismash.modules import clusterblast
 
 NAME = "html"
 SHORT_DESCRIPTION = "HTML output"
-print("TEMPLATE_PATH:", generator.TEMPLATE_PATH)
 generator.TEMPLATE_PATH = os.path.join(os.path.dirname(__file__), "templates")
 
 # Load legends to override the default ones
@@ -100,6 +99,60 @@ def convert_cds_features(record: Record, features: Iterable[CDSFeature], options
 
 # replace the original with the wrapper
 html.js.convert_cds_features = convert_cds_features
+
+# Adding in generate_webpage to correct doc_target
+def generate_webpage(records: List[Record], results: List[Dict[str, ModuleResults]],
+                     options: ConfigType, all_modules: List[AntismashModule], legends: list[LegendBase] = LEGENDS) -> str:
+    """ Generates the HTML itself """
+
+    json_records, js_domains, js_results = build_json_data(records, results, options, all_modules)
+    write_regions_js(json_records, options.output_dir, js_domains, js_results)
+
+    template = FileTemplate(os.path.join(TEMPLATE_PATH, "overview.html"))
+
+    options_layer = OptionsLayer(options, all_modules)
+    record_layers_with_regions = []
+    record_layers_without_regions = []
+    results_by_record_id: Dict[str, Dict[str, ModuleResults]] = {}
+    for record, record_results in zip(records, results):
+        if record.get_regions():
+            record_layers_with_regions.append(RecordLayer(record, None, options_layer))
+        else:
+            record_layers_without_regions.append(RecordLayer(record, None, options_layer))
+        results_by_record_id[record.id] = record_results
+
+    regions_written = sum(len(record.get_regions()) for record in records)
+    job_id = os.path.basename(options.output_dir)
+    page_title = options.output_basename
+    if options.html_title:
+        page_title = options.html_title
+
+    html_sections = generate_html_sections(record_layers_with_regions, results_by_record_id, options)
+
+    svg_tooltip = ("Shows the layout of the region, marking coding sequences and areas of interest. "
+                   "Clicking a gene will select it and show any relevant details. "
+                   "Clicking an area feature (e.g. a candidate cluster) will select all coding "
+                   "sequences within that area. Double clicking an area feature will zoom to that area. "
+                   "Multiple genes and area features can be selected by clicking them while holding the Ctrl key."
+                   )
+    
+    # Changing the doc_target to fit the epsSMASH documentation
+    doc_target = "understanding_output/regions"
+    svg_tooltip += f"<br>More detailed help is available {docs_link('here', doc_target)}."
+
+    as_js_url = build_antismash_js_url(options)
+
+    content = template.render(records=record_layers_with_regions, options=options_layer,
+                              version=options.version, extra_data=js_domains,
+                              regions_written=regions_written, sections=html_sections,
+                              results_by_record_id=results_by_record_id,
+                              config=options, job_id=job_id, page_title=page_title,
+                              records_without_regions=record_layers_without_regions,
+                              svg_tooltip=svg_tooltip, get_region_css=js.get_region_css,
+                              as_js_url=as_js_url, legends=legends,
+                              )
+    return content
+
 
 
 def get_arguments() -> ModuleArgs:
