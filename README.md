@@ -11,6 +11,7 @@ A bioinformatic tool which predicts biosynthetic gene clusters associated with E
 ## Installation
 
 Clone epsSMASH to your local machine
+
 `git clone https://github.com/AOHD/epsSMASH.git`
 
 Make a conda environment using the YAML file in `epssmash/config/`
