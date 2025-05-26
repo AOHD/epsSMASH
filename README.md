@@ -25,9 +25,9 @@ Install custom-smash in the conda environment with pip
 
 The -e makes it so whenever you run custom-smash, any changes you've made in the codebase will be included (So this is only relevant for developers)
 
-Download antismash databases (For Pfam annotation)
+Download Pfam and clusterblast databases
 
-`download-antismash-databases`
+`download-epssmash-databases`
 
 Run epsSMASH
 

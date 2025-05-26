@@ -23,6 +23,7 @@ maintainers = [
 ]
 
 [project.scripts]
+download-epssmash-databases = "epssmash.download_databases:_main"
 epsSMASH = "epssmash:__main__.entrypoint"
 
 [tool.setuptools.dynamic]

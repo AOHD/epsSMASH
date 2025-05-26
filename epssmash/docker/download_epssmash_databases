@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+
+# ADJUST THIS FOR YOUR SYSTEM
+readonly DATABASE_DIR=${1:-/data/databases}
+readonly VERSION="1.0"
+
+readonly CONTAINER_DB_DIR=/databases
+
+if [ ! -d ${DATABASE_DIR} ]; then
+    echo "Please create the database directory ${DATABASE_DIR} first."
+    exit 2
+fi
+
+docker run \
+    --volume ${DATABASE_DIR}:${CONTAINER_DB_DIR}:rw \
+    --detach=false \
+    --rm \
+    --user=$(id -u):$(id -g) \
+    --entrypoint /usr/local/bin/download-epssmash-databases \
+    antismash/epssmash \
+        --data ${CONTAINER_DB_DIR}
