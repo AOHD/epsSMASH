@@ -28,8 +28,8 @@ PFAM_LATEST_URL = f"https://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam{PFAM_
 PFAM_LATEST_ARCHIVE_CHECKSUM = "48ec2d1123c84046b00279eae1fb3d5be1b578e6221453f329d16954c89d0d35"
 PFAM_LATEST_CHECKSUM = "8d3e2ffa785f91ee0e24a3994d2dcfff6f382e3cf663784a47688e7d95297fee"
 
-CLUSTERBLAST_URL = "https://dl.secondarymetabolites.org/releases/epssmash/customblast/customblast_1.0.zip"
-CLUSTERBLAST_ARCHIVE_CHECKSUM = "2e98cf9bf0d9c6cfb6c4a605434ded50ba929d66e38c96258c2b6080779e549e"
+CLUSTERBLAST_URL = "https://dl.secondarymetabolites.org/releases/epssmash/customblast/customblast_1.0.tar.xz"
+CLUSTERBLAST_ARCHIVE_CHECKSUM = "767b16c3df41f6e67164f71b781ec32f85f19c06abf8445cbdfa6d9a9013f766"
 CLUSTERBLAST_FASTA_CHECKSUM = "a30dc3eb33b7d18cf61878dc2e15f326"
 
 LOCAL_FILE_PATH = os.path.abspath(os.path.dirname(__file__))
