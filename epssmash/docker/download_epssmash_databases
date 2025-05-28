@@ -18,7 +18,6 @@ docker run \
     --volume ${DATABASE_DIR}:${CONTAINER_DB_DIR}:rw \
     --detach=false \
     --rm \
-    --user=$(id -u):$(id -g) \
     --entrypoint /usr/local/bin/download-epssmash-databases \
     antismash/epssmash \
-        --data ${CONTAINER_DB_DIR}
+    --data ${CONTAINER_DB_DIR}

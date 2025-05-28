@@ -4,8 +4,8 @@ set -o errexit
 set -o nounset
 
 # ADJUST THIS FOR YOUR SYSTEM
-readonly DATABASE_DIR=${ANTISMASH_DATABASE_DIR:-/data/databases}
-readonly VERSION=""
+readonly DATABASE_DIR=/data/databases
+readonly VERSION="1.0"
 
 # handle input file
 readonly INPUT_FILE=$(basename $1)
@@ -31,7 +31,6 @@ docker run \
     --volume ${DATABASE_DIR}:${CONTAINER_DB_DIR}:ro \
     --detach=false \
     --rm \
-    --user=$(id -u):$(id -g) \
     antismash/epssmash \
     ${INPUT_FILE} \
     $@
