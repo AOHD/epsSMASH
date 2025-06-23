@@ -108,7 +108,7 @@ def generate_webpage(records: List[Record], results: List[Dict[str, ModuleResult
     json_records, js_domains, js_results = build_json_data(records, results, options, all_modules)
     write_regions_js(json_records, options.output_dir, js_domains, js_results)
 
-    template = FileTemplate(os.path.join(TEMPLATE_PATH, "overview.html"))
+    template = FileTemplate(os.path.join(generator.TEMPLATE_PATH, "overview.html"))
 
     options_layer = OptionsLayer(options, all_modules)
     record_layers_with_regions = []
