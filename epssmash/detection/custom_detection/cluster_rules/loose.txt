@@ -78,17 +78,6 @@ DEFINE wzy_group AS [
     O-ag_pol_Wzy
 ]
 
-DEFINE pGT_group AS [
-    l_aceA_acetan,
-    l_amsG_amylovoran,
-    l_epsC_pnag,
-    l_epsE_lactobacillus,
-    l_gumD_xanthan,
-    l_pslA_psl,
-    l_spnB_sphingans,
-    l_wcaJ_colanic
-]
-
 DEFINE GT_group AS [
     l_1026_lactobacillus,    # GT
     l_1027_lactobacillus,    # GT
@@ -153,7 +142,7 @@ DEFINE GT_group AS [
 # l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan, l_1030_lactobacillus, l_1028_lactobacillus cover 89% of all glycosyltransferases. 
 # We use these as the GTs in our loose rules so we can ask for >= 2 GTs in each gene cluster using antiSMASH rule syntax
 
-RULE wzy_dependent_putative
+RULE putative_wzy_dependent
     CATEGORY  Wzy-dependent
     DESCRIPTION Loose rule for Wzy-dependent clusters
     SUPERIORS relaxed
@@ -162,44 +151,35 @@ RULE wzy_dependent_putative
     CONDITIONS (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
 
 
-RULE wzy_dependent_putative_NO_OPX
+RULE putative_wzy_dependent_NO_OPX
     CATEGORY  Wzy-dependent
     DESCRIPTION Loose rule for Wzy-dependent clusters
-    SUPERIORS wzy_dependent_putative, relaxed
+    SUPERIORS putative_wzy_dependent, relaxed
     CUTOFF 25
     NEIGHBOURHOOD 5
     CONDITIONS (minimum(1, wzy_group) or minimum(1, wzx_group)) and minimum(1, wzc_PCP_group) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
 
 
-RULE ABC_dependent_putative
+RULE putative_ABC_dependent
     CATEGORY  ABC-dependent
     DESCRIPTION Loose rule for ABC-transporter dependent clusters
-    SUPERIORS wzy_dependent_putative, wzy_dependent_putative_NO_OPX, relaxed
+    SUPERIORS putative_wzy_dependent, putative_wzy_dependent_NO_OPX, relaxed
     CUTOFF 25
     NEIGHBOURHOOD 5
     CONDITIONS minimum(1, ABC_group) and minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and not (minimum(1, wzy_group) or minimum(1, wzx_group)) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
 
-RULE ABC_dependent_putative_NO_OPX
+RULE putative_ABC_dependent_NO_OPX
     CATEGORY  ABC-dependent
     DESCRIPTION Loose rule for ABC-transporter dependent clusters
-    SUPERIORS wzy_dependent_putative, wzy_dependent_putative_NO_OPX, ABC_dependent_putative, relaxed
+    SUPERIORS putative_wzy_dependent, putative_wzy_dependent_NO_OPX, putative_ABC_dependent, relaxed
     CUTOFF 25
     NEIGHBOURHOOD 5
     CONDITIONS minimum(1, ABC_group) and minimum(1, wzc_PCP_group) and not (minimum(1, wzy_group) or minimum(1, wzx_group)) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
 
-RULE ABC_wzy_dependent_putative
+RULE putative_ABC_or_wzy_dependent
     CATEGORY  Unknown
     DESCRIPTION Loose rule for ABC-transporter/Wzy-dependent clusters
-    SUPERIORS ABC_dependent_putative, wzy_dependent_putative, ABC_dependent_putative_NO_OPX, wzy_dependent_putative_NO_OPX, relaxed
+    SUPERIORS putative_ABC_dependent, putative_wzy_dependent, putative_ABC_dependent_NO_OPX, putative_wzy_dependent_NO_OPX, relaxed
     CUTOFF 25
     NEIGHBOURHOOD 5
     CONDITIONS minimum(1, wza_OPX_group) and minimum(1, wzc_PCP_group) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
-
-RULE ABC_wzy_dependent_putative_NO_OPX
-    CATEGORY  Unknown
-    DESCRIPTION Loose rule for ABC-transporter/Wzy-dependent clusters
-    SUPERIORS ABC_dependent_putative, wzy_dependent_putative, ABC_dependent_putative_NO_OPX, wzy_dependent_putative_NO_OPX, ABC_wzy_dependent_putative, relaxed
-    CUTOFF 25
-    NEIGHBOURHOOD 5
-    CONDITIONS minimum(1, wzc_PCP_group) and (minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_1030_lactobacillus]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_zooGT7_zooglan]) or minimum(2, [l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_1028_lactobacillus, l_1030_lactobacillus]))
-
