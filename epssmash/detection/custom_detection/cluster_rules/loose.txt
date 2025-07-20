@@ -3,7 +3,7 @@
 ####### WZX / WZX  ##########
 
 ## Defines a list of rules; 
-DEFINE relaxed AS emulsan, zooglan, sphingans, lactobacillus_eps, amylovoran_stewartan, acetan, succinoglycan, colanic, xanthan, galactoglucan, psl, PNAG_eps
+DEFINE relaxed AS emulsan, zooglan, sphingans, lactobacillus_eps, amylovoran_stewartan, acetan, succinoglycan, colanic, xanthan, galactoglucan, psl, PNAG_eps, sphingomonadaceae_eps
 
 
 ## Defines a list of hmms 
@@ -139,7 +139,7 @@ DEFINE GT_group AS [
     l_zooGT8_zooglan    # GT
 ]
 
-# l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan, l_1030_lactobacillus, l_1028_lactobacillus cover 89% of all glycosyltransferases. 
+# l_epsL_pnag, l_zooGT1_zooglan, l_gumM_xanthan, l_zooGT5_zooglan, l_zooGT7_zooglan, l_1030_lactobacillus, l_1028_lactobacillus cover 89% of all glycosyltransferases at bitscore 100. 
 # We use these as the GTs in our loose rules so we can ask for >= 2 GTs in each gene cluster using antiSMASH rule syntax
 
 RULE putative_wzy_dependent
