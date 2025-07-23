@@ -28,7 +28,8 @@ from antismash.custom_typing import AntismashModule
 from antismash.config import ConfigType
 from antismash.config.args import ModuleArgs
 from antismash.outputs.html.generator import LegendBase, find_local_antismash_js_path, build_json_data, write_regions_js, FileTemplate, TEMPLATE_PATH, OptionsLayer, RecordLayer, generate_html_sections, docs_link, build_antismash_js_url, js
-from antismash.modules import clusterblast
+
+from epssmash.modules import clusterblast
 
 NAME = "html"
 SHORT_DESCRIPTION = "HTML output"
@@ -48,7 +49,7 @@ LEGENDS = [
     Legend(css_class="legend-type-other", label="other genes"),
 ]
 
-original_convert = html.js.convert_cds_features
+_original_convert = html.js.convert_cds_features
 
 # load table with detection profile names matched to function types 
 # e.g. a file with "profile name\ttransport" 
@@ -73,14 +74,12 @@ def format_dict_as_string(table):
 
 TABLE = read_tsv_to_dict()
 
-def convert_cds_features(record: Record, features: Iterable[CDSFeature], options: ConfigType,
-                         mibig_entries: Dict[str, List[clusterblast.results.MibigEntry]], offset: int = 0,
+def convert_cds_features(record: Record, features: Iterable[CDSFeature], *args,
                          ) -> List[Dict[str, Any]]:
     """ Convert CDSFeatures to JSON """
-    original_results = original_convert(record, features, options, mibig_entries) 
+    original_results = _original_convert(record, features, *args)
 
     for feature, js in zip(features, original_results):
-        
         detection_results = feature.gene_functions.get_by_tool("rule-based-clusters")
         if len(detection_results) == 0:
             continue
@@ -104,8 +103,13 @@ def generate_webpage(records: List[Record], results: List[Dict[str, ModuleResult
                      options: ConfigType, all_modules: List[AntismashModule], legends: list[LegendBase] = LEGENDS) -> str:
     """ Generates the HTML itself """
 
-    json_records, js_domains, js_results = build_json_data(records, results, options, all_modules)
-    write_regions_js(json_records, options.output_dir, js_domains, js_results)
+    json_records, js_results = build_json_data(records, results, options, all_modules)
+    # use antiSMASH's clusterblast drawing by pretending that epsSMASH's derivative
+    # is the real one
+    for anchor, data in js_results.items():
+        if clusterblast.__name__ in data:
+            data[clusterblast.__name__.replace("epssmash", "antismash")] = data.pop(clusterblast.__name__)
+    write_regions_js(json_records, options.output_dir, js_results)
 
     template = FileTemplate(os.path.join(generator.TEMPLATE_PATH, "overview.html"))
 
@@ -142,7 +146,7 @@ def generate_webpage(records: List[Record], results: List[Dict[str, ModuleResult
     as_js_url = build_antismash_js_url(options)
 
     content = template.render(records=record_layers_with_regions, options=options_layer,
-                              version=options.version, extra_data=js_domains,
+                              version=options.version,
                               regions_written=regions_written, sections=html_sections,
                               results_by_record_id=results_by_record_id,
                               config=options, job_id=job_id, page_title=page_title,
