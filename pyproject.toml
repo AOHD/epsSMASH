@@ -40,4 +40,5 @@ epssmash = [
     "outputs/html/gene_functions.tsv",
     "outputs/html/images/*",
     "outputs/html/css/*",
+    "outputs/html/templates/*",
 ]
