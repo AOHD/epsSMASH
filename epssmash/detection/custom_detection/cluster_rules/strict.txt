@@ -209,12 +209,12 @@ RULE emulsan
     NEIGHBOURHOOD 5
     CONDITIONS  wzc_emulsan and wza_emulsan and wzx_emulsan and wzy_emulsan and minimum(11, [wzb_emulsan, weeA_emulsan, weeB_emulsan, weeC_emulsan, weeD_emulsan, weeE_emulsan, weeF_emulsan, weeG_emulsan, weeH_emulsan, weeI_emulsan, weeJ_emulsan, weeK_emulsan, galU_emulsan, ugd_emulsan, pgi_emulsan, galE_emulsan])
 
-RULE sphingomonadaceae_eps
+RULE sphingomonadales_eps
     CATEGORY Unknown
-    DESCRIPTION Sphingomonadaceae EPS
+    DESCRIPTION Sphingomonadales EPS
     CUTOFF 20
     NEIGHBOURHOOD 5
-    CONDITIONS sphingA_sphingomonadaceae and sphingB_sphingomonadaceae and sphingK_sphingomonadaceae and minimum(7, [sphingC_sphingomonadaceae, sphingD_sphingomonadaceae, sphingE_sphingomonadaceae, sphingF_sphingomonadaceae, sphingG_sphingomonadaceae, sphingH_sphingomonadaceae, sphingI_sphingomonadaceae, sphingJ_sphingomonadaceae, sphingL_sphingomonadaceae, sphingX_sphingomonadaceae])
+    CONDITIONS sphA_sphingomonadales and sphB_sphingomonadales and sphK_sphingomonadales and minimum(7, [sphC_sphingomonadales, sphD_sphingomonadales, sphE_sphingomonadales, sphF_sphingomonadales, sphG_sphingomonadales, sphH_sphingomonadales, sphI_sphingomonadales, sphJ_sphingomonadales, sphL_sphingomonadales, sphX_sphingomonadales])
 
 
 ###########################################################

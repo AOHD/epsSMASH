@@ -292,19 +292,19 @@ galU_emulsan	NA	500	individual_hmms/galU_emulsan.hmm
 ugd_emulsan	NA	700	individual_hmms/ugd_emulsan.hmm
 pgi_emulsan	NA	1000	individual_hmms/pgi_emulsan.hmm
 galE_emulsan	UDP-glucose 4-epimerase	500	individual_hmms/galE_emulsan.hmm
-sphingA_sphingomonadaceae	exosortase-associated AMP-binding protein	250	individual_hmms/sphingA_sphingomonadaceae.hmm
-sphingB_sphingomonadaceae	decarboxylase	250	individual_hmms/sphingB_sphingomonadaceae.hmm
-sphingC_sphingomonadaceae	Wza-like protein	275	individual_hmms/sphingC_sphingomonadaceae.hmm
-sphingD_sphingomonadaceae	Wzz-like protein	400	individual_hmms/sphingD_sphingomonadaceae.hmm
-sphingE_sphingomonadaceae	Wzc-like protein	300	individual_hmms/sphingE_sphingomonadaceae.hmm
-sphingF_sphingomonadaceae	"Glycine-rich cell wall structural protein"	250	individual_hmms/sphingF_sphingomonadaceae.hmm
-sphingG_sphingomonadaceae	"Secretion ATPase, PEP-CTERM locus subfamily"	450	individual_hmms/sphingG_sphingomonadaceae.hmm
-sphingH_sphingomonadaceae	deacetylase	400	individual_hmms/sphingH_sphingomonadaceae.hmm
-sphingI_sphingomonadaceae	acetyltransferase	400	individual_hmms/sphingI_sphingomonadaceae.hmm
-sphingJ_sphingomonadaceae	glycosyltransferase	450	individual_hmms/sphingJ_sphingomonadaceae.hmm
-sphingK_sphingomonadaceae	epsH-like exosortase	350	individual_hmms/sphingK_sphingomonadaceae.hmm
-sphingL_sphingomonadaceae	asparagine synthase	900	individual_hmms/sphingL_sphingomonadaceae.hmm
-sphingX_sphingomonadaceae	acetyltransferase	250	individual_hmms/sphingX_sphingomonadaceae.hmm
+sphA_sphingomonadales	exosortase-associated AMP-binding protein	250	individual_hmms/sphA_sphingomonadales.hmm
+sphB_sphingomonadales	decarboxylase	250	individual_hmms/sphB_sphingomonadales.hmm
+sphC_sphingomonadales	Wza-like protein	275	individual_hmms/sphC_sphingomonadales.hmm
+sphD_sphingomonadales	Wzz-like protein	400	individual_hmms/sphD_sphingomonadales.hmm
+sphE_sphingomonadales	Wzc-like protein	300	individual_hmms/sphE_sphingomonadales.hmm
+sphF_sphingomonadales	"Glycine-rich cell wall structural protein"	250	individual_hmms/sphF_sphingomonadales.hmm
+sphG_sphingomonadales	"Secretion ATPase, PEP-CTERM locus subfamily"	450	individual_hmms/sphG_sphingomonadales.hmm
+sphH_sphingomonadales	deacetylase	400	individual_hmms/sphH_sphingomonadales.hmm
+sphI_sphingomonadales	acetyltransferase	400	individual_hmms/sphI_sphingomonadales.hmm
+sphJ_sphingomonadales	glycosyltransferase	450	individual_hmms/sphJ_sphingomonadales.hmm
+sphK_sphingomonadales	epsH-like exosortase	350	individual_hmms/sphK_sphingomonadales.hmm
+sphL_sphingomonadales	asparagine synthase	900	individual_hmms/sphL_sphingomonadales.hmm
+sphX_sphingomonadales	acetyltransferase	250	individual_hmms/sphX_sphingomonadales.hmm
 # LOOSE RULES: PFAM 
 CpsB_CapC	Phosphatase from the gram-positive streptotoccus	20	individual_hmms/CpsB_CapC.hmm
 Wza_C	Outer membrane polysaccharide export protein (OPX) 	20	individual_hmms/Wza_C.hmm

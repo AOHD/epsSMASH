@@ -16,7 +16,7 @@ Make a conda environment using the YAML file in `epssmash/config/`
 
 `conda env create -f epssmash/config/config.yaml`
 
-`conda activate antismash-dependencies`
+`conda activate antismash_dependencies`
 
 Install epsSMASH in the conda environment with pip
 
