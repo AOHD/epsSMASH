@@ -42,7 +42,7 @@ from antismash.modules.clusterblast.data_structures import (
 from antismash.modules.clusterblast.results import GeneralResults, RegionResult
 from antismash.modules.clusterblast.html_output import generate_div
 
-NAME = "customblast"
+NAME = "clusterblast"
 SHORT_DESCRIPTION = "Runs clusterblast over custom data"
 
 
@@ -137,7 +137,7 @@ def load_reference_clusters(searchtype: str) -> dict[str, ReferenceCluster]:
         logging.info("CustomBlast: Loading gene cluster database into memory...")
         if options.database_dir is None:
             raise ValueError("No database directory specified")
-        data_dir = os.path.join(options.database_dir, 'customblast_1.0/customblast') 
+        data_dir = os.path.join(options.database_dir, 'clusterblast') 
 
     reference_cluster_file = os.path.join(data_dir, "clusters.txt")
     with open(reference_cluster_file, "r", encoding="utf-8") as handle:
@@ -172,7 +172,7 @@ def load_reference_proteins(searchtype: str) -> dict[str, Protein]:
     options = get_config()
     if searchtype == "clusterblast":
         logging.info("ClusterBlast: Loading gene cluster database proteins into memory...")
-        data_dir = os.path.join(options.database_dir, 'customblast_1.0/customblast')
+        data_dir = os.path.join(options.database_dir, 'clusterblast')
         
     
     protein_file = os.path.join(data_dir, "proteins.fasta")
@@ -213,7 +213,7 @@ def perform_clusterblast(options: ConfigType, record: Record,
             a GeneralResults instance with results for each cluster in the record
     """
     regions = record.get_regions()
-    database = os.path.join(options.database_dir, 'customblast_1.0/customblast', 'proteins.fasta')
+    database = os.path.join(options.database_dir, 'clusterblast', 'proteins.fasta')
     blastoutput = run_diamond_on_all_regions(regions, database)
 
     clusters_by_number, _ = parse_all_clusters(blastoutput, record,

@@ -1,7 +1,7 @@
 # License: GNU Affero General Public License v3 or later
 # A copy of GNU AGPL v3 should have been included in this software package in LICENSE.txt.
 
-"""Script to download antiSMASH data files not shipped with the code."""
+"""Script to download epsSMASH data files not shipped with the code."""
 
 import argparse
 import gzip
@@ -28,9 +28,9 @@ PFAM_LATEST_URL = f"https://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam{PFAM_
 PFAM_LATEST_ARCHIVE_CHECKSUM = "48ec2d1123c84046b00279eae1fb3d5be1b578e6221453f329d16954c89d0d35"
 PFAM_LATEST_CHECKSUM = "8d3e2ffa785f91ee0e24a3994d2dcfff6f382e3cf663784a47688e7d95297fee"
 
-CLUSTERBLAST_URL = "https://dl.secondarymetabolites.org/releases/epssmash/customblast/customblast_1.0.tar.xz"
-CLUSTERBLAST_ARCHIVE_CHECKSUM = "767b16c3df41f6e67164f71b781ec32f85f19c06abf8445cbdfa6d9a9013f766"
-CLUSTERBLAST_FASTA_CHECKSUM = "a30dc3eb33b7d18cf61878dc2e15f326"
+CLUSTERBLAST_URL = "https://dl.secondarymetabolites.org/releases/epssmash/clusterblast/clusterblast_1.0.tar.xz"
+CLUSTERBLAST_ARCHIVE_CHECKSUM = "fc5c8f13292c545fca50a0dcd0b806f83d2af88030b8e487991e6a121892cd51"
+CLUSTERBLAST_FASTA_CHECKSUM = "b68d3c47cf191e282a16fb6e386442fe"
 
 LOCAL_FILE_PATH = os.path.abspath(os.path.dirname(__file__))
 
@@ -137,20 +137,27 @@ def unzip_file(filename: str, decompressor: Any, error_type: Type[Exception]) ->
     print(f"Extraction of {basename} finished successfully.")
     return newfilename
 
-
 def untar_file(filename: str) -> None:
     """Extract a TAR/GZ file."""
     basename = filename.rpartition(os.sep)[2]
     try:
+        # Remove any version pattern like _X.X or _X.X.X from the directory name
+        import re
+        base_name = os.path.basename(filename)
+        # Remove file extensions
+        dir_name = re.sub(r'\.(tar\.xz|tar\.gz|tar)$', '', base_name)
+        # Remove version patterns like _1.0, _2.1.3, etc.
+        dir_name = re.sub(r'_\d+(\.\d+)*$', '', dir_name)
+        extract_dir = os.path.join(os.path.dirname(filename), dir_name)
+        
         with tarfile.open(filename) as tar:
-            tar.extractall(path=filename.rpartition(os.sep)[0])
+            tar.extractall(path=extract_dir)
     except tarfile.ReadError:
         print(
             f"ERROR: Error extracting {basename}. Please try to extract it manually."
         )
         return
     print(f"Extraction of {basename} finished successfully.")
-
 
 def delete_file(filename: str) -> None:
     """Delete a file."""
