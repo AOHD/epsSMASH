@@ -1,5 +1,6 @@
 
 # epsSMASH - the extracellular polymeric substance Secondary Metabolite Analysis SHell
+epsSMASH is a tool which detects known and uncharacterised exopolysaccharide gene clusters using Hidden Markow Models and detection rules similar to those used by other SMASH tools such as antiSMASH and gutSMASH. Read our [documentation page](https://docs.epssmash.secondarymetabolites.org/) for more information.
 
 ### Installation via Github repository
 To install epsSMASH via Github, you first need to clone the repository to your local machine. Then you need to install all the dependencies which epsSMASH relies on, which can be found in a YAML file at `epssmash/config/`. Once the dependencies are installed, epsSMASH can be installed using pip. Databases needed for Clusterblast and Pfam annotation of clusters can then be downloaded using the download-epssmash-databases command. The commands needed to perform the complete install are listed below:
@@ -22,5 +23,5 @@ epsSMASH --help-showall # Test installation
 ```
 run_antismash <input file> <output directory> [epsSMASH options]
 ```
-If `download_epssmash_dependencies` is run before `run_epssmash` it will create the epsSMASH Docker image ebfore attempting to download the databases.
+If `download_epssmash_dependencies` is run before `run_epssmash` it will create the epsSMASH Docker image before attempting to download the databases.
 
