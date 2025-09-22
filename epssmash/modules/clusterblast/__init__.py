@@ -61,14 +61,14 @@ def generate_html(region_layer: RegionLayer, results: ClusterBlastResults,
         tooltip = base_tooltip % "regions from the epsSMASH database of manually validated EPS gene clusters"
         #tooltip += "<br>Click on an accession to open that entry in the antiSMASH database (if applicable)."
         div = generate_div(region_layer, record_layer, options_layer, "clusterblast", tooltip)
-        html.add_detail_section("Customblast", div, "clusterblast")
+        html.add_detail_section("Clusterblast", div, "clusterblast")
 
     return html
 
 
 def get_arguments() -> ModuleArgs:
     """ Builds the args for the clusterblast module """
-    args = ModuleArgs('CustomBlast options', 'cb')
+    args = ModuleArgs('Clusterblast options', 'cb')
     args.add_analysis_toggle('general',
                              dest='general',
                              action='store_true',
@@ -134,7 +134,7 @@ def load_reference_clusters(searchtype: str) -> dict[str, ReferenceCluster]:
     options = get_config()
 
     if searchtype == "clusterblast":
-        logging.info("CustomBlast: Loading gene cluster database into memory...")
+        logging.info("Clusterblast: Loading gene cluster database into memory...")
         if options.database_dir is None:
             raise ValueError("No database directory specified")
         data_dir = os.path.join(options.database_dir, 'clusterblast') 
