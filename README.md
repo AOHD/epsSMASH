@@ -1,11 +1,5 @@
 
-# epsSMASH
-A bioinformatic tool which predicts biosynthetic gene clusters associated with EPS production.
-
-
-<img src="epssmash/outputs/html/images/bacteria_epssmash_logo.svg" alt="drawing" width="100"/>
-
-
+# epsSMASH - the extracellular polymeric substance Secondary Metabolite Analysis SHell
 
 ### Installation via Github repository
 To install epsSMASH via Github, you first need to clone the repository to your local machine. Then you need to install all the dependencies which epsSMASH relies on, which can be found in a YAML file at `epssmash/config/`. Once the dependencies are installed, epsSMASH can be installed using pip. Databases needed for Clusterblast and Pfam annotation of clusters can then be downloaded using the download-epssmash-databases command. The commands needed to perform the complete install are listed below:
