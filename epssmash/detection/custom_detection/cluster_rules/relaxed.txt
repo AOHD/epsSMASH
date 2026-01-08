@@ -10,7 +10,7 @@ RULE cellulose-like
     RELATED algF_cel, algI_cel, algJ_cel, algX_cel, BcsD, BcsE, BcsF, BcsG, BcsH, BcsO, BcsP, BcsQ, BcsR, BcsS, bglX
     SUPERIORS generic-cellulose
     CUTOFF 20
-    NEIGHBOURHOOD 5
+    NEIGHBOURHOOD 10
     CONDITIONS BcsA and minimum(1, [BcsB, BcsC, BcsK, BcsZ])
 
 RULE cellulose-gram-positive-like
@@ -19,17 +19,17 @@ RULE cellulose-gram-positive-like
     RELATED ccsI, ccsH
     SUPERIORS cellulose-gram-positive
     CUTOFF 20
-    NEIGHBOURHOOD 5
+    NEIGHBOURHOOD 10
     CONDITIONS ccsA and minimum(1, [ccsB, ccsZ])
 
 RULE pel-like
     CATEGORY  Synthase-dependent
     DESCRIPTION Pel-like (Gram-negative or Gram-positive)
-    RELATED pelA, pelB, pelC, pelD, pelE, pelD_pos, pelE_pos, pelA_pos
+    RELATED pelC, pelD_pos, pelE_pos, pelA_pos, pelA_hypho, pelA_verruco, pelA_assorted, pelB_hypho, pelB_verruco, pelB_assorted, pelD_hypho, pelD_verruco, pelD_assorted, pelE_hypho, pelE_verruco, pelE_assorted
     SUPERIORS pel, pel-positive
     CUTOFF 15
-    NEIGHBOURHOOD 5
-    CONDITIONS (pelF and pelG) or (pelF_pos and pelG_pos)
+    NEIGHBOURHOOD 10
+    CONDITIONS (pelF_list and pelG_list) or (pelF_pos and pelG_pos)
 
 RULE alginate-like
     CATEGORY  Synthase-dependent
@@ -37,7 +37,7 @@ RULE alginate-like
     RELATED algD, algL, algI, algJ, algF, algA
     SUPERIORS alginate
     CUTOFF 20
-    NEIGHBOURHOOD 5
+    NEIGHBOURHOOD 10
     CONDITIONS alg8 and alg44 and minimum(1, [algK, algE, algG, algX])
 
 RULE curdlan-like
@@ -46,7 +46,7 @@ RULE curdlan-like
     RELATED crdA, crdS
     SUPERIORS curdlan, cellulose-like, cellulose-gram-positive-like
     CUTOFF 10
-    NEIGHBOURHOOD 5
+    NEIGHBOURHOOD 10
     CONDITIONS crdS
 
 RULE PNAG-ica-like
@@ -55,7 +55,7 @@ RULE PNAG-ica-like
     RELATED icaD, icaC
     SUPERIORS PNAG-ica
     CUTOFF 5
-    NEIGHBOURHOOD 5
+    NEIGHBOURHOOD 10
     CONDITIONS icaA and icaB
 
 RULE PNAG-pga-like
@@ -64,7 +64,7 @@ RULE PNAG-pga-like
     RELATED pgaD, pgaA
     SUPERIORS PNAG-pga
     CUTOFF 10
-    NEIGHBOURHOOD 5
+    NEIGHBOURHOOD 10
     CONDITIONS pgaC and pgaB
 
 

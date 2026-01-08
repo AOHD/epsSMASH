@@ -7,6 +7,13 @@
 
 DEFINE cellulose_acetylation AS minimum(2, [algF_cel, algI_cel, algJ_cel, algX_cel])
 
+DEFINE pelA_list AS minimum(1, [pelA, pelA_hypho, pelA_verruco, pelA_assorted])
+DEFINE pelB_list AS minimum(1, [pelB, pelB_hypho, pelB_verruco, pelB_assorted])
+DEFINE pelD_list AS minimum(1, [pelD, pelD_hypho, pelD_verruco, pelD_assorted])
+DEFINE pelE_list AS minimum(1, [pelE, pelE_hypho, pelE_verruco, pelE_assorted])
+DEFINE pelF_list AS minimum(1, [pelF, pelF_hypho, pelF_verruco, pelF_assorted])
+DEFINE pelG_list AS minimum(1, [pelG, pelG_hypho, pelG_verruco, pelG_assorted])
+
 RULE type-1-cellulose
     CATEGORY Synthase-dependent
     DESCRIPTION Type I cellulose
@@ -78,7 +85,7 @@ RULE pel
     SUPERIORS pel-positive # Gram-negative pel has all the components of pel-positive, but not vice versa
     CUTOFF 15
     NEIGHBOURHOOD 5
-    CONDITIONS pelA and pelB and pelC and pelD and pelE and pelF and pelG
+    CONDITIONS pelA_list and pelB_list and pelC and pelD_list and pelE_list and pelF_list and pelG_list
 
 RULE alginate
     CATEGORY  Synthase-dependent

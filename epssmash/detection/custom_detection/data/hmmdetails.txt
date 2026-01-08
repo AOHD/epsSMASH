@@ -20,12 +20,30 @@ BcsS	Cellulose unknown function	200	individual_hmms/BcsS.hmm
 BcsZ	Cellulose beta-glucosidase	200	individual_hmms/BcsZ.hmm
 bglX	Cellulose beta-glucosidase	900	individual_hmms/bglX.hmm
 pelA	Pel glycosidase	150	individual_hmms/pelA.hmm
+pelA_hypho	Pel glycosidase from Hyphomicrobiceae	150	individual_hmms/pelA_hypho.hmm
+pelA_verruco	Pel glycosidase from Verrucomicrobiales	150	individual_hmms/pelA_verruco.hmm
+pelA_assorted	Pel glycosidase from assorted taxa	150	individual_hmms/pelA_assorted.hmm
 pelB	TPR-rich pel transport protein	20	individual_hmms/pelB.hmm
+pelB_hypho	TPR-rich pel transport protein from Hyphomicrobiceae	20	individual_hmms/pelB_hypho.hmm
+pelB_verruco	TPR-rich pel transport protein from Verrucomicrobiales	20	individual_hmms/pelB_verruco.hmm
+pelB_assorted	TPR-rich pel transport protein from assorted taxa	20	individual_hmms/pelB_assorted.hmm
 pelC	Pel outer membrane transport	80	individual_hmms/pelC.hmm
 pelD	Pel c-di-GMP binding regulator	100	individual_hmms/pelD.hmm
+pelD_hypho	Pel c-di-GMP binding regulator from Hyphomicrobiceae	100	individual_hmms/pelD_hypho.hmm
+pelD_verruco	Pel c-di-GMP binding regulator from Verrucomicrobiales	100	individual_hmms/pelD_verruco.hmm
+pelD_assorted	Pel c-di-GMP binding regulator from assorted taxa	100	individual_hmms/pelD_assorted.hmm
 pelE	Pel inner membrane complex protein	100	individual_hmms/pelE.hmm
+pelE_hypho	Pel inner membrane complex protein from Hyphomicrobiceae	100	individual_hmms/pelE_hypho.hmm
+pelE_verruco	Pel inner membrane complex protein from Verrucomicrobiales	100	individual_hmms/pelE_verruco.hmm
+pelE_assorted	Pel inner membrane complex protein from assorted taxa	100	individual_hmms/pelE_assorted.hmm
 pelF	Pel synthase	250	individual_hmms/pelF.hmm
+pelF_hypho	Pel synthase from Hyphomicrobiceae	250	individual_hmms/pelF_hypho.hmm
+pelF_verruco	Pel synthase from Verrucomicrobiales	250	individual_hmms/pelF_verruco.hmm
+pelF_assorted	Pel synthase from assorted taxa	250	individual_hmms/pelF_assorted.hmm
 pelG	Pel inner membrane transport	100	individual_hmms/pelG.hmm
+pelG_hypho	Pel inner membrane transport from Hyphomicrobiceae	100	individual_hmms/pelG_hypho.hmm
+pelG_verruco	Pel inner membrane transport from Verrucomicrobiales	100	individual_hmms/pelG_verruco.hmm
+pelG_assorted	Pel inner membrane transport from assorted taxa	100	individual_hmms/pelG_assorted.hmm
 pelD_pos	Gram-positive pel c-di-GMP binding regulator	100	individual_hmms/pelD_pos.hmm
 pelE_pos	Gram-positive pel inner membrane complex protein	100	individual_hmms/pelE_pos.hmm
 pelA_pos	Gram-positive pel glycosidase	200	individual_hmms/pelA_pos.hmm

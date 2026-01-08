@@ -1,8 +1,9 @@
 
-# epsSMASH - the extracellular polymeric substance Secondary Metabolite Analysis SHell
+# epsSMASH
 epsSMASH is a tool which detects known and uncharacterised exopolysaccharide gene clusters using Hidden Markow Models and detection rules similar to those used by other SMASH tools such as antiSMASH and gutSMASH. Read our [documentation page](https://docs.epssmash.secondarymetabolites.org/) for more information.
 
-### Installation via Github repository
+
+### Github Installation
 To install epsSMASH via Github, you first need to clone the repository to your local machine. Then you need to install all the dependencies which epsSMASH relies on, which can be found in a YAML file at `epssmash/config/`. Once the dependencies are installed, epsSMASH can be installed using pip. Databases needed for Clusterblast and Pfam annotation of clusters can then be downloaded using the download-epssmash-databases command. The commands needed to perform the complete install are listed below:
 ```
 git clone https://github.com/AOHD/epsSMASH.git # Clone repo
@@ -18,10 +19,15 @@ download-epssmash-databases # Download databases needed for Clusterblast and Pfa
 epsSMASH --help-showall # Test installation
 ```
 
-### Using Docker
+### Docker Installation
 [epsSMASH is available on the Docker Hub](https://hub.docker.com/r/antismash/epssmash). Two Docker wrapper scripts can be found at `epssmash/docker/`: `run_epssmash` and `download_epssmash_databases`. Moving these wrappers to your bin folder and running them will allow you to run epsSMASH without going through the installation above. Note that you must specify the input file and output directory when using `run_epssmash`:
 ```
 run_antismash <input file> <output directory> [epsSMASH options]
 ```
 If `download_epssmash_dependencies` is run before `run_epssmash` it will create the epsSMASH Docker image before attempting to download the databases.
 
+
+### Citation
+If you have used epsSMASH in your work, please cite:
+
+Daugberg et al., epsSMASH uncovers exopolysaccharide biosynthetic gene clusters in environmental and human microbiomes, DOI: 10.64898/2025.12.21.693542
