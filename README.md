@@ -30,4 +30,4 @@ If `download_epssmash_dependencies` is run before `run_epssmash` it will create 
 ### Citation
 If you have used epsSMASH in your work, please cite:
 
-Daugberg et al., epsSMASH uncovers exopolysaccharide biosynthetic gene clusters in environmental and human microbiomes, DOI: 10.64898/2025.12.21.693542
+Daugberg et al., *epsSMASH uncovers exopolysaccharide biosynthetic gene clusters in environmental and human microbiomes*, [10.64898/2025.12.21.693542](https://doi.org/10.64898/2025.12.21.693542)

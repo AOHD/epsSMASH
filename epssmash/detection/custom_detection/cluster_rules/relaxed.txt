@@ -68,3 +68,122 @@ RULE PNAG-pga-like
     CONDITIONS pgaC and pgaB
 
 
+###########################################################
+# MiDAS Gene Cluster Family rules
+###########################################################
+
+RULE MiDAS_GCF_2
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 2
+    RELATED GCF_2_A,GCF_2_D,GCF_2_F
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_2_B and GCF_2_C and GCF_2_E and GCF_2_G and GCF_2_H
+
+RULE MiDAS_GCF_3
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 2
+    RELATED GCF_3_A,GCF_3_B,GCF_3_C,GCF_3_F,GCF_3_G,GCF_3_H
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_3_D and GCF_3_E and GCF_3_I and GCF_3_J
+
+RULE MiDAS_GCF_4
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 4
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS minimum(4, [GCF_4_A, GCF_4_B, GCF_4_C, GCF_4_D, GCF_4_E])
+
+
+
+RULE MiDAS_GCF_5
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 5
+    RELATED GCF_5_A,GCF_5_B,GCF_5_C,GCF_5_I,GCF_5_J
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_5_D and GCF_5_E and GCF_5_F and GCF_5_G and GCF_5_H
+
+RULE MiDAS_GCF_6
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 6
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_6_E and GCF_6_D and GCF_6_C and GCF_6_A and minimum(2, [GCF_6_G, GCF_6_F, GCF_6_B])
+
+RULE MiDAS_GCF_6_1
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 6 #2
+    SUPERIORS MiDAS_GCF_6
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_6_A_1 and GCF_6_D_1 and GCF_6_E_1 and minimum(2, [GCF_6_B_1, GCF_6_C_1, GCF_6_F_1])
+
+RULE MiDAS_GCF_7
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 8
+    RELATED GCF_7_A,GCF_7_E,GCF_7_G,GCF_7_H,GCF_7_J
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_7_B and GCF_7_C and GCF_7_D and GCF_7_F and GCF_7_I
+
+RULE MiDAS_GCF_8
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 9
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_8_D and minimum(6, [GCF_8_A, GCF_8_B, GCF_8_C, GCF_8_E, GCF_8_F, GCF_8_G, GCF_8_H])
+
+RULE MiDAS_GCF_9
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 10
+    RELATED GCF_9_B,GCF_9_D,GCF_9_E,GCF_9_F,GCF_9_I
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_9_A and GCF_9_C and GCF_9_G and GCF_9_H
+
+RULE MiDAS_GCF_10
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 11
+    RELATED GCF_10_A,GCF_10_D,GCF_10_F,GCF_10_H
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_10_B and GCF_10_C and GCF_10_E and GCF_10_G
+
+RULE MiDAS_GCF_11
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 12
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_11_C and GCF_11_D and GCF_11_H and minimum(3, [GCF_11_A,GCF_11_B,GCF_11_E,GCF_11_F,GCF_11_G])
+
+RULE MiDAS_GCF_12
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 13
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_12_B and GCF_12_C and GCF_12_E and minimum(2, [GCF_12_A,GCF_12_D,GCF_12_F])
+
+RULE MiDAS_GCF_13
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 14
+    RELATED GCF_13_E
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_13_A and GCF_13_B and GCF_13_C and GCF_13_D
+
+RULE MiDAS_GCF_14
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 15
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_14_C and minimum(5, [GCF_14_A, GCF_14_B, GCF_14_D, GCF_14_E, GCF_14_F, GCF_14_G, GCF_14_H])
+
+RULE MiDAS_GCF_15
+    CATEGORY  Unknown
+    DESCRIPTION MiDAS gene cluster family 16
+    RELATED GCF_15_A,GCF_15_C,GCF_15_D,GCF_15_E,GCF_15_F,GCF_15_H,GCF_15_I
+    CUTOFF 25
+    NEIGHBOURHOOD 10
+    CONDITIONS GCF_15_B and GCF_15_G and GCF_15_J and GCF_15_K
