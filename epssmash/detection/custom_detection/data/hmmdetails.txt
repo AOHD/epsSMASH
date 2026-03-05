@@ -518,18 +518,7 @@ l_gumD_xanthan	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_gumD_
 l_pslA_psl	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_pslA_psl.hmm
 l_spnB_sphingans	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_spnB_sphingans.hmm
 l_wcaJ_colanic	Phosphoglycosyltransferase	20	individual_hmms_loose_rules/l_wcaJ_colanic.hmm
-# MiDAS GENE CLUSTER FAMILIES
-
-
-
-
-
-
-
-
-
-
-
+# EXOPOLYSACCHARIDE GENE CLUSTER FAMILIES
 GCF_2_A	pol	300	individual_hmms/GCF_2_A.hmm
 GCF_2_B	trans	400	individual_hmms/GCF_2_B.hmm
 GCF_2_C	trans	300	individual_hmms/GCF_2_C.hmm
@@ -576,7 +565,6 @@ GCF_6_D	trans	175	individual_hmms/GCF_6_D.hmm
 GCF_6_E	pol	250	individual_hmms/GCF_6_E.hmm
 GCF_6_F	pol	600	individual_hmms/GCF_6_F.hmm
 GCF_6_G	pol-trans	225	individual_hmms/GCF_6_G.hmm
-
 GCF_7_A	trans	400	individual_hmms/GCF_7_A.hmm
 GCF_7_B	trans	400	individual_hmms/GCF_7_B.hmm
 GCF_7_C	trans	350	individual_hmms/GCF_7_C.hmm
