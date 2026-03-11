@@ -216,9 +216,9 @@ RULE emulsan
     NEIGHBOURHOOD 5
     CONDITIONS  wzc_emulsan and wza_emulsan and wzx_emulsan and wzy_emulsan and minimum(11, [wzb_emulsan, weeA_emulsan, weeB_emulsan, weeC_emulsan, weeD_emulsan, weeE_emulsan, weeF_emulsan, weeG_emulsan, weeH_emulsan, weeI_emulsan, weeJ_emulsan, weeK_emulsan, galU_emulsan, ugd_emulsan, pgi_emulsan, galE_emulsan])
 
-RULE sphingomonadales_eps
+RULE sphingomonadales_exops
     CATEGORY Unknown
-    DESCRIPTION Sphingomonadales EPS
+    DESCRIPTION Sphingomonadales exoPS
     CUTOFF 20
     NEIGHBOURHOOD 5
     CONDITIONS sphA_sphingomonadales and sphB_sphingomonadales and sphK_sphingomonadales and minimum(7, [sphC_sphingomonadales, sphD_sphingomonadales, sphE_sphingomonadales, sphF_sphingomonadales, sphG_sphingomonadales, sphH_sphingomonadales, sphI_sphingomonadales, sphJ_sphingomonadales, sphL_sphingomonadales, sphX_sphingomonadales])
