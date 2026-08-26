@@ -307,6 +307,11 @@ pgaA	transport
 pgaB	modification
 pgaC	polymerisation
 pgaD	regulatory
+cslA	polymerisation
+glxA	modification
+cslZ	degradation
+stlP	regulatory
+lpmP	degradation
 l_eg_acetan	degradation
 l_gumE_acetan	polymerisation
 l_gumF_acetan	modification

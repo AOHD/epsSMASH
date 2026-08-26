@@ -124,6 +124,13 @@ RULE Hyaluronic_acid_has
     NEIGHBOURHOOD 5
     CONDITIONS  hasA and hasB and hasC
 
+RULE streptomyces-cellulose
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Streptomyces cellulose
+    RELATED cslZ, lpmP
+    CUTOFF 10
+    NEIGHBOURHOOD 5 
+    CONDITIONS cslA and glxA and stlP
 
 ###########################################################
 # Wzx/Wzy | ABC transporter rules

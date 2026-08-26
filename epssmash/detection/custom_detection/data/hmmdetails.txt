@@ -83,6 +83,11 @@ pgaD	PNAG (pga) c-di-GMP binding regulator	20	individual_hmms/pgaD.hmm
 hasA	Hyaluronic acid synthase	800	individual_hmms/hasA.hmm
 hasB	UDP-glucose dehydrogenase	700	individual_hmms/hasB.hmm
 hasC	UDP-glucose pyrophosphorylase	500	individual_hmms/hasC.hmm
+cslA	Streptomyces Cellulose synthase	1000	individual_hmms/cslA.hmm
+cslZ	Streptomyces Cellulose glucanase	500	individual_hmms/cslZ.hmm
+glxA	Streptomyces Cellulose copper-radical oxidase	600	individual_hmms/glxA.hmm
+lpmP	Streptomyces Cellulose lytic polysaccharide monooxygenase	280	individual_hmms/lpmP.hmm
+stlP	Streptomyces Cellulose stomatin-like protein	380	individual_hmms/stlP.hmm
 # Sucrase-dependent systems
 Glyco_hydro_68	Glycosyl hydrolase family 68 (Levansucrase or inulosucrase)	125	individual_hmms/Glyco_hydro_68.hmm
 GH70	Glycosyl hydrolase family 70 (alpha-glucansucrases)	200	individual_hmms/GH70.hmm

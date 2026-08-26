@@ -67,6 +67,14 @@ RULE PNAG-pga-like
     NEIGHBOURHOOD 10
     CONDITIONS pgaC and pgaB
 
+RULE streptomyces-cellulose-like
+    CATEGORY  Synthase-dependent
+    DESCRIPTION Streptomyces cellulose-like
+    RELATED cslZ, lpmP
+    SUPERIORS streptomyces-cellulose
+    CUTOFF 10
+    NEIGHBOURHOOD 5
+    CONDITIONS cslA and minimum(1, [glxA, stlP])
 
 ###########################################################
 # exoPS Gene Cluster Family rules
