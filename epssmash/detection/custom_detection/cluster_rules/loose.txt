@@ -3,7 +3,7 @@
 ####### WZX / WZX  ##########
 
 ## Defines a list of rules; 
-DEFINE relaxed AS emulsan, zooglan, sphingans, lactobacillus_eps, amylovoran_stewartan, acetan, succinoglycan, colanic, xanthan, galactoglucan, psl, PNAG_eps, sphingomonadales_exops, exoPS_GCF_2, exoPS_GCF_3, exoPS_GCF_4, exoPS_GCF_5, exoPS_GCF_6, exoPS_GCF_6_1, exoPS_GCF_7, exoPS_GCF_8, exoPS_GCF_9, exoPS_GCF_10, exoPS_GCF_11, exoPS_GCF_12, exoPS_GCF_13, exoPS_GCF_14, exoPS_GCF_15
+DEFINE relaxed AS emulsan, zooglan, sphingans, lactobacillus_eps, amylovoran_stewartan, acetan, succinoglycan, colanic, xanthan, galactoglucan, psl, PNAG_eps, sphingomonadales_exops, exoPS_GCF_2, exoPS_GCF_3, exoPS_GCF_4, exoPS_GCF_4_1, exoPS_GCF_5, exoPS_GCF_6, exoPS_GCF_7, exoPS_GCF_8, exoPS_GCF_9, exoPS_GCF_10, exoPS_GCF_11, exoPS_GCF_12, exoPS_GCF_13, exoPS_GCF_14
 
 
 ## Defines a list of hmms 
