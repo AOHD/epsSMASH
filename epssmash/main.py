@@ -36,7 +36,7 @@ antismash.config.set_user_config_file("~/.epssmash1.cfg")  # if it doesn't exist
 with importlib.resources.path("epssmash.config", "default.cfg") as default_cfg_path:
     antismash.config.set_alternate_defaults_file(str(default_cfg_path))
     
-__version__ = "1.3.0"
+__version__ = "1.4.0"
 
 
 def main(args: list[str]) -> int:
