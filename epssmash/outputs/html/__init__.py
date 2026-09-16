@@ -37,7 +37,6 @@ generator.TEMPLATE_PATH = os.path.join(os.path.dirname(__file__), "templates")
 # Load legends to override the default ones
 
 LEGENDS = [
-    Legend(css_class="legend-type-biosynthetic", label="core biosynthetic genes"),
     Legend(css_class="legend-type-biosynthetic-additional", label="additional biosynthetic genes"),
     Legend(css_class="legend-type-transport", label="transport related genes"),
     Legend(css_class="legend-type-regulatory", label="regulatory genes"),
