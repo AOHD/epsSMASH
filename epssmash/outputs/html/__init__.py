@@ -37,15 +37,15 @@ generator.TEMPLATE_PATH = os.path.join(os.path.dirname(__file__), "templates")
 # Load legends to override the default ones
 
 LEGENDS = [
-    Legend(css_class="legend-type-biosynthetic-additional", label="additional biosynthetic genes"),
     Legend(css_class="legend-type-transport", label="transport related genes"),
+    Legend(css_class="legend-type-polymerisation", label="polymerisation genes"),
+    Legend(css_class="legend-type-glycosyltransferase", label="glycosyltransferase genes"),
     Legend(css_class="legend-type-regulatory", label="regulatory genes"),
     Legend(css_class="legend-type-degradation", label="degradation genes"),
-    Legend(css_class="legend-type-glycosyltransferase", label="glycosyltransferase genes"),
     Legend(css_class="legend-type-modification", label="modification genes"),
-    Legend(css_class="legend-type-polymerisation", label="polymerisation genes"),
+    Legend(css_class="legend-type-precursor", label="precursor genes"),
+    Legend(css_class="legend-type-biosynthetic-additional", label="additional biosynthetic genes"),
     Legend(css_class="legend-type-other", label="other genes"),
-    Legend(css_class="legend-type-precursor", label="precursor genes")
 ]
 
 original_convert = html.js.convert_cds_features
