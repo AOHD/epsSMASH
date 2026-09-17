@@ -226,12 +226,15 @@ def run_on_record(record: Record, previous_results: Optional[CustomDetectionResu
 
 def regenerate_previous_results(results: dict[str, Any], record: Record,
                                 options: ConfigType) -> Optional[CustomDetectionResults]:
-    """ This would normally rebuild any results from a JSON-friendly format, for
-        when the '--reuse' option is supplied on the command line.
-    """
-    # options should be checked here to see if they were changed from the previous results,
-    # but this step is omitted in the demo
-    return CustomDetectionResults.from_json(results, record)
+    """ Regenerate previous results. """
+    if not results:
+        return None
+    regenerated = CustomDetectionResults.from_json(results, record)
+    if regenerated.strictness != options.hmmdetection_strictness:
+        logging.warning("Ignoring hmmdetection strictness option %r, reusing %r from results",
+                        options.hmmdetection_strictness, regenerated.strictness)
+    regenerated.rule_results.annotate_cds_features()
+    return regenerated
 
 def _copy_resource(source_package_path: str, dest_path: Path) -> Path:
     """Helper to copy package resources to cache"""
