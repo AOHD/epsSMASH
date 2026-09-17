@@ -22,11 +22,23 @@ from epssmash.detection import custom_detection
 from epssmash.modules import custom_analysis, clusterblast
 from epssmash.outputs import html
 
-# replace the normal antismash modules with any combination of antiSMASH modules
-# and/or custom modules
-antismash.main.replace_analysis_modules([custom_analysis, clusterblast, pfam2go, tfbs_finder])
-antismash.main.replace_detection_modules([cluster_hmmer, custom_detection])
-antismash.main.replace_output_modules([html])
+def replace_antismash_defaults() -> None:
+    # replace the normal antismash modules with any combination of antiSMASH modules
+    # and/or custom modules
+    antismash.main.replace_analysis_modules([custom_analysis, clusterblast, pfam2go, tfbs_finder])
+    antismash.main.replace_detection_modules([cluster_hmmer, custom_detection])
+    antismash.main.replace_output_modules([html])
+
+    antismash.config.args.DATABASE_DEFAULT = antismash.common.path.get_full_path(__file__, 'databases')
+    # override search path for any user config file
+    # a good naming convention is <name><major version> to avoid conflicts between version options
+    antismash.config.set_user_config_file("~/.epssmash1.cfg")  # if it doesn't exist, it's ignored
+    # override default config file path
+    with importlib.resources.path("epssmash.config", "default.cfg") as default_cfg_path:
+        antismash.config.set_alternate_defaults_file(str(default_cfg_path))
+
+replace_antismash_defaults()
+print("on load", antismash.config.args.DATABASE_DEFAULT)
 
 # override search path for any user config file
 # a good naming convention is <name><major version> to avoid conflicts between version options
