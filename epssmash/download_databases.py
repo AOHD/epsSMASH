@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # License: GNU Affero General Public License v3 or later
 # A copy of GNU AGPL v3 should have been included in this software package in LICENSE.txt.
 
@@ -22,6 +23,8 @@ from antismash.common.html_renderer import (
     get_antismash_js_url,
 )
 from antismash.common import json
+
+from epssmash.main import replace_antismash_defaults
 
 PFAM_LATEST_VERSION = "35.0"
 PFAM_LATEST_URL = f"https://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam{PFAM_LATEST_VERSION}/Pfam-A.hmm.gz"
@@ -260,6 +263,7 @@ def _main() -> None:
     # Small dance to grab the antiSMASH config for the database dir.
     # All the modules are required to parse the config file,
     # and any executable paths defined should be kept.
+    replace_antismash_defaults()
     all_modules = antismash.get_detection_modules() + antismash.get_analysis_modules()
     config = antismash.config.build_config(args=[], parser=None, isolated=False, modules=all_modules)
 
