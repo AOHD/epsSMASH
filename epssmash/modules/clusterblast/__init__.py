@@ -17,8 +17,8 @@ from antismash.common.layers import (
     OptionsLayer,
 )
 
-from antismash.common import path
-from antismash.common.secmet import Record
+from antismash.common import path, json
+from antismash.common.secmet import Record, Region
 from antismash.config import ConfigType, get_config
 from antismash.config.args import ModuleArgs
 from antismash.modules.clusterblast import (
@@ -44,7 +44,10 @@ from antismash.modules.clusterblast.data_structures import (
     ReferenceCluster,
 )
 from antismash.modules.clusterblast.results import GeneralResults, RegionResult
-from antismash.modules.clusterblast.html_output import generate_div, generate_javascript_data
+from antismash.modules.clusterblast.html_output import (
+    generate_div,
+    generate_javascript_data as _original_gen_js_data,
+)
 
 NAME = "clusterblast"
 SHORT_DESCRIPTION = "Runs clusterblast over custom data"
@@ -73,6 +76,16 @@ def generate_html(region_layer: RegionLayer, results: ClusterBlastResults,
         html.add_detail_section("Clusterblast", div, "clusterblast")
 
     return html
+
+
+def generate_javascript_data(record: Record, region: Region, results: ClusterBlastResults,
+                             ) -> json.JSONBase:
+    data = _original_gen_js_data(record, region, results)
+    # reusing the name "clusterblast" causes the original result generation to
+    # including linking to the antiSMASH-DB, so disable URL(s) in the output
+    for variant in data.references:
+        variant.url = ""
+    return data
 
 
 def get_arguments() -> ModuleArgs:
