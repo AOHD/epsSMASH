@@ -38,6 +38,7 @@ from antismash.config.args import ModuleArgs
 from antismash.detection import DetectionStage
 from antismash.common.hmm_rule_parser.structures import Multipliers
 from antismash.config.args import ModuleArgs, SplitCommaAction
+from antismash.detection.hmm_detection.categories import get_rule_categories
 
 NAME = "epssmash_detection"
 SHORT_DESCRIPTION = "some kind of protocluster detection"
@@ -51,6 +52,7 @@ _cache_dir.mkdir(exist_ok=True)
 
 # Placeholder variables to be set in prepare_data
 HMM_FILE = None
+CATEGORIES = ["Synthase-dependent", "Sucrase-dependent", "Wzy-dependent", "ABC-dependent", "Unknown"]
 SIGNATURE_FILE = None
 
 _STRICTNESS_LEVELS = ["strict", "relaxed", "loose"]
@@ -82,9 +84,6 @@ def _build_ruleset(options: ConfigType) -> Ruleset:
     # the cache key needs to be immutable
     key = (strictness, tuple(name_subset), tuple(category_subset))
     
-    categories = {"Synthase-dependent", "Sucrase-dependent", "Wzy-dependent", "ABC-dependent", "Unknown"}  # contains all categories in the rules that will
-                           # be used in the ruleset
-    
     signatures = {sig.name: sig for sig in get_signature_profiles(SIGNATURE_FILE)}
 
      # return any existing ruleset
@@ -97,7 +96,7 @@ def _build_ruleset(options: ConfigType) -> Ruleset:
         signature_file = SIGNATURE_FILE, 
         seeds = HMM_FILE,
         rule_files = _get_rule_files_for_strictness(strictness),
-        categories = categories,
+        categories = set(CATEGORIES),
         filter_file = os.devnull,
         tool = "rule-based-clusters")
 
@@ -174,7 +173,7 @@ def get_arguments() -> ModuleArgs:
     args.add_option('strictness',
                     dest='strictness',
                     type=str,
-                    choices=["strict", "relaxed", "loose"],
+                    choices=_STRICTNESS_LEVELS,
                     default="loose",
                     help=("Defines which level of strictness to use for "
                           "HMM-based cluster detection, (default: %(default)s)."))
@@ -186,7 +185,7 @@ def get_arguments() -> ModuleArgs:
                     help="Restrict detection to the named rules (default: no limits).")
     args.add_option("limit-to-rule-categories",
                     dest="limit_to_categories",
-                    metavar="CATEGORY1[,CATEGORY2,...]",
+                    choices=CATEGORIES,
                     action=SplitCommaAction,
                     default=[],
                     help="Restrict detection to the given rules (default: no limits).")
@@ -213,10 +212,10 @@ def run_on_record(record: Record, previous_results: Optional[CustomDetectionResu
 
     ruleset = _build_ruleset(options)
     if options.hmmdetection_limit_to_rules:
-        logging.info("detection restricted to: %s", options.hmmdetection_limit_to_rules)
+        logging.info("Detection restricted to: %s", options.hmmdetection_limit_to_rules)
     
-    if options.hmmdetection_strictness:
-        logging.info("detection strictness: %s", options.hmmdetection_strictness)
+    if options.hmmdetection_limit_to_categories:
+        logging.info("Detection restricted to categories: %s", options.hmmdetection_limit_to_categories)
     
     results = detect_protoclusters_and_signatures(record, ruleset)
     results.annotate_cds_features()
@@ -334,6 +333,7 @@ def check_options(options: ConfigType) -> list[str]:
     failure_messages = []
     # the one option defined is to restrict the ruleset down to a single rule
     # if that option isn't in the rules, that's an error
+    # other two options (strictness and categories) are hardcoded lists, so they can't be invalid
     if options.hmmdetection_limit_to_rules:
         try:
             ruleset = _build_ruleset(options)
@@ -344,9 +344,5 @@ def check_options(options: ConfigType) -> list[str]:
 
         except ValueError:
             failure_messages.append(f"Ruleset '{options.hmmdetection_limit_to_rules}' does not exist")
-    if options.hmmdetection_strictness not in _STRICTNESS_LEVELS:
-        issues.append(f"Unknown strictness level: {options.strictness}")
-
-    # any other options should also be checked here
-
+    
     return failure_messages
