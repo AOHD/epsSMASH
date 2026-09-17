@@ -36,7 +36,6 @@ from antismash.common.signature import HmmSignature
 from antismash.common.signature import get_signature_profiles
 from antismash.config.args import ModuleArgs
 from antismash.detection import DetectionStage
-from antismash.detection.hmm_detection import check_prereqs as original_check_prereqs
 from antismash.common.hmm_rule_parser.structures import Multipliers
 from antismash.config.args import ModuleArgs, SplitCommaAction
 
@@ -327,8 +326,7 @@ def check_prereqs(options: ConfigType) -> list[str]:
     """ Check that all prerequistes are satisfied, e.g. binary dependencies and
         datafiles.
     """
-    # for this specific demo module, it will reuse the check from antiSMASH's hmm_detection
-    return prepare_data() + original_check_prereqs(options)
+    return prepare_data()
 
 
 def check_options(options: ConfigType) -> list[str]:
