@@ -161,11 +161,8 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Results
-results/
-
-# Test species
-test_species/
+# keep these, even in locations that are ignored
+!epssmash/databases/README
 
 # BGC seeds
 epssmash/detection/custom_detection/data/bgc_seeds*

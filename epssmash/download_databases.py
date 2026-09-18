@@ -270,7 +270,7 @@ def _main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--database-dir",
-        default=config.database_dir,
+        default=os.path.join(os.path.dirname(__file__), "databases"),
         metavar="DIR",
         help="Base directory for the antiSMASH databases (default: %(default)s).",
     )
