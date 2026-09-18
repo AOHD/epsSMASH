@@ -25,6 +25,7 @@ from antismash.modules.clusterblast import (
     ClusterBlastResults,
     check_clusterblast_files,
     check_options,
+    regenerate_previous_results,
     get_result_limit,
     load_clusterblast_database,
     will_handle,
