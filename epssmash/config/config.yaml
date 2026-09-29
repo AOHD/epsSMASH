@@ -13,3 +13,4 @@ dependencies:
   - muscle=5.1
   - glimmerhmm=3.0.4
   - python=3.11.10
+  - pip
