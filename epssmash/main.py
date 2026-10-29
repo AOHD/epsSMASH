@@ -38,16 +38,8 @@ def replace_antismash_defaults() -> None:
         antismash.config.set_alternate_defaults_file(str(default_cfg_path))
 
 replace_antismash_defaults()
-print("on load", antismash.config.args.DATABASE_DEFAULT)
 
-# override search path for any user config file
-# a good naming convention is <name><major version> to avoid conflicts between version options
-antismash.config.set_user_config_file("~/.epssmash1.cfg")  # if it doesn't exist, it's ignored
-# override default config file path
-with importlib.resources.path("epssmash.config", "default.cfg") as default_cfg_path:
-    antismash.config.set_alternate_defaults_file(str(default_cfg_path))
-    
-__version__ = "1.4.1"
+__version__ = "2.0.0beta"
 
 
 def main(args: list[str]) -> int:

@@ -83,7 +83,7 @@ RULE streptomyces-cellulose-like
 
 RULE exoPS_GCF_2
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 2
+    DESCRIPTION exoPS-gene-cluster-family-2
     CUTOFF 25
     NEIGHBOURHOOD 10
     CONDITIONS minimum(4, [GCF_2_A, GCF_2_B, GCF_2_C, GCF_2_D, GCF_2_E])
@@ -92,7 +92,7 @@ RULE exoPS_GCF_2
 
 RULE exoPS_GCF_3
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 3
+    DESCRIPTION exoPS-gene-cluster-family-3
     RELATED GCF_3_A,GCF_3_B,GCF_3_C,GCF_3_I,GCF_3_J
     CUTOFF 25
     NEIGHBOURHOOD 10
@@ -100,14 +100,14 @@ RULE exoPS_GCF_3
 
 RULE exoPS_GCF_4
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 4
+    DESCRIPTION exoPS-gene-cluster-family-4
     CUTOFF 25
     NEIGHBOURHOOD 10
     CONDITIONS GCF_4_E and GCF_4_D and GCF_4_C and GCF_4_A and minimum(2, [GCF_4_G, GCF_4_F, GCF_4_B])
 
 RULE exoPS_GCF_4_1
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 4 #2
+    DESCRIPTION exoPS-gene-cluster-family-4 #2
     SUPERIORS exoPS_GCF_4
     CUTOFF 25
     NEIGHBOURHOOD 10
@@ -115,7 +115,7 @@ RULE exoPS_GCF_4_1
 
 RULE exoPS_GCF_5
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 5
+    DESCRIPTION exoPS-gene-cluster-family-5
     RELATED GCF_5_A,GCF_5_D,GCF_5_F
     CUTOFF 25
     NEIGHBOURHOOD 10
@@ -123,7 +123,7 @@ RULE exoPS_GCF_5
 
 RULE exoPS_GCF_6
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 6
+    DESCRIPTION exoPS-gene-cluster-family-6
     RELATED GCF_6_A,GCF_6_E,GCF_6_G,GCF_6_H,GCF_6_J
     CUTOFF 25
     NEIGHBOURHOOD 10
@@ -131,14 +131,14 @@ RULE exoPS_GCF_6
 
 RULE exoPS_GCF_7
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 7
+    DESCRIPTION exoPS-gene-cluster-family-7
     CUTOFF 25
     NEIGHBOURHOOD 10
     CONDITIONS GCF_7_D and minimum(6, [GCF_7_A, GCF_7_B, GCF_7_C, GCF_7_E, GCF_7_F, GCF_7_G, GCF_7_H])
 
 RULE exoPS_GCF_8
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 8
+    DESCRIPTION exoPS-gene-cluster-family-8
     RELATED GCF_8_B,GCF_8_D,GCF_8_E,GCF_8_F,GCF_8_I
     CUTOFF 25
     NEIGHBOURHOOD 10
@@ -146,7 +146,7 @@ RULE exoPS_GCF_8
 
 RULE exoPS_GCF_9
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 9
+    DESCRIPTION exoPS-gene-cluster-family-9
     RELATED GCF_9_A,GCF_9_D,GCF_9_F,GCF_9_H
     CUTOFF 25
     NEIGHBOURHOOD 10
@@ -154,7 +154,7 @@ RULE exoPS_GCF_9
 
 RULE exoPS_GCF_10
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 10
+    DESCRIPTION exoPS-gene-cluster-family-10
     CUTOFF 25
     NEIGHBOURHOOD 10
     CONDITIONS GCF_10_B and GCF_10_C and GCF_10_E and minimum(2, [GCF_10_A,GCF_10_D,GCF_10_F])
@@ -162,7 +162,7 @@ RULE exoPS_GCF_10
 
 RULE exoPS_GCF_11
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 11
+    DESCRIPTION exoPS-gene-cluster-family-11
     CUTOFF 25
     NEIGHBOURHOOD 10
     CONDITIONS GCF_11_C and GCF_11_D and GCF_11_H and minimum(3, [GCF_11_A,GCF_11_B,GCF_11_E,GCF_11_F,GCF_11_G])
@@ -170,7 +170,7 @@ RULE exoPS_GCF_11
 
 RULE exoPS_GCF_12
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 12
+    DESCRIPTION exoPS-gene-cluster-family-12
     RELATED GCF_12_E
     CUTOFF 25
     NEIGHBOURHOOD 10
@@ -178,14 +178,14 @@ RULE exoPS_GCF_12
 
 RULE exoPS_GCF_13
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 13
+    DESCRIPTION exoPS-gene-cluster-family-13
     CUTOFF 25
     NEIGHBOURHOOD 10
     CONDITIONS GCF_13_C and minimum(5, [GCF_13_A, GCF_13_B, GCF_13_D, GCF_13_E, GCF_13_F, GCF_13_G, GCF_13_H])
 
     RULE exoPS_GCF_14
     CATEGORY  Unknown
-    DESCRIPTION exoPS gene cluster family 14
+    DESCRIPTION exoPS-gene-cluster-family-14
     CUTOFF 25
     NEIGHBOURHOOD 10
     CONDITIONS GCF_14_A and GCF_14_B and GCF_14_C and GCF_14_D and GCF_14_E and GCF_14_F

@@ -214,7 +214,6 @@ def perform_clusterblast(options: ConfigType, record: Record,
 
         results.add_region_result(result, db_clusters, db_proteins)
 
-    results.write_to_file(record, options)
     return results
 
 

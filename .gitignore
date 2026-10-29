@@ -168,5 +168,8 @@ cython_debug/
 epssmash/detection/custom_detection/data/bgc_seeds*
 epssmash/detection/monosaccharides/data/bgc_seeds*
 
+# auto-generated bacteria.css
+epssmash/outputs/html/css/bacteria.css
+
 # patches
 *.patch
